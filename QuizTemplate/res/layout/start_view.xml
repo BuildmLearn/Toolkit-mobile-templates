@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:background="@color/BlueBg"
+    android:weightSum="1" android:layout_height="fill_parent">
+    <TextView android:layout_width="fill_parent" android:text="TextView" android:id="@+id/quiz_author" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_margin="10dp" android:layout_centerVertical="true" android:layout_alignParentRight="true" android:gravity="center"></TextView>
+    <TextView android:layout_width="fill_parent" android:text="TextView" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_margin="10dp" android:layout_above="@+id/quiz_author" android:layout_alignParentRight="true" android:layout_marginBottom="26dp" android:layout_centerHorizontal="true" android:textStyle="bold" android:gravity="center" android:id="@+id/quiz_title"></TextView>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:id="@+id/linearLayout1" android:layout_height="1dp" android:background="#8798AC" android:layout_below="@+id/quiz_title" android:layout_alignParentRight="true" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"></LinearLayout>
+    <Button android:layout_width="120dp" android:layout_height="wrap_content" android:text="Start" android:layout_below="@+id/quiz_title" android:layout_centerHorizontal="true" android:layout_marginTop="60dp" android:id="@+id/start_button"></Button>
+   
+</RelativeLayout>
+
