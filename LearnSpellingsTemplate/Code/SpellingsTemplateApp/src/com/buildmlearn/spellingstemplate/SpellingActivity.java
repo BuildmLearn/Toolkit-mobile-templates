@@ -43,6 +43,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +59,7 @@ public class SpellingActivity extends SherlockActivity implements
 	private TextView mTv_WordNumber;
 	private Button mBtn_Spell, mBtn_Skip;
 	private EditText mEt_Spelling;
+	private SeekBar mSb_SpeechRate;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,8 @@ public class SpellingActivity extends SherlockActivity implements
 		mBtn_Spell = (Button) findViewById(R.id.btn_ready);
 
 		mBtn_Skip = (Button) findViewById(R.id.btn_skip);
+		mSb_SpeechRate = (SeekBar) findViewById(R.id.sb_speech);
+
 		mTv_WordNumber = (TextView) findViewById(R.id.tv_word_number);
 		textToSpeech = new TextToSpeech(this, this);
 		mManager = DataManager.getInstance();
@@ -151,7 +155,11 @@ public class SpellingActivity extends SherlockActivity implements
 	 * parameters.
 	 */
 	private void convertTextToSpeech(String text) {
+
+		float speechRate = getProgressValue(mSb_SpeechRate.getProgress());
+		textToSpeech.setSpeechRate(speechRate);
 		textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+
 	}
 
 	@Override
@@ -192,5 +200,11 @@ public class SpellingActivity extends SherlockActivity implements
 			startActivity(wordInfoIntent);
 			finish();
 		}
+	}
+
+	private float getProgressValue(int percent) {
+		float temp = ((float) percent / 100);
+		float per = temp * 2;
+		return per;
 	}
 }

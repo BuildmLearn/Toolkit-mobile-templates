@@ -28,8 +28,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.buildmlearn.spellingstemplate;
 
+import java.util.Locale;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.TextView;
 
@@ -38,6 +41,8 @@ import com.actionbarsherlock.app.SherlockActivity;
 public class ResultActivity extends SherlockActivity {
 	private TextView mTv_Correct, mTv_Wrong, mTv_Unanswered;
 	private DataManager mDataManager;
+private TextToSpeech textToSpeech;
+	private int unanswered, wrong, correct;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,15 +52,35 @@ public class ResultActivity extends SherlockActivity {
 		mTv_Correct = (TextView) findViewById(R.id.tv_correct);
 		mTv_Wrong = (TextView) findViewById(R.id.tv_wrong);
 		mTv_Unanswered = (TextView) findViewById(R.id.tv_unanswered);
-		int correct = mDataManager.getCorrect();
-		int wrong = mDataManager.getWrong();
-		int unanswered = mDataManager.getList().size() - correct - wrong;
+		 correct = mDataManager.getCorrect();
+		wrong = mDataManager.getWrong();
+		 unanswered = mDataManager.getList().size() - correct - wrong;
 
 		mTv_Correct.setText(getString(R.string.correct) + " " + correct);
 
 		mTv_Wrong.setText(getString(R.string.wrong_spelled) + " " + wrong);
 		mTv_Unanswered.setText(getString(R.string.unanswered) + " "
 				+ unanswered);
+textToSpeech = new TextToSpeech(this,
+				new TextToSpeech.OnInitListener() {
+
+					@Override
+					public void onInit(int arg0) {
+						if (arg0 == TextToSpeech.SUCCESS) {
+							textToSpeech.setLanguage(Locale.US);
+							String speechText = getString(R.string.wrong_spelled)
+									+ " "
+									+ wrong
+									+ getString(R.string.correct)
+									+ " "
+									+ correct
+									+ getString(R.string.unanswered)
+									+ " "
+									+ unanswered;
+							convertTextToSpeech(speechText);
+						}
+					}
+				});
 
 	}
 
@@ -75,6 +100,16 @@ public class ResultActivity extends SherlockActivity {
 
 		}
 
+	}
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		textToSpeech.shutdown();
+	}
+
+	private void convertTextToSpeech(String text) {
+
+		textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 	}
 
 }
