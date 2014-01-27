@@ -5,8 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="appname">English Words</string>
-    <string name="msg_txt">Press SPEAK when you are ready. Listen to the word as many times before answering. If you are not sure, you can skip the word.</string>
-    <string name="speak">SPEAK</string>
+    <string name="msg_txt">Press SPEAK when you are ready. You may adjust the speech rate using the slider. Listen to the word as many times before answering. If you are not sure, you can skip the word.</string>
+    <string name="speak">Listen</string>
     <string name="ready">Spell it!</string>
     <string name="submit">SUBMIT</string>
     <string name="enter_spelling">Enter Spelling</string>
@@ -21,5 +21,10 @@
     <string name="skip">Skip</string>
     <string name="unanswered">Unanswered:</string>
     <string name="you_entered">You Entered</string>
+    <string name="normal">Normal</string>
+    <string name="start">Start</string>
+    <string name="low">Low</string>
+    <string name="high">High</string>
+    <string name="speech_rate">Speech Rate:</string>
 
 </resources>

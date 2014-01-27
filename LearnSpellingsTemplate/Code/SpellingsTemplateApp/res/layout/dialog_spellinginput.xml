@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:imeOptions="actionDone"
-        android:inputType="textNoSuggestions"
+        android:inputType="textFilter|textNoSuggestions|textVisiblePassword"
         android:singleLine="true" />
 
     <Button

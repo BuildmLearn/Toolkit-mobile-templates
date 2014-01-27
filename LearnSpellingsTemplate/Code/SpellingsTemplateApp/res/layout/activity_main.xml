@@ -23,10 +23,9 @@
         android:layout_above="@id/divider"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
-        
-        android:textColor="@android:color/white"
         android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
         android:textStyle="bold" >
     </TextView>
 
@@ -34,23 +33,25 @@
         android:id="@+id/tv_author"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        
-        android:textColor="@android:color/white"
         android:layout_below="@id/divider"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge" >
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white" >
     </TextView>
 
     <Button
         android:id="@+id/btn_start"
-        android:textColor="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Start" >
+        android:text="@string/start"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@android:color/white" >
     </Button>
 
 </RelativeLayout>
