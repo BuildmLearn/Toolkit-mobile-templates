@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World, TFTQuizActivity!</string>
-    <string name="app_name">BuildmLearn Quiz</string>
+    <string name="app_name">Quiz Time</string>
+    <string name="start">Start</string>
 </resources>
