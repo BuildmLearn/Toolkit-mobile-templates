@@ -43,6 +43,9 @@ public class GlobalData {
 	   private static GlobalData instance = null;
 	   String iQuizTitle = null;
 	   String iQuizAuthor = null;
+	   int totalCards=0;
+	  
+	   
 		BufferedReader br;
 		List<String> iQuizList= new ArrayList<String>();
 		
@@ -67,6 +70,7 @@ public class GlobalData {
 				while ((text = br.readLine()) != null) {
 					iQuizList.add(text);
 				}
+				totalCards=iQuizList.size();
 			} catch (IOException e) {
 				e.printStackTrace();
 			} finally {

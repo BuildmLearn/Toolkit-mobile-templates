@@ -10,43 +10,37 @@ import android.widget.TextView;
 
 public class ScoreActivity extends Activity {
 	GlobalData gd;
-
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.score_view);
+		setContentView(R.layout.activity_finish);
 		gd = GlobalData.getInstance();
+		TextView mCardQuizName=(TextView) findViewById(R.id.tv_lastcard);
+		mCardQuizName.setText(gd.iQuizTitle);
 
-		TextView quizTitle = (TextView) findViewById(R.id.quiz_title);
-		quizTitle.setText(gd.iQuizTitle);
-		
-		Button startAgainButton = (Button) findViewById(R.id.start_again_button);
+		Button startAgainButton = (Button) findViewById(R.id.btn_restart);
 		startAgainButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				Intent myIntent = new Intent(arg0.getContext(),StartActivity.class);
-				startActivityForResult(myIntent, 0);
+				Intent myIntent = new Intent(ScoreActivity.this,
+						StartActivity.class);
+				startActivity(myIntent);
 				finish();
 			}
 		});
 
-		
-		
-		Button quitButton = (Button) findViewById(R.id.quit_button);
+		Button quitButton = (Button) findViewById(R.id.btn_exit);
 		quitButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				android.os.Process.killProcess(android.os.Process.myPid());
+				finish();
+				// android.os.Process.killProcess(android.os.Process.myPid());
 			}
 		});
 	}
-
-
-
 
 }
