@@ -1,62 +1,94 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4E79DE"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="5dp"
     tools:context=".MainActivity" >
 
     <TextView
-        android:id="@+id/flashCardText"
+        android:id="@+id/flashCardNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_below="@id/flashCardNumber"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/white" />
+
+   
+
+
+    <LinearLayout
+        android:id="@+id/ll_btnlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
-        android:gravity="center"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-    
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/pre_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Previous"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/flip_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Flip"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
     <FrameLayout
+        android:id="@+id/fl"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:layout_above="@id/ll_btnlayout"
+        android:layout_centerHorizontal="true"
         android:orientation="vertical"
-        android:splitMotionEvents="false" 
-        android:padding="0dp">
+        android:padding="0dp"
+        android:splitMotionEvents="false" >
 
         <include
             android:id="@+id/questionInMain"
             android:layout_margin="5dp"
             layout="@layout/question" />
 
-		<include
+        <include
             android:id="@+id/answerInMain"
-            layout="@layout/answer" />        
+            layout="@layout/answer" />
     </FrameLayout>
-
-    <LinearLayout
+    
+     <TextView
+        android:id="@+id/flashCardText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:gravity="center" >
-
-        <Button
-            android:id="@+id/pre_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Previous" />
-
-        <Button
-            android:id="@+id/flip_button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Flip" />
-
-        <Button
-            android:id="@+id/next_button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Next" />
-
-    </LinearLayout>
-
-</LinearLayout>
+        android:layout_above="@id/fl"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white" />
+    
+</RelativeLayout>
