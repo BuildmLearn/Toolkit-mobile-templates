@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Flash Card App</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Learn with FlashCards</string>
     <string name="hello_world">Hello world!</string>
-    <string name="last_msg">This was the last card\n\nDid You Get It Right?</string>
+    <string name="last_msg">This was the last card!</string>
+    <string name="about_us">This application has been developed using the BuildmLearn Toolkit.\n\nTo know more about BuildmLearn Toolkit visit http://buildmlearn.org/</string>
+    <string name="action_info">Info</string>
 
 </resources>

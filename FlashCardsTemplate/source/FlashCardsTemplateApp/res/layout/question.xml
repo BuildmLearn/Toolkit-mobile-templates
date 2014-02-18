@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="300dp"
-    android:layout_height="300dp"
+    android:layout_width="@dimen/card_width"
+    android:layout_height="@dimen/card_width"
     android:layout_gravity="center"
     android:gravity="center"
     android:orientation="vertical"
@@ -10,15 +10,14 @@
 
     <ImageView
         android:id="@+id/questionImage"
-        android:layout_width="300dp"
-        android:layout_height="250dp" />
+        android:layout_width="@dimen/card_width"
+        android:layout_height="@dimen/card_height" />
 
     <TextView
         android:id="@+id/questionhint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Large Text"
         android:padding="5dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
          />

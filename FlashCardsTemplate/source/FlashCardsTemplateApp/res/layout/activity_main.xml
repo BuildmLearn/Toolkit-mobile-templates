@@ -17,24 +17,21 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 
     <View
         android:id="@+id/divider"
-        android:layout_below="@id/flashCardNumber"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_below="@id/flashCardNumber"
         android:background="@android:color/white" />
-
-   
-
 
     <LinearLayout
         android:id="@+id/ll_btnlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
         android:gravity="center" >
 
         <Button
@@ -61,34 +58,35 @@
             android:text="Next"
             android:textColor="@android:color/white" />
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/fl"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_above="@id/ll_btnlayout"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:padding="0dp"
-        android:splitMotionEvents="false" >
+        android:layout_width="@dimen/card_width"
+        android:layout_height="@dimen/card_width"
+        android:layout_centerInParent="true"
+        android:padding="0dp" >
 
         <include
             android:id="@+id/questionInMain"
             android:layout_margin="5dp"
-            layout="@layout/question" />
+            layout="@layout/question"/>
 
         <include
             android:id="@+id/answerInMain"
-            layout="@layout/answer" />
+            layout="@layout/answer"/>
     </FrameLayout>
-    
-     <TextView
+
+    <TextView
         android:id="@+id/flashCardText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/fl"
-        android:layout_margin="10dp"
-        android:gravity="center"
+        android:layout_below="@id/divider"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="3dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/white" />
-    
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
 </RelativeLayout>
