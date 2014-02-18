@@ -27,7 +27,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 
-package com.buildmlearn.Quiz;
+package com.buildmlearn.quiztemplate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,47 +38,46 @@ import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
 
-public class TFTQuizActivity extends SherlockActivity {
+public class ScoreActivity extends SherlockActivity {
 	private GlobalData gd;
-	
+	private TextView mTv_correct, mTv_wrong, mTv_unanswered;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//getWindow().requestFeature(Window.FEATURE_ACTION_BAR); // Add this line
-
-		setContentView(R.layout.start_view);
-
+		setContentView(R.layout.score_view);
 		gd = GlobalData.getInstance();
-		reInitialize();
-		
-		gd.ReadContent(TFTQuizActivity.this);
 
-		TextView quizAuthor = (TextView) findViewById(R.id.tv_author);
-		TextView quizTitle = (TextView) findViewById(R.id.tv_apptitle);
+		mTv_correct = (TextView) findViewById(R.id.tv_correct);
+		mTv_wrong = (TextView) findViewById(R.id.tv_wrong);
+		mTv_unanswered = (TextView) findViewById(R.id.tv_unanswered);
+		mTv_correct.setText("Total Correct: " + gd.correct);
+		mTv_wrong.setText("Total Wrong: " + gd.wrong);
+		int unanswered = gd.total - gd.correct - gd.wrong;
+		mTv_unanswered.setText("Unanswered: " + unanswered);
 
-		quizAuthor.setText(gd.iQuizAuthor);
-		quizTitle.setText(gd.iQuizTitle);
-
-		Button startButton = (Button) findViewById(R.id.btn_start);
-		startButton.setOnClickListener(new OnClickListener() {
+		Button startAgainButton = (Button) findViewById(R.id.start_again_button);
+		startAgainButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-					Intent myIntent = new Intent(arg0.getContext(),
-						QuestionActivity.class);
-				startActivity(myIntent);
+				Intent myIntent = new Intent(arg0.getContext(),
+						TFTQuizActivity.class);
+				startActivityForResult(myIntent, 0);
 				finish();
 			}
 		});
 
+		Button quitButton = (Button) findViewById(R.id.quit_button);
+		quitButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// android.os.Process.killProcess(android.os.Process.myPid());
+				finish();
+			}
+		});
 	}
 
-	private void reInitialize()
-	{
-		gd.total=0;
-		gd.correct=0;
-		gd.wrong=0;
-		gd.iQuizList.clear();
-	}
 }
