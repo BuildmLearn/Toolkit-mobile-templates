@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="hello">Hello World, TFTQuizActivity!</string>
     <string name="app_name">Quiz Time</string>
     <string name="start">Start</string>
+    <string name="about_us">This application has been developed using the BuildmLearn Toolkit.\n\nTo know more about BuildmLearn Toolkit visit http://buildmlearn.org/</string>
+   <string name="action_info">Info</string>
+
 </resources>
