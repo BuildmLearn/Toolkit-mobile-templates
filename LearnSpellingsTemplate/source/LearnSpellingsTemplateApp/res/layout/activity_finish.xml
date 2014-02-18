@@ -13,7 +13,8 @@
         android:layout_margin="20dp"
         android:text="@string/last_word"
         android:textColor="@android:color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <View
         android:id="@+id/divider"
@@ -43,6 +44,7 @@
         android:text="@string/wrong_spelled"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
+
     <TextView
         android:id="@+id/tv_unanswered"
         android:layout_width="wrap_content"
@@ -53,7 +55,7 @@
         android:text="@string/unanswered"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
-    
+
     <View
         android:id="@+id/divider_screen"
         android:layout_width="fill_parent"

@@ -26,5 +26,7 @@
     <string name="low">Low</string>
     <string name="high">High</string>
     <string name="speech_rate">Speech Rate:</string>
+    <string name="action_info">Info</string>
+    <string name="about_us">This application has been developed using the BuildmLearn Toolkit.\n\nTo know more about BuildmLearn Toolkit visit http://buildmlearn.org/</string>
 
 </resources>
