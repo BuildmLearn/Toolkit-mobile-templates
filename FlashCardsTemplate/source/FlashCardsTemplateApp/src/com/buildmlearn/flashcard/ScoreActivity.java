@@ -1,6 +1,5 @@
 package com.buildmlearn.flashcard;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +7,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ScoreActivity extends Activity {
+import com.actionbarsherlock.app.SherlockActivity;
+
+public class ScoreActivity extends SherlockActivity {
 	GlobalData gd;
 	
 	/** Called when the activity is first created. */
