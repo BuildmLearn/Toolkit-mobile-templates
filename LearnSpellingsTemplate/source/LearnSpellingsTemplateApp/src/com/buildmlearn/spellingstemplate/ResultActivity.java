@@ -4,14 +4,14 @@ All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
-* Redistributions of source code must retain the above copyright notice, this
+ * Redistributions of source code must retain the above copyright notice, this
   list of conditions and the following disclaimer.
 
-* Redistributions in binary form must reproduce the above copyright notice,
+ * Redistributions in binary form must reproduce the above copyright notice,
   this list of conditions and the following disclaimer in the documentation
   and/or other materials provided with the distribution.
 
-* Neither the name of the BuildmLearn nor the names of its
+ * Neither the name of the BuildmLearn nor the names of its
   contributors may be used to endorse or promote products derived from
   this software without specific prior written permission.
 
@@ -41,7 +41,7 @@ import com.actionbarsherlock.app.SherlockActivity;
 public class ResultActivity extends SherlockActivity {
 	private TextView mTv_Correct, mTv_Wrong, mTv_Unanswered;
 	private DataManager mDataManager;
-private TextToSpeech textToSpeech;
+	private TextToSpeech textToSpeech;
 	private int unanswered, wrong, correct;
 
 	@Override
@@ -52,31 +52,27 @@ private TextToSpeech textToSpeech;
 		mTv_Correct = (TextView) findViewById(R.id.tv_correct);
 		mTv_Wrong = (TextView) findViewById(R.id.tv_wrong);
 		mTv_Unanswered = (TextView) findViewById(R.id.tv_unanswered);
-		 correct = mDataManager.getCorrect();
+		correct = mDataManager.getCorrect();
 		wrong = mDataManager.getWrong();
-		 unanswered = mDataManager.getList().size() - correct - wrong;
+		unanswered = mDataManager.getList().size() - correct - wrong;
 
 		mTv_Correct.setText(getString(R.string.correct) + " " + correct);
 
 		mTv_Wrong.setText(getString(R.string.wrong_spelled) + " " + wrong);
 		mTv_Unanswered.setText(getString(R.string.unanswered) + " "
 				+ unanswered);
-textToSpeech = new TextToSpeech(this,
+		textToSpeech = new TextToSpeech(this,
 				new TextToSpeech.OnInitListener() {
 
 					@Override
 					public void onInit(int arg0) {
 						if (arg0 == TextToSpeech.SUCCESS) {
 							textToSpeech.setLanguage(Locale.US);
-							String speechText = getString(R.string.wrong_spelled)
-									+ " "
-									+ wrong
-									+ getString(R.string.correct)
-									+ " "
-									+ correct
-									+ getString(R.string.unanswered)
-									+ " "
-									+ unanswered;
+							String speechText = getString(R.string.correct)
+									+ " " + correct
+									+ getString(R.string.wrong_spelled) + " "
+									+ wrong + getString(R.string.unanswered)
+									+ " " + unanswered;
 							convertTextToSpeech(speechText);
 						}
 					}
@@ -101,6 +97,7 @@ textToSpeech = new TextToSpeech(this,
 		}
 
 	}
+
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
@@ -111,5 +108,6 @@ textToSpeech = new TextToSpeech(this,
 
 		textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 	}
+	
 
 }
