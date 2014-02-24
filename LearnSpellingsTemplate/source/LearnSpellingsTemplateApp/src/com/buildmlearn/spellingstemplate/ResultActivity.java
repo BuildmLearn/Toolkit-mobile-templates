@@ -30,13 +30,18 @@ package com.buildmlearn.spellingstemplate;
 
 import java.util.Locale;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.text.util.Linkify;
 import android.view.View;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 public class ResultActivity extends SherlockActivity {
 	private TextView mTv_Correct, mTv_Wrong, mTv_Unanswered;
@@ -108,6 +113,49 @@ public class ResultActivity extends SherlockActivity {
 
 		textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 	}
-	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+
+		getSupportMenuInflater().inflate(R.menu.main, menu);
+
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == R.id.action_info) {
+
+			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+					ResultActivity.this);
+
+			// set title
+			alertDialogBuilder.setTitle("About Us");
+
+			// set dialog message
+			alertDialogBuilder
+					.setMessage(getString(R.string.about_us))
+					.setCancelable(false)
+					.setPositiveButton("Ok",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int id) {
+									dialog.cancel();
+									dialog.dismiss();
+								}
+							});
+
+			// create alert dialog
+			AlertDialog alertDialog = alertDialogBuilder.create();
+			// show it
+			alertDialog.show();
+			TextView msg = (TextView) alertDialog
+					.findViewById(android.R.id.message);
+			Linkify.addLinks(msg, Linkify.WEB_URLS);
+
+			return super.onOptionsItemSelected(item);
+		}
+		return true;
+	}
+
 
 }
