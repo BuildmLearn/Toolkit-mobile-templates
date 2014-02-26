@@ -6,20 +6,29 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.util.Linkify;
+import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.internal.nineoldandroids.animation.Animator;
+import com.actionbarsherlock.internal.nineoldandroids.animation.Animator.AnimatorListener;
+import com.actionbarsherlock.internal.nineoldandroids.animation.AnimatorSet;
+import com.actionbarsherlock.internal.nineoldandroids.animation.ObjectAnimator;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
-public class MainActivity extends SherlockActivity implements AnimationListener {
+public class MainActivity extends SherlockActivity implements AnimationListener,OnGestureListener {
 	View answerView, questionView;
 	Button flipButton;
 	Button preButton;
@@ -34,11 +43,15 @@ public class MainActivity extends SherlockActivity implements AnimationListener 
 	private Animation animation1;
 	private Animation animation2;
 	private View currentView;
+	GestureDetector gestureDetector;
+	
 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		gestureDetector = new GestureDetector(this, this);
 		animation1 = AnimationUtils.loadAnimation(this, R.anim.to_middle);
 		animation1.setAnimationListener(this);
 		animation2 = AnimationUtils.loadAnimation(this, R.anim.from_middle);
@@ -52,6 +65,9 @@ public class MainActivity extends SherlockActivity implements AnimationListener 
 		iQuestionIndex = 0;
 
 		questionImage = (ImageView) findViewById(R.id.questionImage);
+		
+
+		
 		flashCardText = (TextView) findViewById(R.id.flashCardText);
 		questionText = (TextView) findViewById(R.id.questionhint);
 		flashcardNumber = (TextView) findViewById(R.id.flashCardNumber);
@@ -62,7 +78,24 @@ public class MainActivity extends SherlockActivity implements AnimationListener 
 
 		populateQuestion(iQuestionIndex);
 		currentView = questionView;
-
+		questionView.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				gestureDetector.onTouchEvent(event);
+				return true;
+			}
+		});
+		answerView.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				gestureDetector.onTouchEvent(event);
+				return true;
+			}
+		});
 		flipButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -243,4 +276,110 @@ public class MainActivity extends SherlockActivity implements AnimationListener 
 		return true;
 	}
 
+	@Override
+	public boolean onDown(MotionEvent e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+			float velocityY) {
+		// TODO Auto-generated method stub
+		
+		float distanceMovedInX = e2.getX() - e1.getX();
+
+		if(Math.abs(distanceMovedInX)>currentView.getWidth()/4)
+		{
+			ObjectAnimator shrink = ObjectAnimator.ofFloat(currentView, "scaleX", 1.0f,0.0f);
+			AnimatorSet animatorSet = new AnimatorSet();
+			animatorSet.setDuration(200);			
+			animatorSet.play(shrink);
+			animatorSet.addListener(new AnimatorListener() {
+				
+				@Override
+				public void onAnimationStart(Animator animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationRepeat(Animator animation) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onAnimationEnd(Animator animation) {
+					// TODO Auto-generated method stub
+
+					TextView answerText = (TextView) findViewById(R.id.answerText);
+
+					if (!isFlipped) {
+
+						answerView.setVisibility(View.VISIBLE);
+						questionView.setVisibility(View.GONE);
+						isFlipped = true;
+						answerText.setText(flashCardanswer);
+						currentView = answerView;
+					} else {
+
+						isFlipped = false;
+						answerText.setText("");
+						questionView.setVisibility(View.VISIBLE);
+						answerView.setVisibility(View.GONE);
+						currentView = questionView;
+					}
+					ObjectAnimator inflate = ObjectAnimator.ofFloat(currentView, "scaleX", 0.0f, 1.0f);
+					AnimatorSet animatorSet = new AnimatorSet();
+					animatorSet.setDuration(200);
+					DecelerateInterpolator di = new DecelerateInterpolator(1.5f);
+					animatorSet.play(inflate);
+					animatorSet.setInterpolator(di);
+					animatorSet.start();
+				}
+				
+				
+				@Override
+				public void onAnimationCancel(Animator animation) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+			animatorSet.start();
+			
+		}
+		
+		return true;
+	}
+
+	@Override
+	public void onLongPress(MotionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	@Override
+	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
+			float distanceY) {
+
+		return false;
+	}
+
+	@Override
+	public void onShowPress(MotionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean onSingleTapUp(MotionEvent e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	
 }
