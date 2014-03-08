@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="appname">English Words</string>
-    <string name="msg_txt">Press SPEAK when you are ready. You may adjust the speech rate using the slider. Listen to the word as many times before answering. If you are not sure, you can skip the word.</string>
+    <string name="msg_txt">Press LISTEN when you are ready. You may adjust the speech rate using the slider. Listen to the word as many times before answering. If you are not sure, you can skip the word.</string>
     <string name="speak">Listen</string>
     <string name="ready">Spell it!</string>
     <string name="submit">SUBMIT</string>

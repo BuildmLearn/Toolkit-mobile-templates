@@ -73,11 +73,14 @@ public class ResultActivity extends SherlockActivity {
 					public void onInit(int arg0) {
 						if (arg0 == TextToSpeech.SUCCESS) {
 							textToSpeech.setLanguage(Locale.US);
-							String speechText = getString(R.string.correct)
+							/*
+							 * String speechText = getString(R.string.correct)
 									+ " " + correct
 									+ getString(R.string.wrong_spelled) + " "
 									+ wrong + getString(R.string.unanswered)
 									+ " " + unanswered;
+							*/
+							String speechText =  (String) mTv_Correct.getText()+ "." + (String)mTv_Wrong.getText()+ "." + (String)mTv_Unanswered.getText();
 							convertTextToSpeech(speechText);
 						}
 					}
