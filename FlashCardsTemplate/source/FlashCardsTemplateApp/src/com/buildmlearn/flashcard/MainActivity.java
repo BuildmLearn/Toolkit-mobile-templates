@@ -4,10 +4,15 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.gesture.GestureOverlayView;
 import android.os.Bundle;
 import android.text.util.Linkify;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
@@ -35,6 +40,30 @@ public class MainActivity extends SherlockActivity implements AnimationListener 
 	private Animation animation2;
 	private View currentView;
 
+	
+private GestureDetector gDetector;
+	
+	private static final int SWIPE_MIN_DISTANCE = 50;
+
+	private static final int SWIPE_MAX_OFF_PATH = 100;
+
+	private static final int SWIPE_THRESHOLD_VELOCITY = 50;
+	GestureOverlayView gesture;
+	@Override
+	public boolean onTouchEvent(MotionEvent event){
+	  this.gDetector.onTouchEvent(event);
+	  return super.onTouchEvent(event);
+	}
+	 
+	void flingMov()
+	{
+		currentView.clearAnimation();
+		currentView.setAnimation(animation1);
+		currentView.startAnimation(animation1);
+	}
+	
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -74,7 +103,57 @@ public class MainActivity extends SherlockActivity implements AnimationListener 
 
 			}
 		});
+		questionImage.setOnTouchListener(new OnTouchListener() {
+	        public boolean onTouch(final View view, final MotionEvent event) {
+	        	gDetector.onTouchEvent(event);
+	        	Log.i("Gesture", "GesturingQ");
+	            return true;
+	        }
+	    });
+		questionView.setOnTouchListener(new OnTouchListener() {
+	        public boolean onTouch(final View view, final MotionEvent event) {
+	        	gDetector.onTouchEvent(event);
+	            return true;
+	        }
+	    });
+		answerView.setOnTouchListener(new OnTouchListener() {
+	        public boolean onTouch(final View view, final MotionEvent event) {
+	        	gDetector.onTouchEvent(event);
+	        	Log.i("Gesture", "Gesturing");
+	            return true;
+	        }
+	    });
 
+
+gDetector = new GestureDetector(this,
+		        new GestureDetector.SimpleOnGestureListener() {
+			@Override
+			public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+					float velocityY) {
+				// TODO Auto-generated method stub
+				if(Math.abs(e1.getX() - e2.getX()) > SWIPE_MIN_DISTANCE ||
+		                Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+		       //From Right to Left
+					Log.i("fling","Swiped Right");
+					flingMov();
+		       return true;
+		   }  else if (Math.abs(e2.getY() - e1.getY()) > SWIPE_MIN_DISTANCE ||
+		                Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+		       //From Left to Right
+			   Log.i("fling","Swiped Left");
+			   flingMov();
+			   
+		       return true;
+		   }
+				
+				return true;
+			}
+		            public boolean onDown(MotionEvent e) {
+		        		// TODO Auto-generated method stub
+		        		Log.i("onDown", "Flip button pressed");
+		        		return true;
+		        	}
+		        });
 		preButton.setOnClickListener(new OnClickListener() {
 
 			@Override
