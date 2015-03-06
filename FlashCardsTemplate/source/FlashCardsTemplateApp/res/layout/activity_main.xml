@@ -69,16 +69,16 @@
         <include
             android:id="@+id/questionInMain"
             android:layout_margin="5dp"
-            layout="@layout/question"/>
+            layout="@layout/question" />
 
         <include
             android:id="@+id/answerInMain"
-            layout="@layout/answer"/>
+            layout="@layout/answer" />
     </FrameLayout>
 
     <TextView
         android:id="@+id/flashCardText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/divider"
         android:layout_marginBottom="3dp"

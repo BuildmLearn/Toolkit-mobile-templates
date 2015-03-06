@@ -35,15 +35,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.support.v7.app.ActionBarActivity;
 import android.text.util.Linkify;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
-public class ResultActivity extends SherlockActivity {
+public class ResultActivity extends ActionBarActivity {
 	private TextView mTv_Correct, mTv_Wrong, mTv_Unanswered;
 	private DataManager mDataManager;
 	private TextToSpeech textToSpeech;
@@ -116,7 +115,7 @@ public class ResultActivity extends SherlockActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 
 		return super.onCreateOptionsMenu(menu);
 	}

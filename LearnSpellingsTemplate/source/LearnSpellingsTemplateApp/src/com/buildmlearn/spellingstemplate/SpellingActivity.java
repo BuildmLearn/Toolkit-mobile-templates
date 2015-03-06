@@ -38,9 +38,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.support.v7.app.ActionBarActivity;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -49,11 +52,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
-public class SpellingActivity extends SherlockActivity implements
+public class SpellingActivity extends ActionBarActivity implements
 		TextToSpeech.OnInitListener {
 	private TextToSpeech textToSpeech;
 	private DataManager mManager;
@@ -215,7 +214,7 @@ public class SpellingActivity extends SherlockActivity implements
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 
 		return super.onCreateOptionsMenu(menu);
 	}

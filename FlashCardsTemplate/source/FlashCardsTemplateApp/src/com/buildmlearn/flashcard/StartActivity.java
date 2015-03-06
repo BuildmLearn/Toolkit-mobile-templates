@@ -1,22 +1,19 @@
 package com.buildmlearn.flashcard;
 
-
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.util.Linkify;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
-public class StartActivity extends SherlockActivity {
+public class StartActivity extends ActionBarActivity {
 	GlobalData gd;
 
 	/** Called when the activity is first created. */
@@ -24,38 +21,35 @@ public class StartActivity extends SherlockActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.start_view);
-		
+
 		gd = GlobalData.getInstance();
-		if (gd.iQuizList.size()==0)
-		{
-			gd.ReadContent(StartActivity.this);
-		}
-		
+		gd.readXml(getApplicationContext(), "flash_content.xml");
+
 		TextView quizAuthor = (TextView) findViewById(R.id.tv_author);
 		TextView quizTitle = (TextView) findViewById(R.id.tv_apptitle);
-		
+
 		quizAuthor.setText(gd.iQuizAuthor);
 		quizTitle.setText(gd.iQuizTitle);
-		
+
 		Button startButton = (Button) findViewById(R.id.btn_start);
 		startButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				Intent myIntent = new Intent(arg0.getContext(),MainActivity.class);
-				startActivityForResult(myIntent, 0);
+				Intent myIntent = new Intent(arg0.getContext(),
+						MainActivity.class);
+				startActivity(myIntent);
 				finish();
 			}
 		});
 
 	}
 
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 
 		return super.onCreateOptionsMenu(menu);
 	}
@@ -95,7 +89,5 @@ public class StartActivity extends SherlockActivity {
 		}
 		return true;
 	}
-
-
 
 }

@@ -3,9 +3,15 @@ package com.buildmlearn.flashcard;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.util.Linkify;
+import android.util.Base64;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
@@ -15,11 +21,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
-public class MainActivity extends SherlockActivity implements AnimationListener {
+public class MainActivity extends ActionBarActivity implements
+		AnimationListener {
 	View answerView, questionView;
 	Button flipButton;
 	Button preButton;
@@ -98,7 +101,7 @@ public class MainActivity extends SherlockActivity implements AnimationListener 
 			@Override
 			public void onClick(View v) {
 
-				if (iQuestionIndex < gd.iQuizList.size() - 1) {
+				if (iQuestionIndex < gd.model.size() - 1) {
 					isFlipped = false;
 					iQuestionIndex++;
 					questionView.setVisibility(View.VISIBLE);
@@ -127,36 +130,48 @@ public class MainActivity extends SherlockActivity implements AnimationListener 
 
 		int cardNum = index + 1;
 		flashcardNumber.setText("Card #" + cardNum + " of " + gd.totalCards);
-		String[] dataLine = gd.iQuizList.get(index).split("__");
-		if (dataLine[0].equals("IMAGE")) {
-			questionImage.setVisibility(View.VISIBLE);
-			Resources r = getResources();
-			int picId = r.getIdentifier("image" + String.valueOf(index),
-					"drawable", "com.buildmlearn.flashcard");
-
-			questionImage.setImageResource(picId);
-		} else {
-			questionImage.setVisibility(View.GONE);
-
+		FlashModel mFlash = gd.model.get(index);
+		TextView answerText = (TextView) findViewById(R.id.answerText);
+		if (mFlash.getQuestion() != null)
+			questionText.setText(mFlash.getQuestion());
+		if (mFlash.getAnswer() != null) {
+			flashCardanswer = mFlash.getAnswer();
+			answerText.setText(mFlash.getAnswer());
 		}
-		String[] dataArray = dataLine[1].split("==");
-		// TextView answerText = (TextView) findViewById(R.id.answerText);
-		// answerText.setText(dataArray[1]);
-		flashCardanswer = dataArray[1];
-
-		flashCardText.setText(dataArray[0]);
-
-		questionText.setVisibility(View.GONE);
-		if (dataArray.length == 3) {
-			questionText.setVisibility(View.VISIBLE);
-			questionText.setText(dataArray[2]);
+		if (mFlash.getBase64() != null) {
+			byte[] decodedString = Base64.decode(mFlash.getBase64(),
+					Base64.DEFAULT);
+			Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString,
+					0, decodedString.length);
+			questionImage.setImageBitmap(decodedByte);
+		}else
+		{
+			questionText.setGravity(Gravity.CENTER_VERTICAL);
 		}
 
-	}
+		/*
+		 * String[] dataLine = gd.model.get(index).split("__"); if
+		 * (dataLine[0].equals("IMAGE")) {
+		 * questionImage.setVisibility(View.VISIBLE); Resources r =
+		 * getResources(); int picId = r.getIdentifier("image" +
+		 * String.valueOf(index), "drawable", "com.buildmlearn.flashcard");
+		 * 
+		 * questionImage.setImageResource(picId); } else {
+		 * questionImage.setVisibility(View.GONE);
+		 * 
+		 * } String[] dataArray = dataLine[1].split("=="); // //
+		 * answerText.setText(dataArray[1]); flashCardanswer = dataArray[1];
+		 * 
+		 * flashCardText.setText(dataArray[0]);
+		 * 
+		 * questionText.setVisibility(View.GONE); if (dataArray.length == 3) {
+		 * questionText.setVisibility(View.VISIBLE);
+		 * questionText.setText(dataArray[2]); }
+		 */}
 
 	public void reInitialize() {
 		iQuestionIndex = 0;
-		gd.iQuizList.clear();
+		gd.model.clear();
 	}
 
 	@Override
@@ -203,7 +218,7 @@ public class MainActivity extends SherlockActivity implements AnimationListener 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 
 		return super.onCreateOptionsMenu(menu);
 	}
@@ -235,9 +250,10 @@ public class MainActivity extends SherlockActivity implements AnimationListener 
 			AlertDialog alertDialog = alertDialogBuilder.create();
 			// show it
 			alertDialog.show();
-			TextView msg=(TextView) alertDialog.findViewById(android.R.id.message);
+			TextView msg = (TextView) alertDialog
+					.findViewById(android.R.id.message);
 			Linkify.addLinks(msg, Linkify.WEB_URLS);
-			
+
 			return super.onOptionsItemSelected(item);
 		}
 		return true;

@@ -62,15 +62,14 @@ import java.io.InputStreamReader;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
-public class DetailView extends SherlockActivity {
+public class DetailView extends ActionBarActivity {
 	GlobalData gd;
 	BufferedReader br;
 	TextView title;
@@ -88,35 +87,23 @@ public class DetailView extends SherlockActivity {
 		mActionBar = getSupportActionBar();
 		title = (TextView) findViewById(R.id.titleText);
 		details = (TextView) findViewById(R.id.detailText);
-
+		int position = getIntent().getIntExtra("position", 0);
 		mActionBar.setDisplayHomeAsUpEnabled(true);
-		title.setText(gd.iTitle);
-		details.setText(ReadFile(DetailView.this, gd.iTitle + ".txt"));
+		InfoModel model = GlobalData.getInstance().mList.get(position);
+		title.setText(model.getInfo_object());
+		details.setText(model.getInfo_description());
 
 	}
 
-	public String ReadFile(Context myContext, String file) {
-		try {
-			br = new BufferedReader(new InputStreamReader(myContext.getAssets()
-					.open(file))); // throwing a FileNotFoundException?
-			String text = "";
-			String tmp = "";
-			while ((tmp = br.readLine()) != null) {
-				text = text + tmp;
-			}
-			return text;
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				br.close(); // stop reading
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
-		return "";
-	}
-
+	/*
+	 * public String ReadFile(Context myContext, String file) { try { br = new
+	 * BufferedReader(new InputStreamReader(myContext.getAssets() .open(file)));
+	 * // throwing a FileNotFoundException? String text = ""; String tmp = "";
+	 * while ((tmp = br.readLine()) != null) { text = text + tmp; } return text;
+	 * } catch (IOException e) { e.printStackTrace(); } finally { try {
+	 * br.close(); // stop reading } catch (IOException ex) {
+	 * ex.printStackTrace(); } } return ""; }
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub

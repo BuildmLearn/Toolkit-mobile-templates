@@ -36,7 +36,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.util.Linkify;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -45,11 +48,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
-public class QuestionActivity extends SherlockActivity {
+public class QuestionActivity extends ActionBarActivity {
 
 	private GlobalData gd;
 	private TextView iQuestion_no_Label;
@@ -135,7 +134,7 @@ public class QuestionActivity extends SherlockActivity {
 				// Increase the index to next ques
 				iQuestionIndex = iQuestionIndex + 1;
 
-				if (iQuestionIndex < gd.iQuizList.size()) {
+				if (iQuestionIndex < gd.model.size()) {
 					populateQuestion(iQuestionIndex);
 
 					iSubmitButton.setEnabled(true);
@@ -169,7 +168,16 @@ public class QuestionActivity extends SherlockActivity {
 
 		iQuestion_no_Label.setText("Question #" + String.valueOf(index + 1)
 				+ " of " + gd.total);
+		iQuestionLabel.setText(gd.model.get(index).getQuestion());
+		ArrayList<String> options=gd.model.get(index).getOptions();
+		for (int i = 0; i <options.size() ; i++) {
+			iRadButtonList.get(i).setText(options.get(i));
+			iRadButtonList.get(i).setVisibility(View.VISIBLE);
+		}
+		iCurrentCorrectAnswer = Integer
+				.parseInt(gd.model.get(index).getAnswer());
 
+		/*
 		String[] ques_content = gd.iQuizList.get(index).split("==");
 
 		String question = ques_content[0];
@@ -182,7 +190,7 @@ public class QuestionActivity extends SherlockActivity {
 
 		iCurrentCorrectAnswer = Integer
 				.parseInt(ques_content[ques_content.length - 1]);
-	}
+*/	}
 
 	public int getSelectedAnswer() {
 		int selected = -1;
@@ -203,7 +211,7 @@ public class QuestionActivity extends SherlockActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 
 		return super.onCreateOptionsMenu(menu);
 	}

@@ -32,6 +32,10 @@ public class WordModel {
 
 	private String mWord;
 	private String mDescription;
+	public WordModel()
+	{
+		
+	}
 	public WordModel(String word,String description)
 	{
 		mWord=word;

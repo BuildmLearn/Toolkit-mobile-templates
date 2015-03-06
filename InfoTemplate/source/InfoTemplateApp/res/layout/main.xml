@@ -9,6 +9,8 @@
         android:id="@+id/mylist"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:divider="@android:color/white"
+        android:dividerHeight="1px"
         android:background="#00000000" >
     </ListView>
 

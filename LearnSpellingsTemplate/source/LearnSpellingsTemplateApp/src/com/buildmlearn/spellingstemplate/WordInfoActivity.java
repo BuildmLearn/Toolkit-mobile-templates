@@ -36,13 +36,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
-
-public class WordInfoActivity extends SherlockActivity {
+public class WordInfoActivity extends ActionBarActivity {
 
 	private Intent spellingIntent;
 	private boolean isCorrect;

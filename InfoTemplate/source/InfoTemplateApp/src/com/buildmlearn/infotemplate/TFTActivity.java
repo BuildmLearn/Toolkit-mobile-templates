@@ -39,24 +39,23 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.util.Linkify;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
-public class TFTActivity extends SherlockActivity {
+public class TFTActivity extends ActionBarActivity {
 	BufferedReader br;
 	List<String> stringList = new ArrayList<String>();;
 	GlobalData gd;
 
 	/** Called when the activity is first created. */
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -64,38 +63,42 @@ public class TFTActivity extends SherlockActivity {
 		// setTitle("Tools for Teachers");
 		gd = GlobalData.getInstance();
 
+		gd.readXml(getApplicationContext(), "info_content.xml");
+
 		ListView listView = (ListView) findViewById(R.id.mylist);
 		// String[] values = new String[] { "Android", "iPhone",
 		// "WindowsMobile",
 		// "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
 		// "Linux", "OS/2" };
 
-		ReadIndex(TFTActivity.this);
+		//ReadIndex(TFTActivity.this);
 
 		// First paramenter - Context
 		// Second parameter - Layout for the row
 		// Third parameter - ID of the TextView to which the data is written
 		// Forth - the Array of data
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+		/*ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				R.layout.list_item, R.id.text_element, stringList);
 
-		// Assign adapter to ListView
+*/		// Assign adapter to ListView
+		InfoListAdapter adapter=new InfoListAdapter(this);
+		
 		listView.setAdapter(adapter);
-
+		adapter.setList(gd.mList);
+		
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				gd.iTitle = stringList.get(position);
-				gd.iSelectedIndex = position;
 				Intent myIntent = new Intent(view.getContext(),
 						DetailView.class);
+				myIntent.putExtra("position", position);
 				startActivity(myIntent);
 			}
 		});
 
 	}
-
+	
 	public void ReadIndex(Context myContext) {
 		try {
 			br = new BufferedReader(new InputStreamReader(myContext.getAssets()
@@ -115,10 +118,13 @@ public class TFTActivity extends SherlockActivity {
 		}
 	}
 
+	
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 
 		return super.onCreateOptionsMenu(menu);
 	}
