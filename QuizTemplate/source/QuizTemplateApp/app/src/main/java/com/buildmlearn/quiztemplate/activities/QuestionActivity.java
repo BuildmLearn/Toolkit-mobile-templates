@@ -28,15 +28,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.buildmlearn.quiztemplate.activities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,8 +43,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.buildmlearn.quiztemplate.objects.GlobalData;
 import com.buildmlearn.quiztemplate.R;
+import com.buildmlearn.quiztemplate.objects.GlobalData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuestionActivity extends BaseActivity {
 

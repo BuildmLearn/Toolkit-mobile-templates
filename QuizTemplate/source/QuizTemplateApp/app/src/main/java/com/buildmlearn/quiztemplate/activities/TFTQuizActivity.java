@@ -32,7 +32,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,8 +40,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.buildmlearn.quiztemplate.objects.GlobalData;
 import com.buildmlearn.quiztemplate.R;
+import com.buildmlearn.quiztemplate.objects.GlobalData;
 
 public class TFTQuizActivity extends BaseActivity {
     private GlobalData gd;
@@ -77,7 +76,6 @@ public class TFTQuizActivity extends BaseActivity {
                 Intent myIntent = new Intent(arg0.getContext(),
                         QuestionActivity.class);
                 startActivity(myIntent);
-                finish();
             }
         });
 
@@ -92,9 +90,7 @@ public class TFTQuizActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.main, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
