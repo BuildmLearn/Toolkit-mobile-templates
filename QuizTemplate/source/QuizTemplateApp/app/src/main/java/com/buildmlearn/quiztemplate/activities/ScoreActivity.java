@@ -45,7 +45,7 @@ import android.widget.TextView;
 import com.buildmlearn.quiztemplate.objects.GlobalData;
 import com.buildmlearn.quiztemplate.R;
 
-public class ScoreActivity extends ActionBarActivity {
+public class ScoreActivity extends BaseActivity {
     private GlobalData gd;
     private TextView mTv_correct, mTv_wrong, mTv_unanswered;
 

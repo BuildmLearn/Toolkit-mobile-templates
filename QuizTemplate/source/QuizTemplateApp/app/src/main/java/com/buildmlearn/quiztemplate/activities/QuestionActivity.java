@@ -46,12 +46,11 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.buildmlearn.quiztemplate.objects.GlobalData;
 import com.buildmlearn.quiztemplate.R;
 
-public class QuestionActivity extends ActionBarActivity {
+public class QuestionActivity extends BaseActivity {
 
     private GlobalData gd;
     private TextView iQuestion_no_Label;
@@ -92,14 +91,12 @@ public class QuestionActivity extends ActionBarActivity {
             public void onClick(View arg0) {
                 int selectedAnswer = getSelectedAnswer();
                 if (selectedAnswer == -1) {
-                    Toast.makeText(QuestionActivity.this,
-                            "Please select an answer!", 1000).show();
+                    makeToast("Please select an answer!");
                 } else if (selectedAnswer != -1
                         && selectedAnswer == iCurrentCorrectAnswer) {
                     iRadButtonList.get(iCurrentCorrectAnswer)
                             .setBackgroundColor(Color.GREEN);
-                    Toast.makeText(QuestionActivity.this,
-                            "That's the correct answer!", 1000).show();
+                    makeToast("That's the correct answer!");
                     gd.setCorrect(gd.getCorrect() + 1);
                     iSubmitButton.setEnabled(false);
                     /*
@@ -111,8 +108,7 @@ public class QuestionActivity extends ActionBarActivity {
                             Color.RED);
                     iRadButtonList.get(iCurrentCorrectAnswer)
                             .setBackgroundColor(Color.GREEN);
-                    Toast.makeText(QuestionActivity.this,
-                            "Sorry, wrong answer!", 1000).show();
+                    makeToast("Sorry, wrong answer!");
 
                     iSubmitButton.setEnabled(false);
                     gd.setWrong(gd.getWrong() + 1);
@@ -181,7 +177,7 @@ public class QuestionActivity extends ActionBarActivity {
                 .parseInt(gd.getModel().get(index).getAnswer());
 
 		/*
-		String[] ques_content = gd.iQuizList.get(index).split("==");
+        String[] ques_content = gd.iQuizList.get(index).split("==");
 
 		String question = ques_content[0];
 		iQuestionLabel.setText(question);

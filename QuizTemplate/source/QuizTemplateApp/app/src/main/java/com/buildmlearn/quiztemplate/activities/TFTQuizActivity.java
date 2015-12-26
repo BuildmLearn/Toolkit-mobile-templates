@@ -44,7 +44,7 @@ import android.widget.TextView;
 import com.buildmlearn.quiztemplate.objects.GlobalData;
 import com.buildmlearn.quiztemplate.R;
 
-public class TFTQuizActivity extends ActionBarActivity {
+public class TFTQuizActivity extends BaseActivity {
     private GlobalData gd;
 
     /**
