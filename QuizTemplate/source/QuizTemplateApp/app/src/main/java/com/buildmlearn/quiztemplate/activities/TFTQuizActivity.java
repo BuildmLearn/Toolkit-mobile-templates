@@ -32,12 +32,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.buildmlearn.quiztemplate.R;
@@ -52,10 +52,13 @@ public class TFTQuizActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // getWindow().requestFeature(Window.FEATURE_ACTION_BAR); // Add this
-        // line
-
         setContentView(R.layout.start_view);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         gd = GlobalData.getInstance();
         reInitialize();
@@ -68,8 +71,7 @@ public class TFTQuizActivity extends BaseActivity {
         quizAuthor.setText(gd.getiQuizAuthor());
         quizTitle.setText(gd.getiQuizTitle());
 
-        Button startButton = (Button) findViewById(R.id.btn_start);
-        startButton.setOnClickListener(new OnClickListener() {
+        findViewById(R.id.btn_start).setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View arg0) {

@@ -1,8 +1,8 @@
 package com.buildmlearn.quiztemplate.activities;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 /**
@@ -11,6 +11,7 @@ import android.widget.Toast;
 public class BaseActivity extends AppCompatActivity {
 
     Toast toast;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
