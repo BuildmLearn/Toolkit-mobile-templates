@@ -32,12 +32,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.buildmlearn.quiztemplate.R;
@@ -45,6 +46,8 @@ import com.buildmlearn.quiztemplate.objects.GlobalData;
 
 public class TFTQuizActivity extends BaseActivity {
     private GlobalData gd;
+    CardView cardView;
+    LinearLayout startButton;
 
     /**
      * Called when the activity is first created.
@@ -55,6 +58,11 @@ public class TFTQuizActivity extends BaseActivity {
         setContentView(R.layout.start_view);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        startButton = (LinearLayout) findViewById(R.id.start_btn);
+        cardView = (CardView) findViewById(R.id.cardviewquizmain);
+
+        int minimumHeight = (int) (getResources().getDisplayMetrics().heightPixels * 0.4f);
+        cardView.setMinimumHeight(minimumHeight);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -71,13 +79,14 @@ public class TFTQuizActivity extends BaseActivity {
         quizAuthor.setText(gd.getiQuizAuthor());
         quizTitle.setText(gd.getiQuizTitle());
 
-        findViewById(R.id.btn_start).setOnClickListener(new OnClickListener() {
+        startButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
                 Intent myIntent = new Intent(arg0.getContext(),
                         QuestionActivity.class);
                 startActivity(myIntent);
+                overridePendingTransition(R.anim.activity_enter_from_right_animation,R.anim.activity_exit_to_left_animation);
             }
         });
 

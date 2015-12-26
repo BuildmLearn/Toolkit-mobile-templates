@@ -251,4 +251,9 @@ public class QuestionActivity extends BaseActivity {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.activity_enter_from_left_animation, R.anim.activity_exit_to_right_animation);
+    }
 }
