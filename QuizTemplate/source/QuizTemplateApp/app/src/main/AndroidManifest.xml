@@ -16,6 +16,7 @@
         <activity
             android:name=".activities.TFTQuizActivity"
             android:label="@string/app_name"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>

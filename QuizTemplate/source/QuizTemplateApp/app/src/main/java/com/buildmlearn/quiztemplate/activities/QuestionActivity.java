@@ -222,6 +222,8 @@ public class QuestionActivity extends BaseActivity {
             showDialofForAboutBuildmLearn();
 
             return super.onOptionsItemSelected(item);
+        } else if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
         }
         return true;
     }

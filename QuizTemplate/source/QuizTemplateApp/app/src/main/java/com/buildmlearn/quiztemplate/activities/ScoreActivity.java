@@ -31,6 +31,7 @@ package com.buildmlearn.quiztemplate.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,6 +55,12 @@ public class ScoreActivity extends BaseActivity {
         setContentView(R.layout.score_view);
         gd = GlobalData.getInstance();
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Quiz Result");
+
         mTv_correct = (TextView) findViewById(R.id.tv_correct);
         mTv_wrong = (TextView) findViewById(R.id.tv_wrong);
         mTv_unanswered = (TextView) findViewById(R.id.tv_unanswered);
@@ -69,7 +76,7 @@ public class ScoreActivity extends BaseActivity {
             public void onClick(View arg0) {
                 Intent myIntent = new Intent(arg0.getContext(),
                         TFTQuizActivity.class);
-                startActivityForResult(myIntent, 0);
+                startActivity(myIntent);
                 finish();
             }
         });
@@ -87,7 +94,6 @@ public class ScoreActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.main, menu);
 
         return super.onCreateOptionsMenu(menu);
@@ -99,9 +105,10 @@ public class ScoreActivity extends BaseActivity {
             showDialofForAboutBuildmLearn();
 
             return super.onOptionsItemSelected(item);
+        } else if (item.getItemId() == android.R.id.home) {
+            super.onBackPressed();
         }
         return true;
     }
-
 
 }
