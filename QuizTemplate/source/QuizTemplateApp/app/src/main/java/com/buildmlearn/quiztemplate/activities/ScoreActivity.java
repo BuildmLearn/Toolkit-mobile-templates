@@ -36,7 +36,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.buildmlearn.quiztemplate.R;
@@ -44,7 +44,7 @@ import com.buildmlearn.quiztemplate.objects.GlobalData;
 
 public class ScoreActivity extends BaseActivity {
     private GlobalData gd;
-    private TextView mTv_correct, mTv_wrong, mTv_unanswered;
+    private TextView mTv_correct, mTv_wrong, mTv_unanswered, pmTv_percentage;
 
     /**
      * Called when the activity is first created.
@@ -62,14 +62,18 @@ public class ScoreActivity extends BaseActivity {
         getSupportActionBar().setTitle("Quiz Result");
 
         mTv_correct = (TextView) findViewById(R.id.tv_correct);
+        pmTv_percentage = (TextView) findViewById(R.id.tv_percentage);
         mTv_wrong = (TextView) findViewById(R.id.tv_wrong);
         mTv_unanswered = (TextView) findViewById(R.id.tv_unanswered);
-        mTv_correct.setText("Total Correct: " + gd.getCorrect());
-        mTv_wrong.setText("Total Wrong: " + gd.getWrong());
+        mTv_correct.setText("" + gd.getCorrect());
+        mTv_wrong.setText("" + gd.getWrong());
         int unanswered = gd.getTotal() - gd.getCorrect() - gd.getWrong();
-        mTv_unanswered.setText("Unanswered: " + unanswered);
+        mTv_unanswered.setText("" + unanswered);
 
-        Button startAgainButton = (Button) findViewById(R.id.start_again_button);
+        float percentage = gd.getCorrect() / gd.getTotal();
+        pmTv_percentage.setText("You Scored " + String.format("%.2f", percentage) + "%");
+
+        LinearLayout startAgainButton = (LinearLayout) findViewById(R.id.start_again_button);
         startAgainButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -81,12 +85,13 @@ public class ScoreActivity extends BaseActivity {
             }
         });
 
-        Button quitButton = (Button) findViewById(R.id.quit_button);
+        LinearLayout quitButton = (LinearLayout) findViewById(R.id.quit_button);
         quitButton.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
                 // android.os.Process.killProcess(android.os.Process.myPid());
+                moveTaskToBack(true);
                 finish();
             }
         });

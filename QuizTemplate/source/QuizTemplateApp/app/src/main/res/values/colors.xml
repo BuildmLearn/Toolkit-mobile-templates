@@ -27,4 +27,11 @@
     <color name="orange_color_pressed">#cc5100</color>
     <color name="orange_color_disabled">#ffb889</color>
 
+    <color name="red_color">#e7192d</color>
+
+    <!-- ripple color -->
+    <color name="z_bg_color_selector_pressed">#80ececec</color>
+    <color name="z_bg_color_selector_normal">@android:color/transparent</color>
+    <color name="z_bg_color_ripple_color">#809e9e9e</color>
+
 </resources>
