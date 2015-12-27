@@ -19,4 +19,12 @@
     <color name="text_color_medium_dark">@color/grey_shade_8</color>
     <color name="text_color_light">@color/grey_shade_6</color>
 
+    <color name="green_color_normal">#00b100</color>
+    <color name="green_color__pressed">#006500</color>
+    <color name="green_color_disabled">#9dff9d</color>
+
+    <color name="orange_color_normal">#ff6500</color>
+    <color name="orange_color_pressed">#cc5100</color>
+    <color name="orange_color_disabled">#ffb889</color>
+
 </resources>

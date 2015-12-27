@@ -36,7 +36,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -53,7 +53,7 @@ public class QuestionActivity extends BaseActivity {
     private TextView iQuestion_no_Label;
     private TextView iQuestionLabel;
     private RadioButton iRad1, iRad2, iRad3, iRad0;
-    private Button iSubmitButton, iNextButton;
+    private LinearLayout iSubmitButton, iNextButton;
     private List<RadioButton> iRadButtonList = new ArrayList<RadioButton>();
     private int iQuestionIndex = 0;
     private int iCurrentCorrectAnswer;
@@ -86,7 +86,7 @@ public class QuestionActivity extends BaseActivity {
         iRadButtonList.add(iRad2);
         iRadButtonList.add(iRad3);
 
-        iSubmitButton = (Button) findViewById(R.id.submit_button);
+        iSubmitButton = (LinearLayout) findViewById(R.id.submit_button);
         iSubmitButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -121,7 +121,7 @@ public class QuestionActivity extends BaseActivity {
             }
         });
 
-        iNextButton = (Button) findViewById(R.id.next_button);
+        iNextButton = (LinearLayout) findViewById(R.id.next_button);
         iNextButton.setOnClickListener(new OnClickListener() {
 
             @Override
