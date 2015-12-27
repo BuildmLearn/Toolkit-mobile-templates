@@ -28,12 +28,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.buildmlearn.quiztemplate.activities;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.util.Linkify;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -65,6 +63,11 @@ public class QuestionActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.questions_view);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         gd = GlobalData.getInstance();
 
@@ -161,7 +164,7 @@ public class QuestionActivity extends BaseActivity {
         for (int i = 0; i < iRadButtonList.size(); i++) {
             iRadButtonList.get(i).setBackgroundColor(Color.TRANSPARENT);
             iRadButtonList.get(i).setChecked(false);
-            iRadButtonList.get(i).setVisibility(View.INVISIBLE);
+            iRadButtonList.get(i).setVisibility(View.GONE);
         }
 
         iQuestion_no_Label.setText("Question #" + String.valueOf(index + 1)
@@ -209,42 +212,14 @@ public class QuestionActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.main, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_info) {
-
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                    QuestionActivity.this);
-
-            // set title
-            alertDialogBuilder.setTitle("About Us");
-
-            // set dialog message
-            alertDialogBuilder
-                    .setMessage(getString(R.string.about_us))
-                    .setCancelable(false)
-                    .setPositiveButton("Ok",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog,
-                                                    int id) {
-                                    dialog.cancel();
-                                    dialog.dismiss();
-                                }
-                            });
-
-            // create alert dialog
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            // show it
-            alertDialog.show();
-            TextView msg = (TextView) alertDialog
-                    .findViewById(android.R.id.message);
-            Linkify.addLinks(msg, Linkify.WEB_URLS);
+            showDialofForAboutBuildmLearn();
 
             return super.onOptionsItemSelected(item);
         }

@@ -28,13 +28,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.buildmlearn.quiztemplate.activities;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -86,7 +83,7 @@ public class TFTQuizActivity extends BaseActivity {
                 Intent myIntent = new Intent(arg0.getContext(),
                         QuestionActivity.class);
                 startActivity(myIntent);
-                overridePendingTransition(R.anim.activity_enter_from_right_animation,R.anim.activity_exit_to_left_animation);
+                overridePendingTransition(R.anim.activity_enter_from_right_animation, R.anim.activity_exit_to_left_animation);
             }
         });
 
@@ -108,33 +105,7 @@ public class TFTQuizActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_info) {
-
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                    TFTQuizActivity.this);
-
-            // set title
-            alertDialogBuilder.setTitle("About Us");
-
-            // set dialog message
-            alertDialogBuilder
-                    .setMessage(getString(R.string.about_us))
-                    .setCancelable(false)
-                    .setPositiveButton("Ok",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog,
-                                                    int id) {
-                                    dialog.cancel();
-                                    dialog.dismiss();
-                                }
-                            });
-
-            // create alert dialog
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            // show it
-            alertDialog.show();
-            TextView msg = (TextView) alertDialog
-                    .findViewById(android.R.id.message);
-            Linkify.addLinks(msg, Linkify.WEB_URLS);
+            showDialofForAboutBuildmLearn();
 
             return super.onOptionsItemSelected(item);
         }

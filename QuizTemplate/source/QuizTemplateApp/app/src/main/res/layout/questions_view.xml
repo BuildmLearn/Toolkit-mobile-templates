@@ -1,76 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/BlueBg">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_shade_2"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/question_no"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_margin="10dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/white"></TextView>
+    <include layout="@layout/toolbar_layout" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/question_no"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="#8798AC"></View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/question_label"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/divider"
-        android:layout_margin="10dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/white"></TextView>
-
-    <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/question_label"
-        android:layout_margin="10dp">
-
-        <RadioButton
-            android:id="@+id/radio0"
+        <TextView
+            android:id="@+id/question_no"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:checked="false"
-            android:onClick="radioClick"
-            android:textColor="@android:color/white"></RadioButton>
+            android:layout_margin="@dimen/margin_large"
+            android:gravity="right"
+            android:textColor="@color/text_color_light" />
 
-        <RadioButton
-            android:id="@+id/radio1"
-            android:layout_width="fill_parent"
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checked="false"
-            android:onClick="radioClick"
-            android:textColor="@android:color/white"></RadioButton>
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium">
 
-        <RadioButton
-            android:id="@+id/radio2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:onClick="radioClick"
-            android:text="RadioButton"
-            android:textColor="@android:color/white"></RadioButton>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_large">
 
-        <RadioButton
-            android:id="@+id/radio3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:onClick="radioClick"
-            android:textColor="@android:color/white"></RadioButton>
-    </RadioGroup>
+
+                <TextView
+                    android:id="@+id/question_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_dark"
+                    android:textSize="@dimen/font_small" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large">
+
+                    <RadioButton
+                        android:id="@+id/radio0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:onClick="radioClick"
+                        android:textColor="@color/text_color_medium_dark" />
+
+                    <RadioButton
+                        android:id="@+id/radio1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:onClick="radioClick"
+                        android:textColor="@color/text_color_medium_dark" />
+
+                    <RadioButton
+                        android:id="@+id/radio2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:onClick="radioClick"
+                        android:textColor="@color/text_color_medium_dark" />
+
+                    <RadioButton
+                        android:id="@+id/radio3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:onClick="radioClick"
+                        android:textColor="@color/text_color_medium_dark" />
+                </RadioGroup>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll"
@@ -86,7 +98,7 @@
             android:layout_weight="1"
             android:padding="10dp"
             android:text="Next"
-            android:textColor="@android:color/white"></Button>
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/submit_button"
@@ -96,7 +108,7 @@
             android:layout_weight="1"
             android:padding="10dp"
             android:text="Submit"
-            android:textColor="@android:color/white"></Button>
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
