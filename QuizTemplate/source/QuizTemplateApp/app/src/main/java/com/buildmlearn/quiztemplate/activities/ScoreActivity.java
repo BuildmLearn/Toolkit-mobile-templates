@@ -70,7 +70,7 @@ public class ScoreActivity extends BaseActivity {
         int unanswered = gd.getTotal() - gd.getCorrect() - gd.getWrong();
         mTv_unanswered.setText("" + unanswered);
 
-        float percentage = gd.getCorrect() / gd.getTotal();
+        float percentage = Float.valueOf(gd.getCorrect()) / Float.valueOf(gd.getTotal()) * 100.0f;
         pmTv_percentage.setText("You Scored " + String.format("%.2f", percentage) + "%");
 
         LinearLayout startAgainButton = (LinearLayout) findViewById(R.id.start_again_button);

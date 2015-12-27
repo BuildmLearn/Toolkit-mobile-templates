@@ -156,10 +156,6 @@ public class QuestionActivity extends BaseActivity {
 
     }
 
-    public void radioClick(View v) {
-
-    }
-
     public void populateQuestion(int index) {
         for (int i = 0; i < iRadButtonList.size(); i++) {
             iRadButtonList.get(i).setBackgroundColor(Color.TRANSPARENT);
