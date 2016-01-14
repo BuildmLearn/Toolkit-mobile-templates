@@ -105,7 +105,7 @@ public class MainActivity extends BaseActivity implements
             @Override
             public void onClick(View v) {
 
-                if (iQuestionIndex < gd.model.size() - 1) {
+                if (iQuestionIndex < gd.getModel().size() - 1) {
                     isFlipped = false;
                     iQuestionIndex++;
                     questionView.setVisibility(View.VISIBLE);
@@ -133,8 +133,8 @@ public class MainActivity extends BaseActivity implements
             preButton.setEnabled(true);
 
         int cardNum = index + 1;
-        flashcardNumber.setText("Card #" + cardNum + " of " + gd.totalCards);
-        FlashModel mFlash = gd.model.get(index);
+        flashcardNumber.setText("Card #" + cardNum + " of " + gd.getTotalCards());
+        FlashModel mFlash = gd.getModel().get(index);
         TextView answerText = (TextView) findViewById(R.id.answerText);
         if (mFlash.getQuestion() != null)
             questionText.setText(mFlash.getQuestion());
@@ -175,7 +175,7 @@ public class MainActivity extends BaseActivity implements
 
     public void reInitialize() {
         iQuestionIndex = 0;
-        gd.model.clear();
+        gd.getModel().clear();
     }
 
     @Override

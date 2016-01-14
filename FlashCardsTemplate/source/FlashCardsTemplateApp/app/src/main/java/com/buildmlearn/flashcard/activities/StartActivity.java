@@ -32,8 +32,8 @@ public class StartActivity extends BaseActivity {
         TextView quizAuthor = (TextView) findViewById(R.id.tv_author);
         TextView quizTitle = (TextView) findViewById(R.id.tv_apptitle);
 
-        quizAuthor.setText(gd.iQuizAuthor);
-        quizTitle.setText(gd.iQuizTitle);
+        quizAuthor.setText(gd.getiQuizAuthor());
+        quizTitle.setText(gd.getiQuizTitle());
 
         Button startButton = (Button) findViewById(R.id.btn_start);
         startButton.setOnClickListener(new OnClickListener() {
