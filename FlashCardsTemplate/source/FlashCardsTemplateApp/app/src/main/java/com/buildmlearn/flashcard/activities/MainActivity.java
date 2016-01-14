@@ -1,12 +1,9 @@
 package com.buildmlearn.flashcard.activities;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.text.util.Linkify;
 import android.util.Base64;
 import android.view.Gravity;
 import android.view.Menu;
@@ -20,9 +17,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.buildmlearn.flashcard.R;
 import com.buildmlearn.flashcard.objects.FlashModel;
 import com.buildmlearn.flashcard.objects.GlobalData;
-import com.buildmlearn.flashcard.R;
 
 public class MainActivity extends BaseActivity implements
         AnimationListener {
@@ -221,43 +218,14 @@ public class MainActivity extends BaseActivity implements
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.main, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_info) {
-
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                    MainActivity.this);
-
-            // set title
-            alertDialogBuilder.setTitle("About Us");
-
-            // set dialog message
-            alertDialogBuilder
-                    .setMessage(getString(R.string.about_us))
-                    .setCancelable(false)
-                    .setPositiveButton("Ok",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog,
-                                                    int id) {
-                                    dialog.cancel();
-                                    dialog.dismiss();
-                                }
-                            });
-
-            // create alert dialog
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            // show it
-            alertDialog.show();
-            TextView msg = (TextView) alertDialog
-                    .findViewById(android.R.id.message);
-            Linkify.addLinks(msg, Linkify.WEB_URLS);
-
+            showInfoDialog();
             return super.onOptionsItemSelected(item);
         }
         return true;
