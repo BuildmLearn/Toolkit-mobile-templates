@@ -14,12 +14,12 @@
         android:label="@string/app_name"
         android:theme="@style/AppBaseTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".StartActivity"
+            android:name=".activities.StartActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ScoreActivity"
+            android:name=".activities.ScoreActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>

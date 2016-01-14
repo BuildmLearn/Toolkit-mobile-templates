@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context=".MainActivity" >
+    tools:context=".activities.MainActivity" >
 
     <TextView
         android:id="@+id/flashCardNumber"

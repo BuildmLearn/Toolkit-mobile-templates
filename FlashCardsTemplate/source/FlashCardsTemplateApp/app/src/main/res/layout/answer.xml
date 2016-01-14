@@ -5,7 +5,7 @@
     android:layout_gravity="center"
     android:background="@color/BlueBg"
     android:gravity="center"
-    tools:context=".MainActivity" >
+    tools:context=".activities.MainActivity" >
 
     <TextView
         android:id="@+id/answerText"
