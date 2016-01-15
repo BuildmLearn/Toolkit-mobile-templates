@@ -35,13 +35,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -49,21 +46,18 @@ import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 public class GlobalData {
 
-    private static GlobalData instance = null;
-    String iQuizTitle = null;
-    String iQuizAuthor = null;
-    int totalCards = 0;
+    private static GlobalData instance;
+    String iQuizTitle;
+    String iQuizAuthor;
+    int totalCards;
 
     BufferedReader br;
     List<String> iQuizList = new ArrayList<String>();
 
     ArrayList<FlashModel> model = null;
-
-    int iSelectedIndex = -1;
 
     protected GlobalData() {
         // Exists only to defeat instantiation.
@@ -153,9 +147,7 @@ public class GlobalData {
                 eventType = parser.next();
 
             }
-        } catch (XmlPullParserException e1) {
-            e1.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -174,7 +166,7 @@ public class GlobalData {
             doc = db.parse(myContext.getAssets().open(fileName));
             doc.normalize();
             /*
-			 * NodeList app_nodes = doc
+             * NodeList app_nodes = doc
 			 * .getElementsByTagName("buildmlearn_application");
 			 */
             // NamedNodeMap node = app_nodes.item(0).getAttributes();
@@ -208,20 +200,10 @@ public class GlobalData {
             totalCards = model.size();
 
             Log.d("tag", "totalCards" + totalCards);
-        } catch (ParserConfigurationException e) {
-            Log.e("tag", e.getLocalizedMessage());
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            Log.e("tag", e.getLocalizedMessage());
-            e.printStackTrace();
-        } catch (SAXException e) {
-            Log.e("tag", e.getLocalizedMessage());
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             Log.e("tag", e.getLocalizedMessage());
             e.printStackTrace();
         }
-
     }
 
     private static String getValue(String tag, Element element) {

@@ -125,7 +125,6 @@ public class MainActivity extends BaseActivity implements
     public void populateQuestion(int index) {
         if (index == 0) {
             preButton.setEnabled(false);
-
         } else
             preButton.setEnabled(true);
 
@@ -148,26 +147,6 @@ public class MainActivity extends BaseActivity implements
         } else {
             questionText.setGravity(Gravity.CENTER_VERTICAL);
         }
-
-		/*
-         * String[] dataLine = gd.model.get(index).split("__"); if
-		 * (dataLine[0].equals("IMAGE")) {
-		 * questionImage.setVisibility(View.VISIBLE); Resources r =
-		 * getResources(); int picId = r.getIdentifier("image" +
-		 * String.valueOf(index), "drawable", "com.buildmlearn.flashcard");
-		 * 
-		 * questionImage.setImageResource(picId); } else {
-		 * questionImage.setVisibility(View.GONE);
-		 * 
-		 * } String[] dataArray = dataLine[1].split("=="); // //
-		 * answerText.setText(dataArray[1]); flashCardanswer = dataArray[1];
-		 * 
-		 * flashCardText.setText(dataArray[0]);
-		 * 
-		 * questionText.setVisibility(View.GONE); if (dataArray.length == 3) {
-		 * questionText.setVisibility(View.VISIBLE);
-		 * questionText.setText(dataArray[2]); }
-		 */
     }
 
     public void reInitialize() {
@@ -178,18 +157,15 @@ public class MainActivity extends BaseActivity implements
     @Override
     public void onAnimationEnd(Animation animation) {
         if (animation == animation1) {
-
             TextView answerText = (TextView) findViewById(R.id.answerText);
 
             if (!isFlipped) {
-
                 answerView.setVisibility(View.VISIBLE);
                 questionView.setVisibility(View.GONE);
                 isFlipped = true;
                 answerText.setText(flashCardanswer);
                 currentView = answerView;
             } else {
-
                 isFlipped = false;
                 answerText.setText("");
                 questionView.setVisibility(View.VISIBLE);
@@ -199,20 +175,16 @@ public class MainActivity extends BaseActivity implements
             currentView.clearAnimation();
             currentView.setAnimation(animation2);
             currentView.startAnimation(animation2);
-
         }
-
     }
 
     @Override
     public void onAnimationRepeat(Animation animation) {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void onAnimationStart(Animation animation) {
-        // TODO Auto-generated method stub
 
     }
 
@@ -230,5 +202,4 @@ public class MainActivity extends BaseActivity implements
         }
         return true;
     }
-
 }
