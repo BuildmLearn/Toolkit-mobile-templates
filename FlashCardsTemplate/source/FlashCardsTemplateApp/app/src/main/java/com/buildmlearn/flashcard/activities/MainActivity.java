@@ -31,8 +31,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        gd = GlobalData.getInstance();
-
         iQuestionIndex = 0;
 
         flashcardNumber = (TextView) findViewById(R.id.flashCardNumber);
@@ -41,6 +39,8 @@ public class MainActivity extends BaseActivity {
         preButton = (Button) findViewById(R.id.pre_button);
         nextButton = (Button) findViewById(R.id.next_button);
 
+        gd = GlobalData.getInstance();
+        gd.readXml(this, "flash_content.xml");
         populateQuestion(iQuestionIndex);
 
         flipButton.setOnClickListener(new OnClickListener() {
