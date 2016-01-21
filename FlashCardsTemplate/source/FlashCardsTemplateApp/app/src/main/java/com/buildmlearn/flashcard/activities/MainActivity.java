@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity {
     Button preButton;
     Button nextButton;
     int iQuestionIndex = 0;
-    GlobalData gd = GlobalData.getInstance();
+    GlobalData gd;
     String flashCardanswer;
     TextView flashcardNumber;
 
@@ -30,6 +30,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        gd = GlobalData.getInstance();
 
         iQuestionIndex = 0;
 
