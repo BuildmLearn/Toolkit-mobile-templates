@@ -1,5 +1,6 @@
 package com.buildmlearn.flashcard.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,14 +10,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.buildmlearn.flashcard.R;
 import com.buildmlearn.flashcard.objects.FlashModel;
 import com.buildmlearn.flashcard.objects.GlobalData;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements OnClickListener {
 
     Button flipButton;
     Button preButton;
@@ -26,6 +29,9 @@ public class MainActivity extends BaseActivity {
     String flashCardanswer;
     TextView flashcardNumber;
 
+    LinearLayout fragmentContainer;
+    int heightOfFragmentContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,22 +40,28 @@ public class MainActivity extends BaseActivity {
         iQuestionIndex = 0;
 
         flashcardNumber = (TextView) findViewById(R.id.flashCardNumber);
-
         flipButton = (Button) findViewById(R.id.flip_button);
         preButton = (Button) findViewById(R.id.pre_button);
         nextButton = (Button) findViewById(R.id.next_button);
+        fragmentContainer = (LinearLayout) findViewById(R.id.flashcardfragmentcontainerlayurt);
+
+        fragmentContainer.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @SuppressLint("NewApi")
+            @Override
+            public void onGlobalLayout() {
+                try {
+                    fragmentContainer.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } catch (Exception e) {
+                    fragmentContainer.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+            }
+        });
 
         gd = GlobalData.getInstance();
         gd.readXml(this, "flash_content.xml");
         populateQuestion(iQuestionIndex);
 
-        flipButton.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        flipButton.setOnClickListener(this);
 
         preButton.setOnClickListener(new OnClickListener() {
 
@@ -126,5 +138,10 @@ public class MainActivity extends BaseActivity {
             return super.onOptionsItemSelected(item);
         }
         return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
