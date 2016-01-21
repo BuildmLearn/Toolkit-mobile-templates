@@ -1,12 +1,13 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4E79DE"
-    android:gravity="center"
+    android:background="@color/white_color"
     android:orientation="vertical"
-    android:padding="5dp"
-    tools:context=".activities.MainActivity" >
+    tools:context=".activities.MainActivity">
+
+
+    <include layout="@layout/toolbar_layout" />
 
     <TextView
         android:id="@+id/flashCardNumber"
@@ -32,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="center" >
+        android:gravity="center">
 
         <Button
             android:id="@+id/pre_button"
@@ -64,12 +65,12 @@
         android:layout_width="@dimen/card_width"
         android:layout_height="@dimen/card_width"
         android:layout_centerInParent="true"
-        android:padding="0dp" >
+        android:padding="0dp">
 
         <include
             android:id="@+id/questionInMain"
-            android:layout_margin="5dp"
-            layout="@layout/question" />
+            layout="@layout/question"
+            android:layout_margin="5dp" />
 
         <include
             android:id="@+id/answerInMain"
@@ -89,4 +90,4 @@
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 
-</RelativeLayout>
+</LinearLayout>

@@ -12,13 +12,13 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppBaseTheme">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBarTheme"/>
+            android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".activities.StartActivity"
             android:label="@string/app_name"
@@ -34,7 +34,7 @@
             android:name=".activities.ScoreActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBarTheme"/>
+            android:theme="@style/NoActionBarTheme" />
     </application>
 
 </manifest>
