@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -51,6 +52,11 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         preButton = (Button) findViewById(R.id.pre_button);
         nextButton = (Button) findViewById(R.id.next_button);
         viewPager = (ViewPager) findViewById(R.id.viewpagerflash);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         viewPager.setPageTransformer(true, new FlipPageTransformer());
 

@@ -2,51 +2,36 @@ package com.buildmlearn.flashcard.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.buildmlearn.flashcard.R;
 import com.buildmlearn.flashcard.objects.GlobalData;
 
-public class ScoreActivity extends BaseActivity {
+public class ScoreActivity extends BaseActivity implements OnClickListener {
     GlobalData gd;
 
-    /**
-     * Called when the activity is first created.
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+
         gd = GlobalData.getInstance();
         TextView mCardQuizName = (TextView) findViewById(R.id.tv_lastcard);
         mCardQuizName.setText(gd.getiQuizTitle());
 
-        Button startAgainButton = (Button) findViewById(R.id.btn_restart);
-        startAgainButton.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                Intent myIntent = new Intent(ScoreActivity.this,
-                        StartActivity.class);
-                startActivity(myIntent);
-                finish();
-            }
-        });
-
-        Button quitButton = (Button) findViewById(R.id.btn_exit);
-        quitButton.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                moveTaskToBack(true);
-                finish();
-            }
-        });
+        findViewById(R.id.quit_button).setOnClickListener(this);
+        findViewById(R.id.start_again_button).setOnClickListener(this);
     }
 
     @Override
@@ -64,4 +49,16 @@ public class ScoreActivity extends BaseActivity {
         return true;
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.quit_button) {
+            moveTaskToBack(true);
+            finish();
+        } else if (v.getId() == R.id.start_again_button) {
+            Intent myIntent = new Intent(ScoreActivity.this,
+                    StartActivity.class);
+            startActivity(myIntent);
+            finish();
+        }
+    }
 }
