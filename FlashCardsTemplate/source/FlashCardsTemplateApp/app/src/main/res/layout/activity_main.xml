@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_shade_1"
+    android:orientation="vertical"
+    tools:context=".activities.MainActivity">
+
+
+    <include layout="@layout/toolbar_layout" />
+
+    <TextView
+        android:id="@+id/flashCardNumber"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_large"
+        android:gravity="right"
+        android:textColor="@color/text_color_medium_dark" />
+
+    <LinearLayout
+        android:id="@+id/flashcardfragmentcontainerlayurt"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpagerflash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_btnlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:padding="@dimen/margin_small">
+
+        <Button
+            android:id="@+id/pre_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Previous"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/flip_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Flip"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+
+</LinearLayout>
