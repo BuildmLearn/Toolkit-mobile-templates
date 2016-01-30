@@ -1,6 +1,5 @@
 package com.buildmlearn.flashcard.activities;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,9 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewTreeObserver;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.buildmlearn.flashcard.R;
@@ -29,9 +26,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     String flashCardanswer;
     TextView flashcardNumber;
 
-    LinearLayout fragmentContainer;
-    int heightOfFragmentContainer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,57 +37,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         flipButton = (Button) findViewById(R.id.flip_button);
         preButton = (Button) findViewById(R.id.pre_button);
         nextButton = (Button) findViewById(R.id.next_button);
-        fragmentContainer = (LinearLayout) findViewById(R.id.flashcardfragmentcontainerlayurt);
-
-        fragmentContainer.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @SuppressLint("NewApi")
-            @Override
-            public void onGlobalLayout() {
-                try {
-                    fragmentContainer.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                } catch (Exception e) {
-                    fragmentContainer.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                }
-            }
-        });
 
         gd = GlobalData.getInstance();
         gd.readXml(this, "flash_content.xml");
         populateQuestion(iQuestionIndex);
 
         flipButton.setOnClickListener(this);
-
-        preButton.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (iQuestionIndex != 0) {
-                    iQuestionIndex--;
-                    populateQuestion(iQuestionIndex);
-                }
-
-            }
-        });
-
-        nextButton.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                if (iQuestionIndex < gd.getModel().size() - 1) {
-                    iQuestionIndex++;
-                    populateQuestion(iQuestionIndex);
-
-                } else {
-                    Intent myIntent = new Intent(MainActivity.this,
-                            ScoreActivity.class);
-                    startActivity(myIntent);
-                    reInitialize();
-                    finish();
-                }
-
-            }
-        });
+        preButton.setOnClickListener(this);
+        nextButton.setOnClickListener(this);
     }
 
     public void populateQuestion(int index) {
@@ -142,6 +93,29 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.pre_button:
+                if (iQuestionIndex != 0) {
+                    iQuestionIndex--;
+                    populateQuestion(iQuestionIndex);
+                }
+                break;
+            case R.id.next_button:
+                if (iQuestionIndex < gd.getModel().size() - 1) {
+                    iQuestionIndex++;
+                    populateQuestion(iQuestionIndex);
 
+                } else {
+                    Intent myIntent = new Intent(MainActivity.this,
+                            ScoreActivity.class);
+                    startActivity(myIntent);
+                    reInitialize();
+                    finish();
+                }
+                break;
+            case R.id.flip_button:
+
+                break;
+        }
     }
 }

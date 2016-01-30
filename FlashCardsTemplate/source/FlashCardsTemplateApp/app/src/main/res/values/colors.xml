@@ -29,4 +29,6 @@
     <color name="orange_color_disabled">#ffb889</color>
 
     <color name="red_color">#e7192d</color>
+
+    <color name="transparent_black">#80000000</color>
 </resources>
