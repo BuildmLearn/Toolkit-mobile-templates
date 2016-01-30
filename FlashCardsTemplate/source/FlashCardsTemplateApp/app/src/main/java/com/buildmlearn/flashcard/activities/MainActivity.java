@@ -160,12 +160,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
                 text.setText(model.getQuestion());
 
-                if (model.getBase64() != null) {
+                if (model.getBase64() != null && !model.getBase64().equals("")) {
                     byte[] decodedString = Base64.decode(model.getBase64(),
                             Base64.DEFAULT);
                     Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString,
                             0, decodedString.length);
                     image.setImageBitmap(decodedByte);
+                } else {
+                    image.setImageResource(R.drawable.image_quiz);
                 }
             } else {
                 cardView = LayoutInflater.from(MainActivity.this).inflate(R.layout.answer_layout_flash_card, container, false);
