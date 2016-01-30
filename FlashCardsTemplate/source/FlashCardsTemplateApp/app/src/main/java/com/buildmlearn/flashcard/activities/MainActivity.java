@@ -4,15 +4,21 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Base64;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.buildmlearn.flashcard.R;
+import com.buildmlearn.flashcard.animation.FlipPageTransformer;
 import com.buildmlearn.flashcard.objects.FlashModel;
 import com.buildmlearn.flashcard.objects.GlobalData;
 
@@ -26,6 +32,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     String flashCardanswer;
     TextView flashcardNumber;
 
+    ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +45,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         flipButton = (Button) findViewById(R.id.flip_button);
         preButton = (Button) findViewById(R.id.pre_button);
         nextButton = (Button) findViewById(R.id.next_button);
+        viewPager = (ViewPager) findViewById(R.id.viewpagerflash);
+
+        viewPager.setPageTransformer(true, new FlipPageTransformer());
 
         gd = GlobalData.getInstance();
         gd.readXml(this, "flash_content.xml");
@@ -56,19 +67,13 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         int cardNum = index + 1;
         flashcardNumber.setText("Card #" + cardNum + " of " + gd.getTotalCards());
         FlashModel mFlash = gd.getModel().get(index);
-        if (mFlash.getQuestion() != null)
-            if (mFlash.getAnswer() != null) {
-                flashCardanswer = mFlash.getAnswer();
-            }
-        if (mFlash.getBase64() != null) {
-            byte[] decodedString = Base64.decode(mFlash.getBase64(),
-                    Base64.DEFAULT);
-            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString,
-                    0, decodedString.length);
-//            questionImage.setImageBitmap(decodedByte);
-        } else {
-//            questionText.setGravity(Gravity.CENTER_VERTICAL);
-        }
+
+        setAdapterData(mFlash);
+    }
+
+    private void setAdapterData(FlashModel mFlash) {
+        MyPagerAdapter adapter = new MyPagerAdapter(mFlash);
+        viewPager.setAdapter(adapter);
     }
 
     public void reInitialize() {
@@ -104,7 +109,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 if (iQuestionIndex < gd.getModel().size() - 1) {
                     iQuestionIndex++;
                     populateQuestion(iQuestionIndex);
-
                 } else {
                     Intent myIntent = new Intent(MainActivity.this,
                             ScoreActivity.class);
@@ -114,8 +118,64 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 }
                 break;
             case R.id.flip_button:
-
+                if (viewPager.getCurrentItem() == 0)
+                    viewPager.setCurrentItem(1, true);
+                else
+                    viewPager.setCurrentItem(0, true);
                 break;
+        }
+    }
+
+    class MyPagerAdapter extends PagerAdapter {
+
+        FlashModel model;
+
+        public MyPagerAdapter(FlashModel mFlash) {
+            this.model = mFlash;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            View cardView = null;
+
+            if (position == 0) {
+                cardView = LayoutInflater.from(MainActivity.this).inflate(R.layout.question_layout_flash_card, container, false);
+                ImageView image = (ImageView) cardView.findViewById(R.id.questionimage);
+                TextView text = (TextView) cardView.findViewById(R.id.questiontext);
+
+                text.setText(model.getQuestion());
+
+                if (model.getBase64() != null) {
+                    byte[] decodedString = Base64.decode(model.getBase64(),
+                            Base64.DEFAULT);
+                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString,
+                            0, decodedString.length);
+                    image.setImageBitmap(decodedByte);
+                }
+            } else {
+                cardView = LayoutInflater.from(MainActivity.this).inflate(R.layout.answer_layout_flash_card, container, false);
+                TextView text = (TextView) cardView.findViewById(R.id.answertext);
+
+                text.setText(model.getAnswer());
+            }
+
+            container.addView(cardView);
+            return cardView;
+        }
+
+        @Override
+        public int getCount() {
+            return 2;
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return object == view;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView((View) object);
         }
     }
 }
