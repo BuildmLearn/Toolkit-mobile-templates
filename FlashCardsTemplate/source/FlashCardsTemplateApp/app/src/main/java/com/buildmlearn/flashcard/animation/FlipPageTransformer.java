@@ -32,6 +32,8 @@ public class FlipPageTransformer implements ViewPager.PageTransformer {
     }
 
     private void setSize(View page, float position, float percentage) {
+        if (percentage < 0.8)
+            percentage = 0.8f;
         page.setScaleX((position != 0 && position != 1) ? percentage : 1);
         page.setScaleY((position != 0 && position != 1) ? percentage : 1);
     }

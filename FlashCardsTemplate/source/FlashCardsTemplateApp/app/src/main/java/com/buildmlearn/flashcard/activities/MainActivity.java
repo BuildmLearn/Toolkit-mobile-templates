@@ -13,14 +13,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.buildmlearn.flashcard.R;
 import com.buildmlearn.flashcard.animation.FlipPageTransformer;
 import com.buildmlearn.flashcard.objects.FlashModel;
 import com.buildmlearn.flashcard.objects.GlobalData;
+import com.buildmlearn.flashcard.widgets.FixedSpeedScroller;
+
+import java.lang.reflect.Field;
 
 public class MainActivity extends BaseActivity implements OnClickListener {
 
@@ -48,6 +53,16 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         viewPager = (ViewPager) findViewById(R.id.viewpagerflash);
 
         viewPager.setPageTransformer(true, new FlipPageTransformer());
+
+        try {
+            Field mScroller;
+            mScroller = ViewPager.class.getDeclaredField("mScroller");
+            mScroller.setAccessible(true);
+            FixedSpeedScroller scroller = new FixedSpeedScroller(this, new AccelerateDecelerateInterpolator());
+            mScroller.set(viewPager, scroller);
+        } catch (Exception e) {
+
+        }
 
         gd = GlobalData.getInstance();
         gd.readXml(this, "flash_content.xml");
@@ -158,6 +173,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
                 text.setText(model.getAnswer());
             }
+
+            int width = MainActivity.this.getResources().getDisplayMetrics().widthPixels - MainActivity.this.getResources().getDimensionPixelSize(R.dimen.material_button_height);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width, width);
+            cardView.findViewById(R.id.cardview).setLayoutParams(params);
 
             container.addView(cardView);
             return cardView;
