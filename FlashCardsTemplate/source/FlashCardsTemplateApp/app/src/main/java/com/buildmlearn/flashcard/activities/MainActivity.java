@@ -67,7 +67,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             FixedSpeedScroller scroller = new FixedSpeedScroller(this, new AccelerateDecelerateInterpolator());
             mScroller.set(viewPager, scroller);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
         gd = GlobalData.getInstance();
