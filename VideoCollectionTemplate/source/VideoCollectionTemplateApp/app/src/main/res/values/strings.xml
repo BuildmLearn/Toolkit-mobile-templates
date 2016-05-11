@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Video Collection</string>
+    <string name="main_title">Video Collection</string>
+    <string name="main_subtitle">Video Tutorial</string>
+    <string name="enter">ENTER</string>
+    <string name="by">by</string>
+    <string name="anupam" translatable="false">Anupam</string>
 </resources>
