@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.buildmlearn.videocollection.activities.SplashActivity">
+    tools:context=".activities.SplashActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -25,36 +25,40 @@
             android:scaleType="centerCrop"
             android:src="@drawable/logo_70" />
 
-        <org.buildmlearn.videocollection.views.TextViewFont
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/splash_text_margin"
+            android:fontFamily="sans-serif-light"
             android:gravity="center_horizontal"
             android:text="@string/main_title"
             android:textColor="@color/white_secondary_text"
             android:textSize="@dimen/headline_leading" />
 
-        <org.buildmlearn.videocollection.views.TextViewFont
+        <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:gravity="center_horizontal"
             android:text="@string/main_subtitle"
             android:textColor="@color/white_secondary_text"
             android:textSize="@dimen/title" />
 
-        <org.buildmlearn.videocollection.views.TextViewFont
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:gravity="center_horizontal"
             android:text="@string/by"
             android:textColor="@color/white_secondary_text"
             android:textSize="@dimen/title" />
 
-        <org.buildmlearn.videocollection.views.TextViewFont
+        <TextView
             android:id="@+id/author_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:gravity="center_horizontal"
             android:text="@string/anupam"
             android:textColor="@color/white_secondary_text"
