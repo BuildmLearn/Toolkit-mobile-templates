@@ -22,8 +22,8 @@
         android:background="@android:color/background_light"
         android:enabled="true"
         android:gravity="center"
-        android:paddingBottom="@dimen/thumb_paddingTop"
-        android:paddingTop="@dimen/thumb_paddingTop"
+        android:paddingBottom="@dimen/paddingTop"
+        android:paddingTop="@dimen/paddingTop"
         android:visibility="gone" />
 
 </FrameLayout>
