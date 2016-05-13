@@ -114,9 +114,9 @@ public class FetchXMLTask extends AsyncTask<String, Void, Void> {
                     Element element2 = (Element) child;
 
                     app.setTitle(getValue("video_title", element2));
-                    app.setDescription(getValue("item_description", element2));
-                    app.setDescription(getValue("video_link", element2));
-                    app.setDescription(getValue("video_thumb_link", element2));
+                    app.setDescription(getValue("video_description", element2));
+                    app.setLink(getValue("video_link", element2));
+                    app.setThumbnail_url(getValue("video_thumb_link", element2));
 
                 }
                 mList.add(app);
