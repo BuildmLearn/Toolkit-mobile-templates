@@ -8,7 +8,7 @@
         android:layout_width="@dimen/thumb_size"
         android:layout_height="@dimen/thumb_size"
         android:layout_centerVertical="true"
-        android:layout_margin="@dimen/paddingTop" />
+        android:layout_margin="@dimen/padding" />
 
     <TextView
         android:id="@+id/title"
@@ -17,9 +17,11 @@
         android:layout_alignTop="@+id/thumb"
         android:layout_toEndOf="@+id/thumb"
         android:layout_toRightOf="@+id/thumb"
-        android:lines="1"
-        android:padding="@dimen/padding"
+        android:maxLines="2"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding"
         android:text="Creative Art"
+        android:textSize="@dimen/title_size"
         android:textStyle="bold" />
 
     <TextView
@@ -29,7 +31,9 @@
         android:layout_below="@+id/title"
         android:layout_toEndOf="@+id/thumb"
         android:layout_toRightOf="@+id/thumb"
-        android:lines="3"
-        android:padding="@dimen/padding"
-        android:text="This is a long long videoDescription of some cool videoObject. Made only for BuildmLearn as a pat of GSoC Project." />
+        android:maxLines="3"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/paddingRight"
+        android:paddingTop="@dimen/paddingLittle"
+        android:text="This is a long long videoDescription of some cool vid. Made only for BuildmLearn as a pat of GSoC Project." />
 </RelativeLayout>
