@@ -11,6 +11,9 @@ import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import org.buildmlearn.videocollection.Constants;
@@ -89,6 +92,59 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
 
                 ((TextView) rootView.findViewById(R.id.description))
                         .setText(description);
+
+                WebView player = (WebView) rootView.findViewById(R.id.player);
+
+                player.setWebChromeClient(new WebChromeClient());
+                player.setWebViewClient(new WebViewClient());
+
+                player.getSettings().setJavaScriptEnabled(true);
+                player.getSettings().setAppCacheEnabled(true);
+                player.getSettings().setDomStorageEnabled(true);
+                player.getSettings().setAllowFileAccess(true);
+                player.getSettings().setLoadWithOverviewMode(true);
+                player.getSettings().setUseWideViewPort(true);
+
+                String link = data.getString(Constants.COL_LINK);
+                if (link.contains("youtube.com")) {
+
+                    int pos = link.indexOf("watch?v=");
+                    String videoId = link.substring(pos + 8);
+
+                    String playVideo = "<html><body>" +
+                            " <iframe class=\"player\" type=\"text/html\" width=\"1000\" height=\"850\" src=\"http://www.youtube.com/embed/" + videoId + "\">" +
+                            "</body></html>";
+
+                    player.loadData(playVideo, "text/html", "utf-8");
+
+                } else if (link.contains("vimeo.com")) {
+                    int pos;
+
+                    if (link.contains("/")) {
+                        pos = link.lastIndexOf("/");
+                    } else {
+                        pos = link.lastIndexOf("\\");
+                    }
+                    String videoId = link.substring(pos + 1);
+
+                    player.loadUrl("http://player.vimeo.com/video/" + videoId + "?player_id=player&autoplay=1&title=0&byline=0&portrait=0&api=1&maxheight=480&maxwidth=800");
+
+                } else if (link.contains("dailymotion.com")) {
+                    int pos;
+
+                    if (link.contains("/")) {
+                        pos = link.lastIndexOf("/");
+                    } else {
+                        pos = link.lastIndexOf("\\");
+                    }
+                    String videoId = link.substring(pos + 1);
+
+                    String playVideo = "<html><body>" +
+                            " <iframe class=\"player\" type=\"text/html\" width=\"1000\" height=\"850\" src=\"http://www.dailymotion.com/embed/video/" + videoId + "\">" +
+                            "</body></html>";
+
+                    player.loadData(playVideo, "text/html", "utf-8");
+                }
 
                 if (videoValues.size() == 0) {
                     videoValues.put(VideoContract.Videos._ID, data.getString(Constants.COL_ID));

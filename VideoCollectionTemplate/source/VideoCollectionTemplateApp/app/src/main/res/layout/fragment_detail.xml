@@ -1,51 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
     tools:context=".fragment.DetailActivityFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/titleLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/thumb"
-        android:layout_marginLeft="@dimen/paddingTop"
-        android:paddingBottom="@dimen/padding"
-        android:paddingTop="@dimen/paddingTop"
-        android:text="Title : "
-        android:textStyle="bold" />
+        <WebView
+            android:id="@+id/player"
+            android:layout_width="match_parent"
+            android:layout_height="320dp" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/titleLabel"
-        android:layout_alignLeft="@+id/description"
-        android:paddingBottom="@dimen/padding"
-        android:paddingRight="@dimen/paddingTop"
-        android:text="Creative Arts" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player"
+            android:layout_marginLeft="@dimen/paddingTop"
+            android:layout_marginRight="@dimen/paddingTop"
+            android:layout_marginTop="@dimen/splash_text_margin"
+            android:text="Creative Arts"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/descriptionLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titleLabel"
-        android:layout_marginLeft="@dimen/paddingTop"
-        android:paddingBottom="@dimen/padding"
-        android:paddingTop="@dimen/paddingTop"
-        android:text="Description : "
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/descriptionLabel"
-        android:layout_marginLeft="@dimen/paddingTop"
-        android:layout_toRightOf="@+id/descriptionLabel"
-        android:paddingBottom="@dimen/padding"
-        android:paddingRight="@dimen/paddingTop"
-        android:text="This is a long long videoDescription of some cool videoObject. Made only for BuildmLearn as a pat of GSoC Project." />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_margin="@dimen/paddingTop"
+            android:text="This is a long long videoDescription of some cool videoObject. Made only for BuildmLearn as a pat of GSoC Project." />
+    </RelativeLayout>
+</ScrollView>

@@ -8,6 +8,7 @@
     <dimen name="thumb_size">100dp</dimen>
     <dimen name="padding">8dp</dimen>
     <dimen name="paddingTop">16dp</dimen>
+    <dimen name="paddingRight">5dp</dimen>
     <dimen name="cardview_body_text_size">14sp</dimen>
     <dimen name="sub_title">16sp</dimen>
 </resources>
