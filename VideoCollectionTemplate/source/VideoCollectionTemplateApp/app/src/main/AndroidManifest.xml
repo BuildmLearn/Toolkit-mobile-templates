@@ -22,12 +22,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.MainActivity" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:theme="@style/AppThemeNoActionBar" />
 
         <activity
             android:name=".activities.DetailActivity"
-            android:configChanges="orientation|screenSize"
-            android:parentActivityName=".activities.MainActivity"></activity>
+            android:configChanges="orientation|screenSize" />
 
         <provider
             android:name=".data.VideoProvider"
