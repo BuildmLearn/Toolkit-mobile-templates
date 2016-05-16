@@ -7,7 +7,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import org.buildmlearn.videocollection.Constants;
 import org.buildmlearn.videocollection.R;
 import org.buildmlearn.videocollection.adapter.VideoArrayAdapter;
+import org.buildmlearn.videocollection.data.DataUtils;
 import org.buildmlearn.videocollection.data.VideoContract;
 import org.buildmlearn.videocollection.data.VideoModel;
 
@@ -68,6 +71,22 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
                         getActivity(), null, 0);
 
         rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.card_toolbar);
+        toolbar.setTitle("List of Videos :");
+
+        Toolbar maintoolbar = (Toolbar) rootView.findViewById(R.id.toolbar_main);
+        final String result[] = DataUtils.read_Title_Author(getContext(), Constants.XMLFileName);
+        maintoolbar.setTitle(result[0]);
+        if (toolbar != null) {
+            maintoolbar.inflateMenu(R.menu.menu_main);
+            maintoolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem menuItem) {
+                    return true;
+                }
+            });
+        }
 
         listView = (ListView) rootView.findViewById(R.id.list_view_video);
         listView.setAdapter(videoListAdapter);

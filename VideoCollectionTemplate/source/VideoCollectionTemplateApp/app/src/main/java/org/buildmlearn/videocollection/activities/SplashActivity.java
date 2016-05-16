@@ -31,8 +31,7 @@ public class SplashActivity extends Activity {
         findViewById(R.id.enter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mActivity, MainActivity.class)
-                        .putExtra(Intent.EXTRA_TEXT, result[0]);
+                Intent intent = new Intent(mActivity, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

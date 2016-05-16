@@ -16,6 +16,6 @@
     <dimen name="medium_margin">15dp</dimen>
     <dimen name="negative_margin">-35dp</dimen>
     <dimen name="toolbar_height_small">75dp</dimen>
-    <dimen name="title_size">15sp</dimen>
+    <dimen name="title_size">16sp</dimen>
 
 </resources>

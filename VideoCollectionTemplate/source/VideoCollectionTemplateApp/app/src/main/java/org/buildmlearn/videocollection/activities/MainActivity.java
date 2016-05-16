@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import org.buildmlearn.videocollection.Constants;
 import org.buildmlearn.videocollection.R;
@@ -23,12 +21,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Bundle extras = getIntent().getExtras();
-        String title;
-        if (extras != null) {
-            title = extras.getString(Intent.EXTRA_TEXT);
-            setTitle(title);
-        }
         prefs = getSharedPreferences("firstRun", MODE_PRIVATE);
 
     }
@@ -42,22 +34,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
             xmlTask.execute(Constants.XMLFileName);
             prefs.edit().putBoolean("firstrun", false).apply();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_about) {
-            //TODO: about dialog
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
