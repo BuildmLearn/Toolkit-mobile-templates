@@ -33,7 +33,7 @@ public class DetailActivity extends AppCompatActivity {
             videoId = extras.getString(Intent.EXTRA_TEXT);
         }
 
-        if (!NetworkUtils.isNetworkAvailable(this)) {
+        if (NetworkUtils.isNetworkAvailable(this)) {
             Toast.makeText(this, R.string.network_unavailable, Toast.LENGTH_SHORT).show();
         }
         if (savedInstanceState == null) {
@@ -68,7 +68,7 @@ public class DetailActivity extends AppCompatActivity {
                         new AlertDialog.Builder(this);
                 builder.setTitle(String.format("%1$s", getString(R.string.about_us)));
                 builder.setMessage(getResources().getText(R.string.about_text));
-                builder.setPositiveButton("OK", null);
+                builder.setPositiveButton(getString(R.string.ok), null);
                 AlertDialog welcomeAlert = builder.create();
                 welcomeAlert.show();
                 ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());

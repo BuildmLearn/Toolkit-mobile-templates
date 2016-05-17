@@ -14,4 +14,9 @@
     <string name="about_us">About Us</string>
     <string name="about_text">This application has been developed using the BuildmLearn Toolkit.\n\nTo know more about BuildmLearn Toolkit visit <a href="https://buildmlearn.org/">here</a>.</string>
     <string name="network_unavailable">Network is Unavailable! Please connect to network!</string>
+    <string name="ok">OK</string>
+    <string name="video_thumbnail">Video Thumbnail</string>
+    <string name="background_image">Background Image</string>
+    <string name="buildmlearn_logo">BuildmLearn Logo</string>
+    <string name="last_video">That was the last Video!</string>
 </resources>

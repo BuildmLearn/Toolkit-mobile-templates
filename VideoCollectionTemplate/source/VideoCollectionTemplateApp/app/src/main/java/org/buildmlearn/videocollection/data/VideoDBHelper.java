@@ -10,9 +10,9 @@ import org.buildmlearn.videocollection.data.VideoContract.Videos;
  * Created by Anupam (opticod) on 13/5/16.
  */
 
-public class VideoDBHelper extends SQLiteOpenHelper {
+class VideoDBHelper extends SQLiteOpenHelper {
 
-    static final String DATABASE_NAME = "video.db";
+    private static final String DATABASE_NAME = "video.db";
     private static final int DATABASE_VERSION = 1;
 
     public VideoDBHelper(Context context) {

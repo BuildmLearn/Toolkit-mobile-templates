@@ -13,10 +13,11 @@ public class Constants {
             VideoContract.Videos.LINK,
             VideoContract.Videos.THUMBNAIL_URL
     };
-    public static String XMLFileName = "video_content.xml";
-    public static int COL_ID = 0;
-    public static int COL_TITLE = 1;
-    public static int COL_DESCRIPTION = 2;
-    public static int COL_LINK = 3;
-    public static int COL_THUMBNAIL_URL = 4;
+    public static final String XMLFileName = "video_content.xml";
+    public static final int COL_ID = 0;
+    public static final int COL_TITLE = 1;
+    public static final int COL_DESCRIPTION = 2;
+    public static final int COL_LINK = 3;
+    public static final int COL_THUMBNAIL_URL = 4;
+    public static final String firstrun = "firstRun";
 }

@@ -24,8 +24,6 @@ import javax.xml.parsers.ParserConfigurationException;
  */
 public class FetchXMLTask extends AsyncTask<String, Void, Void> {
 
-    private final String LOG_TAG = FetchXMLTask.class.getSimpleName();
-
     private final Context mContext;
 
     public FetchXMLTask(Context context) {
@@ -49,7 +47,7 @@ public class FetchXMLTask extends AsyncTask<String, Void, Void> {
 
     private void saveVideoData(ArrayList<VideoModel> videos) {
 
-        Vector<ContentValues> cVVector = new Vector<ContentValues>(videos.size());
+        Vector<ContentValues> cVVector = new Vector<>(videos.size());
 
         for (int i = 0; i < videos.size(); i++) {
 
@@ -98,7 +96,7 @@ public class FetchXMLTask extends AsyncTask<String, Void, Void> {
         DocumentBuilder db;
         Document doc;
         try {
-            mList = new ArrayList<VideoModel>();
+            mList = new ArrayList<>();
             db = dbf.newDocumentBuilder();
             doc = db.parse(mContext.getAssets().open(fileName));
             doc.normalize();

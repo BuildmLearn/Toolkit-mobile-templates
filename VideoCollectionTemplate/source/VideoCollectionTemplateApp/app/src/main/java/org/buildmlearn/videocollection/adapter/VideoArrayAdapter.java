@@ -22,8 +22,8 @@ import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
  */
 public class VideoArrayAdapter extends CursorAdapter {
 
-    public VideoArrayAdapter(Context context, Cursor c, int flags) {
-        super(context, c, flags);
+    public VideoArrayAdapter(Context context, int flags) {
+        super(context, null, flags);
     }
 
     @Override
@@ -86,9 +86,9 @@ public class VideoArrayAdapter extends CursorAdapter {
 
     public static class ViewHolder {
 
-        public ImageView thumb;
-        public TextView title;
-        public TextView description;
+        public final ImageView thumb;
+        public final TextView title;
+        public final TextView description;
 
         public ViewHolder(View view) {
             thumb = (ImageView) view.findViewById(R.id.thumb);

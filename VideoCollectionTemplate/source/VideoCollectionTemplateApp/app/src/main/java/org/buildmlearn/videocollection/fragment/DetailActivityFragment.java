@@ -28,10 +28,8 @@ import org.buildmlearn.videocollection.data.VideoContract;
  */
 public class DetailActivityFragment extends Fragment implements LoaderCallbacks<Cursor> {
 
-    private static final String LOG_TAG = DetailActivityFragment.class.getSimpleName();
-
     private static final int DETAIL_LOADER = 0;
-    private ContentValues videoValues;
+    private final ContentValues videoValues;
 
     private View rootView;
     private String video_Id;
@@ -157,6 +155,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
 
                         Cursor cur = getActivity().getContentResolver().query(movie, null, null, null, null);
                         int numColumns = cur != null ? cur.getCount() : 0;
+                        assert cur != null;
                         cur.close();
 
                         int nextVideoId = Integer.parseInt(video_Id) + 1;
@@ -180,6 +179,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                         Uri movie = VideoContract.Videos.buildVideoUri();
 
                         Cursor cur = getActivity().getContentResolver().query(movie, null, null, null, null);
+                        assert cur != null;
                         cur.close();
 
                         int prevVideoId = Integer.parseInt(video_Id) - 1;

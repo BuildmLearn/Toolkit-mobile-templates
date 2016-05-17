@@ -1,7 +1,6 @@
 package org.buildmlearn.videocollection.data;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -37,17 +36,11 @@ public class DataUtils {
             result[1] = doc.getElementsByTagName("name").item(0).getChildNodes()
                     .item(0).getNodeValue();
 
-        } catch (ParserConfigurationException e) {
-            Log.e("tag", e.getLocalizedMessage());
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            Log.e("tag", e.getLocalizedMessage());
+        } catch (ParserConfigurationException | FileNotFoundException e) {
             e.printStackTrace();
         } catch (SAXException e) {
-            Log.e("tag", e.getLocalizedMessage());
             e.printStackTrace();
         } catch (IOException e) {
-            Log.e("tag", e.getLocalizedMessage());
             e.printStackTrace();
         }
         return result;

@@ -17,15 +17,15 @@ import org.buildmlearn.videocollection.fragment.MainActivityFragment;
  */
 public class MainActivity extends AppCompatActivity implements MainActivityFragment.Callback {
 
-    SharedPreferences prefs = null;
+    private SharedPreferences prefs = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        prefs = getSharedPreferences("firstRun", MODE_PRIVATE);
+        prefs = getSharedPreferences(Constants.firstrun, MODE_PRIVATE);
 
-        if (!NetworkUtils.isNetworkAvailable(this)) {
+        if (NetworkUtils.isNetworkAvailable(this)) {
             Toast.makeText(this, R.string.network_unavailable, Toast.LENGTH_SHORT).show();
         }
 
@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
     protected void onResume() {
         super.onResume();
 
-        if (prefs.getBoolean("firstrun", true)) {
+        if (prefs.getBoolean(Constants.firstrun, true)) {
             FetchXMLTask xmlTask = new FetchXMLTask(this);
             xmlTask.execute(Constants.XMLFileName);
-            prefs.edit().putBoolean("firstrun", false).apply();
+            prefs.edit().putBoolean(Constants.firstrun, false).apply();
         }
     }
 

@@ -70,7 +70,7 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
 
         videoListAdapter =
                 new VideoArrayAdapter(
-                        getActivity(), null, 0);
+                        getActivity(), 0);
 
         rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
@@ -80,27 +80,25 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
         Toolbar maintoolbar = (Toolbar) rootView.findViewById(R.id.toolbar_main);
         final String result[] = DataUtils.read_Title_Author(getContext(), Constants.XMLFileName);
         maintoolbar.setTitle(result[0]);
-        if (toolbar != null) {
-            maintoolbar.inflateMenu(R.menu.menu_main);
-            maintoolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem menuItem) {
-                    switch (menuItem.getItemId()) {
-                        case R.id.action_about:
-                            AlertDialog.Builder builder =
-                                    new AlertDialog.Builder(getActivity());
-                            builder.setTitle(String.format("%1$s", getString(R.string.about_us)));
-                            builder.setMessage(getResources().getText(R.string.about_text));
-                            builder.setPositiveButton("OK", null);
-                            AlertDialog welcomeAlert = builder.create();
-                            welcomeAlert.show();
-                            ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
-                            break;
-                    }
-                    return true;
+        maintoolbar.inflateMenu(R.menu.menu_main);
+        maintoolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.action_about:
+                        AlertDialog.Builder builder =
+                                new AlertDialog.Builder(getActivity());
+                        builder.setTitle(String.format("%1$s", getString(R.string.about_us)));
+                        builder.setMessage(getResources().getText(R.string.about_text));
+                        builder.setPositiveButton("OK", null);
+                        AlertDialog welcomeAlert = builder.create();
+                        welcomeAlert.show();
+                        ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
+                        break;
                 }
-            });
-        }
+                return true;
+            }
+        });
 
         listView = (ListView) rootView.findViewById(R.id.list_view_video);
         listView.setAdapter(videoListAdapter);
@@ -158,7 +156,7 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
             } else {
                 info.setVisibility(View.GONE);
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 
