@@ -34,5 +34,26 @@
             android:layout_below="@+id/title"
             android:layout_margin="@dimen/paddingTop"
             android:text="This is a long long videoDescription of some cool videoObject. Made only for BuildmLearn as a pat of GSoC Project." />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/description"
+            android:background="@android:color/transparent"
+            android:text="@string/next"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description"
+            android:layout_toLeftOf="@+id/next"
+            android:background="@android:color/transparent"
+            android:text="@string/previous"
+            android:textColor="@color/black_secondary_text" />
     </RelativeLayout>
 </ScrollView>

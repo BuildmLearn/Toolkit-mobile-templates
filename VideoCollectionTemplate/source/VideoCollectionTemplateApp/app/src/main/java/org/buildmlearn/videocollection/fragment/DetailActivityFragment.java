@@ -3,6 +3,7 @@ package org.buildmlearn.videocollection.fragment;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import org.buildmlearn.videocollection.Constants;
 import org.buildmlearn.videocollection.R;
+import org.buildmlearn.videocollection.activities.DetailActivity;
 import org.buildmlearn.videocollection.data.VideoContract;
 
 /**
@@ -64,7 +66,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
 
                     return new CursorLoader(
                             getActivity(),
-                            VideoContract.Videos.buildMoviesUriWithMovieId(video_Id),
+                            VideoContract.Videos.buildVideosUriWithVideoId(video_Id),
                             Constants.VIDEO_COLUMNS,
                             null,
                             null,
@@ -146,6 +148,45 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                     player.loadData(playVideo, "text/html", "utf-8");
                 }
 
+                rootView.findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Uri movie = VideoContract.Videos.buildVideoUri();
+
+                        Cursor cur = getActivity().getContentResolver().query(movie, null, null, null, null);
+                        int numColumns = cur != null ? cur.getCount() : 0;
+                        cur.close();
+
+                        int nextVideoId = Integer.parseInt(video_Id) + 1;
+
+                        if (nextVideoId <= numColumns) {
+                            Intent intent = new Intent(getActivity(), DetailActivity.class)
+                                    .setType("text/plain")
+                                    .putExtra(Intent.EXTRA_TEXT, String.valueOf(nextVideoId));
+                            startActivity(intent);
+                        }
+                    }
+                });
+                rootView.findViewById(R.id.previous).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Uri movie = VideoContract.Videos.buildVideoUri();
+
+                        Cursor cur = getActivity().getContentResolver().query(movie, null, null, null, null);
+                        cur.close();
+
+                        int prevVideoId = Integer.parseInt(video_Id) - 1;
+
+                        if (prevVideoId >= 1) {
+                            Intent intent = new Intent(getActivity(), DetailActivity.class)
+                                    .setType("text/plain")
+                                    .putExtra(Intent.EXTRA_TEXT, String.valueOf(prevVideoId));
+                            startActivity(intent);
+                        }
+                    }
+                });
                 if (videoValues.size() == 0) {
                     videoValues.put(VideoContract.Videos._ID, data.getString(Constants.COL_ID));
                     videoValues.put(VideoContract.Videos.TITLE, data.getString(Constants.COL_TITLE));

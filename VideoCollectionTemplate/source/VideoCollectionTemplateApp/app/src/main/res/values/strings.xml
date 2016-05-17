@@ -7,4 +7,6 @@
     <string name="anupam" translatable="false">Anupam</string>
     <string name="title_activity_about">About</string>
     <string name="list_empty">List is Empty!</string>
+    <string name="previous">PREVIOUS</string>
+    <string name="next">NEXT</string>
 </resources>

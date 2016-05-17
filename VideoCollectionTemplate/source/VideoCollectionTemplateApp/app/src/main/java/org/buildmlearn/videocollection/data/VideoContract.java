@@ -39,7 +39,7 @@ public class VideoContract {
         }
 
         //content://org....../videos/videoId
-        public static Uri buildMoviesUriWithMovieId(String videoId) {
+        public static Uri buildVideosUriWithVideoId(String videoId) {
             return CONTENT_URI.buildUpon().appendPath(videoId).build();
         }
 
