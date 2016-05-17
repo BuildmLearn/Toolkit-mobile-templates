@@ -7,7 +7,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -83,6 +85,18 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
             maintoolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem menuItem) {
+                    switch (menuItem.getItemId()) {
+                        case R.id.action_about:
+                            AlertDialog.Builder builder =
+                                    new AlertDialog.Builder(getActivity());
+                            builder.setTitle(String.format("%1$s", getString(R.string.about_us)));
+                            builder.setMessage(getResources().getText(R.string.about_text));
+                            builder.setPositiveButton("OK", null);
+                            AlertDialog welcomeAlert = builder.create();
+                            welcomeAlert.show();
+                            ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
+                            break;
+                    }
                     return true;
                 }
             });
