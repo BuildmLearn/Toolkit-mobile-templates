@@ -9,4 +9,6 @@
     <string name="list_empty">List is Empty!</string>
     <string name="previous">PREVIOUS</string>
     <string name="next">NEXT</string>
+    <string name="exit">EXIT</string>
+    <string name="restart">RESTART</string>
 </resources>
