@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import org.buildmlearn.videocollection.Constants;
+import org.buildmlearn.videocollection.NetworkUtils;
 import org.buildmlearn.videocollection.R;
 import org.buildmlearn.videocollection.data.FetchXMLTask;
 import org.buildmlearn.videocollection.fragment.MainActivityFragment;
@@ -22,6 +24,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         prefs = getSharedPreferences("firstRun", MODE_PRIVATE);
+
+        if (!NetworkUtils.isNetworkAvailable(this)) {
+            Toast.makeText(this, R.string.network_unavailable, Toast.LENGTH_SHORT).show();
+        }
 
     }
 

@@ -13,4 +13,5 @@
     <string name="restart">RESTART</string>
     <string name="about_us">About Us</string>
     <string name="about_text">This application has been developed using the BuildmLearn Toolkit.\n\nTo know more about BuildmLearn Toolkit visit <a href="https://buildmlearn.org/">here</a>.</string>
+    <string name="network_unavailable">Network is Unavailable! Please connect to network!</string>
 </resources>
