@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/BuildmLearn/Toolkit-mobile-templates.svg)](https://travis-ci.org/BuildmLearn/Toolkit-mobile-templates)
+
 Tookit-template-apps
 --------------------
 
