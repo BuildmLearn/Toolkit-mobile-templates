@@ -32,6 +32,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
     private final ContentValues videoValues;
 
     private View rootView;
+    private WebView player;
     private String video_Id;
 
     public DetailActivityFragment() {
@@ -94,7 +95,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                 ((TextView) rootView.findViewById(R.id.description))
                         .setText(description);
 
-                WebView player = (WebView) rootView.findViewById(R.id.player);
+                player = (WebView) rootView.findViewById(R.id.player);
 
                 player.setWebChromeClient(new WebChromeClient());
                 player.setWebViewClient(new WebViewClient());
@@ -207,5 +208,21 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (player != null) {
+            player.onPause();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (player != null) {
+            player.onResume();
+        }
     }
 }
