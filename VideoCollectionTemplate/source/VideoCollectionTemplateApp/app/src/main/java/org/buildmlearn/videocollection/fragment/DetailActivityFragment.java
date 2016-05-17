@@ -20,6 +20,7 @@ import android.widget.TextView;
 import org.buildmlearn.videocollection.Constants;
 import org.buildmlearn.videocollection.R;
 import org.buildmlearn.videocollection.activities.DetailActivity;
+import org.buildmlearn.videocollection.activities.LastActivity;
 import org.buildmlearn.videocollection.data.VideoContract;
 
 /**
@@ -164,6 +165,10 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                             Intent intent = new Intent(getActivity(), DetailActivity.class)
                                     .setType("text/plain")
                                     .putExtra(Intent.EXTRA_TEXT, String.valueOf(nextVideoId));
+                            startActivity(intent);
+                        } else {
+                            Intent intent = new Intent(getActivity(), LastActivity.class)
+                                    .setType("text/plain");
                             startActivity(intent);
                         }
                     }

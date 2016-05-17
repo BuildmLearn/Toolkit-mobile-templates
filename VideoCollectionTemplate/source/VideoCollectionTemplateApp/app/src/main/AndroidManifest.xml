@@ -29,6 +29,10 @@
         <activity
             android:name=".activities.DetailActivity"
             android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activities.LastActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme" />
 
         <provider
             android:name=".data.VideoProvider"
