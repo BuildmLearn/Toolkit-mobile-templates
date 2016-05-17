@@ -19,6 +19,9 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home_white_24dp);
+
         Bundle extras = getIntent().getExtras();
         String videoId = null;
         if (extras != null) {
@@ -44,7 +47,13 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                Intent homeIntent = new Intent(this, MainActivity.class);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeIntent);
+        }
+        return (super.onOptionsItemSelected(menuItem));
     }
 }

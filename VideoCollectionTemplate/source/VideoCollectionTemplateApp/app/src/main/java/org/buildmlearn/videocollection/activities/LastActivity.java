@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 
 import org.buildmlearn.videocollection.R;
@@ -18,6 +19,8 @@ public class LastActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_last);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home_white_24dp);
 
         final Activity activity = this;
 
@@ -45,6 +48,16 @@ public class LastActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                Intent homeIntent = new Intent(this, MainActivity.class);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeIntent);
+        }
+        return (super.onOptionsItemSelected(menuItem));
     }
 }
