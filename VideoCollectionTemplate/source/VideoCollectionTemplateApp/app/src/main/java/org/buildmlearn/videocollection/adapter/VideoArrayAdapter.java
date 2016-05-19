@@ -22,8 +22,8 @@ import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
  */
 public class VideoArrayAdapter extends CursorAdapter {
 
-    public VideoArrayAdapter(Context context, int flags) {
-        super(context, null, flags);
+    public VideoArrayAdapter(Context context) {
+        super(context, null, 0);
     }
 
     @Override

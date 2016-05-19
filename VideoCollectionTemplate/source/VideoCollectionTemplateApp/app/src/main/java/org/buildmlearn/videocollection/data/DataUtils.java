@@ -17,7 +17,7 @@ import javax.xml.parsers.ParserConfigurationException;
  */
 public class DataUtils {
 
-    public static String[] read_Title_Author(Context myContext, String fileName) {
+    public static String[] read_Title_Author(Context myContext) {
         String result[] = new String[2];
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
@@ -27,7 +27,7 @@ public class DataUtils {
         Document doc;
         try {
             db = dbf.newDocumentBuilder();
-            doc = db.parse(myContext.getAssets().open(fileName));
+            doc = db.parse(myContext.getAssets().open(org.buildmlearn.videocollection.Constants.XMLFileName));
             doc.normalize();
 
             result[0] = doc.getElementsByTagName("title").item(0).getChildNodes()
@@ -36,9 +36,7 @@ public class DataUtils {
             result[1] = doc.getElementsByTagName("name").item(0).getChildNodes()
                     .item(0).getNodeValue();
 
-        } catch (ParserConfigurationException | FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
+        } catch (ParserConfigurationException | FileNotFoundException | SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

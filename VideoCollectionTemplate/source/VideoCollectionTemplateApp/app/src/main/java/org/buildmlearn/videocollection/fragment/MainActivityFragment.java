@@ -1,7 +1,6 @@
 package org.buildmlearn.videocollection.fragment;
 
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -23,6 +22,7 @@ import org.buildmlearn.videocollection.R;
 import org.buildmlearn.videocollection.adapter.VideoArrayAdapter;
 import org.buildmlearn.videocollection.data.DataUtils;
 import org.buildmlearn.videocollection.data.VideoContract;
+import org.buildmlearn.videocollection.data.VideoDb;
 import org.buildmlearn.videocollection.data.VideoModel;
 
 import java.util.ArrayList;
@@ -40,6 +40,7 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
     private ListView listView;
     private ArrayList<VideoModel> videoList;
     private View rootView;
+    private VideoDb db;
 
     public MainActivityFragment() {
 
@@ -70,7 +71,7 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
 
         videoListAdapter =
                 new VideoArrayAdapter(
-                        getActivity(), 0);
+                        getActivity());
 
         rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
@@ -78,7 +79,7 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
         toolbar.setTitle("List of Videos :");
 
         Toolbar maintoolbar = (Toolbar) rootView.findViewById(R.id.toolbar_main);
-        final String result[] = DataUtils.read_Title_Author(getContext(), Constants.XMLFileName);
+        final String result[] = DataUtils.read_Title_Author(getContext());
         maintoolbar.setTitle(result[0]);
         maintoolbar.inflateMenu(R.menu.menu_main);
         maintoolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -93,6 +94,7 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
                         builder.setPositiveButton("OK", null);
                         AlertDialog welcomeAlert = builder.create();
                         welcomeAlert.show();
+                        assert ((TextView) welcomeAlert.findViewById(android.R.id.message)) != null;
                         ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
                         break;
                 }
@@ -116,6 +118,8 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
             }
         });
 
+        db = new VideoDb(getContext());
+
         if (savedInstanceState != null && savedInstanceState.containsKey(SELECTED_KEY)) {
             mPosition = savedInstanceState.getInt(SELECTED_KEY);
         }
@@ -132,14 +136,14 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
 
         String sortOrder = VideoContract.Videos._ID + " ASC";
-        Uri movie = VideoContract.Videos.buildVideoUri();
 
-        return new CursorLoader(getActivity(),
-                movie,
-                Constants.VIDEO_COLUMNS,
-                null,
-                null,
-                sortOrder);
+        return new CursorLoader(getActivity(), null, Constants.VIDEO_COLUMNS, null, null, sortOrder) {
+            @Override
+            public Cursor loadInBackground() {
+                db.open();
+                return db.getVideosCursor();
+            }
+        };
     }
 
     @Override
@@ -158,6 +162,7 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
             }
         } catch (Exception ignored) {
         }
+        db.close();
     }
 
     @Override

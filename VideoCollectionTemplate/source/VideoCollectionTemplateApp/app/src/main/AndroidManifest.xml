@@ -33,11 +33,9 @@
         <activity
             android:name=".activities.LastActivity"
             android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
-        <provider
-            android:name=".data.VideoProvider"
-            android:authorities="org.buildmlearn.videocollection" />
     </application>
 
 </manifest>

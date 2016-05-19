@@ -76,7 +76,10 @@ public class FetchXMLTask extends AsyncTask<String, Void, Void> {
         if (cVVector.size() > 0) {
             ContentValues[] cvArray = new ContentValues[cVVector.size()];
             cVVector.toArray(cvArray);
-            mContext.getContentResolver().bulkInsert(VideoContract.Videos.CONTENT_URI, cvArray);
+            VideoDb db = new VideoDb(mContext);
+            db.open();
+            db.bulkInsert(cvArray);
+            db.close();
         }
     }
 
@@ -87,7 +90,7 @@ public class FetchXMLTask extends AsyncTask<String, Void, Void> {
             return null;
         }
         String fileName = params[0];
-        ArrayList<VideoModel> mList = null;
+        ArrayList<VideoModel> mList;
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 

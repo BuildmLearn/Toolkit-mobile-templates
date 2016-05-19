@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import org.buildmlearn.videocollection.Constants;
 import org.buildmlearn.videocollection.R;
 import org.buildmlearn.videocollection.data.DataUtils;
 
@@ -21,7 +20,7 @@ public class SplashActivity extends Activity {
         final Activity mActivity = this;
         setContentView(R.layout.activity_splash);
 
-        final String result[] = DataUtils.read_Title_Author(this, Constants.XMLFileName);
+        final String result[] = DataUtils.read_Title_Author(this);
         TextView title = (TextView) findViewById(R.id.title);
         TextView author_name = (TextView) findViewById(R.id.author_name);
 

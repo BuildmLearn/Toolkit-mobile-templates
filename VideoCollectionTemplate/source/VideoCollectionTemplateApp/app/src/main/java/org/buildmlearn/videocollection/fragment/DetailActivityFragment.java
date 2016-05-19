@@ -3,7 +3,6 @@ package org.buildmlearn.videocollection.fragment;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
@@ -22,6 +21,7 @@ import org.buildmlearn.videocollection.R;
 import org.buildmlearn.videocollection.activities.DetailActivity;
 import org.buildmlearn.videocollection.activities.LastActivity;
 import org.buildmlearn.videocollection.data.VideoContract;
+import org.buildmlearn.videocollection.data.VideoDb;
 
 /**
  * Created by Anupam (opticod) on 13/5/16.
@@ -34,6 +34,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
     private View rootView;
     private WebView player;
     private String video_Id;
+    private VideoDb db;
 
     public DetailActivityFragment() {
         setHasOptionsMenu(true);
@@ -48,6 +49,8 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
             video_Id = arguments.getString(Intent.EXTRA_TEXT);
         }
         rootView = inflater.inflate(R.layout.fragment_detail, container, false);
+
+        db = new VideoDb(getContext());
 
         return rootView;
     }
@@ -64,15 +67,13 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
             switch (id) {
                 case DETAIL_LOADER:
 
-                    return new CursorLoader(
-                            getActivity(),
-                            VideoContract.Videos.buildVideosUriWithVideoId(video_Id),
-                            Constants.VIDEO_COLUMNS,
-                            null,
-                            null,
-                            null
-                    );
-
+                    return new CursorLoader(getActivity(), null, Constants.VIDEO_COLUMNS, null, null, null) {
+                        @Override
+                        public Cursor loadInBackground() {
+                            db.open();
+                            return db.getVideoCursorById(Integer.parseInt(video_Id));
+                        }
+                    };
             }
         }
         return null;
@@ -152,14 +153,13 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                     @Override
                     public void onClick(View v) {
 
-                        Uri movie = VideoContract.Videos.buildVideoUri();
+                        if (!db.isOpen()) {
+                            db.open();
+                        }
 
-                        Cursor cur = getActivity().getContentResolver().query(movie, null, null, null, null);
-                        int numColumns = cur != null ? cur.getCount() : 0;
-                        assert cur != null;
-                        cur.close();
+                        long numColumns = db.getCount();
 
-                        int nextVideoId = Integer.parseInt(video_Id) + 1;
+                        long nextVideoId = Integer.parseInt(video_Id) + 1;
 
                         if (nextVideoId <= numColumns) {
                             Intent intent = new Intent(getActivity(), DetailActivity.class)
@@ -173,26 +173,29 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                         }
                     }
                 });
-                rootView.findViewById(R.id.previous).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
 
-                        Uri movie = VideoContract.Videos.buildVideoUri();
+                if (Integer.parseInt(video_Id) == 1) {
 
-                        Cursor cur = getActivity().getContentResolver().query(movie, null, null, null, null);
-                        assert cur != null;
-                        cur.close();
+                    rootView.findViewById(R.id.previous).setVisibility(View.INVISIBLE);
 
-                        int prevVideoId = Integer.parseInt(video_Id) - 1;
+                } else {
 
-                        if (prevVideoId >= 1) {
-                            Intent intent = new Intent(getActivity(), DetailActivity.class)
-                                    .setType("text/plain")
-                                    .putExtra(Intent.EXTRA_TEXT, String.valueOf(prevVideoId));
-                            startActivity(intent);
+                    rootView.findViewById(R.id.previous).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            int prevVideoId = Integer.parseInt(video_Id) - 1;
+
+                            if (prevVideoId >= 1) {
+                                Intent intent = new Intent(getActivity(), DetailActivity.class)
+                                        .setType("text/plain")
+                                        .putExtra(Intent.EXTRA_TEXT, String.valueOf(prevVideoId));
+                                startActivity(intent);
+                            }
                         }
-                    }
-                });
+                    });
+                }
+
                 if (videoValues.size() == 0) {
                     videoValues.put(VideoContract.Videos._ID, data.getString(Constants.COL_ID));
                     videoValues.put(VideoContract.Videos.TITLE, data.getString(Constants.COL_TITLE));
@@ -204,6 +207,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
             default:
                 throw new UnsupportedOperationException("Unknown Loader");
         }
+        db.close();
     }
 
     @Override
