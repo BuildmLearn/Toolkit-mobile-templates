@@ -2,17 +2,22 @@ package org.buildmlearn.videocollection.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import org.buildmlearn.videocollection.Constants;
 import org.buildmlearn.videocollection.R;
 import org.buildmlearn.videocollection.data.DataUtils;
+import org.buildmlearn.videocollection.data.FetchXMLTask;
 
 /**
  * Created by Anupam (opticod) on 11/5/16.
  */
 public class SplashActivity extends Activity {
+
+    private SharedPreferences prefs = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,5 +40,19 @@ public class SplashActivity extends Activity {
                 finish();
             }
         });
+
+        prefs = getSharedPreferences(Constants.firstrun, MODE_PRIVATE);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (prefs.getBoolean(Constants.firstrun, true)) {
+            FetchXMLTask xmlTask = new FetchXMLTask(this);
+            xmlTask.execute(Constants.XMLFileName);
+            prefs.edit().putBoolean(Constants.firstrun, false).apply();
+        }
     }
 }
