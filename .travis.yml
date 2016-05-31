@@ -1,4 +1,4 @@
-before_install: cd VideoCollectionTemplate/source/VideoCollectionTemplateApp
+before_install: cd ComprehensionTemplate/source/Comprehension
 
 branches:
   only:
