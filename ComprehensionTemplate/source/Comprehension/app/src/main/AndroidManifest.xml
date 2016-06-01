@@ -20,6 +20,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="Comprehension Practise"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

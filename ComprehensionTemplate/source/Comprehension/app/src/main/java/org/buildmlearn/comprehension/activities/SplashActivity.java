@@ -1,6 +1,7 @@
 package org.buildmlearn.comprehension.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,9 @@ public class SplashActivity extends Activity {
         findViewById(R.id.enter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(mActivity, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
