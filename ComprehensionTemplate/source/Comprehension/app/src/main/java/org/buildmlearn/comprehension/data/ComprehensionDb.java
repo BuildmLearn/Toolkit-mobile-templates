@@ -48,6 +48,19 @@ public class ComprehensionDb {
         );
     }
 
+    public Cursor getMetaCursor() {
+
+        return db.query(
+                ComprehensionContract.MetaDetails.TABLE_NAME,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+    }
+
     public Cursor getQuestionCursorById(int id) {
 
         String selection = Questions._ID + EQUAL + id;
