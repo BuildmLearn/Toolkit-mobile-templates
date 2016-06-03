@@ -6,7 +6,7 @@ import android.provider.BaseColumns;
  * Created by Anupam (opticod) on 1/6/16.
  */
 
-public class ComprehensionContract {
+class ComprehensionContract {
 
     public static final class Questions implements BaseColumns {
 
@@ -17,7 +17,9 @@ public class ComprehensionContract {
         public static final String OPTION_2 = "option_2";
         public static final String OPTION_3 = "option_3";
         public static final String OPTION_4 = "option_4";
-        public static final String ANSWER = "answer";
+        public static final String CORRECT_ANSWER = "correct_answer";
+        public static final String ANSWERED = "answered";
+        public static final String ATTEMPTED = "attempted";
 
     }
 

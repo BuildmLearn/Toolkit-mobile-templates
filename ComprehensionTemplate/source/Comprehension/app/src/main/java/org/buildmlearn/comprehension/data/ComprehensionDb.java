@@ -8,7 +8,10 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
+import org.buildmlearn.comprehension.Constants;
 import org.buildmlearn.comprehension.data.ComprehensionContract.Questions;
+
+import java.util.Arrays;
 
 /**
  * Created by Anupam (opticod) on 1/6/16.
@@ -35,19 +38,6 @@ public class ComprehensionDb {
         dbHelper.close();
     }
 
-    public Cursor getQuestionsCursor() {
-
-        return db.query(
-                Questions.TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null
-        );
-    }
-
     public Cursor getMetaCursor() {
 
         return db.query(
@@ -59,6 +49,58 @@ public class ComprehensionDb {
                 null,
                 null
         );
+    }
+
+    public void markAnswered(int id,int answer){
+
+        ContentValues values = new ContentValues();
+        values.put(Questions.ANSWERED, answer);
+        values.put(Questions.ATTEMPTED, 1);
+
+        db.update(Questions.TABLE_NAME, values, Questions._ID + " = ?",
+                new String[] { String.valueOf(id) });
+
+    }
+
+    public void markUnAnswered(int id){
+
+        ContentValues values = new ContentValues();
+        values.put(Questions.ANSWERED, "");
+        values.put(Questions.ATTEMPTED, 0);
+
+        db.update(Questions.TABLE_NAME, values, Questions._ID + " = ?",
+                new String[] { String.valueOf(id) });
+
+    }
+
+    public void resetCount(){
+        for(int i=1;i<=getCountQuestions();i++){
+            markUnAnswered(i);
+        }
+    }
+
+    public int[] getStatistics(){
+        int stat[]=new int[3];
+        Arrays.fill(stat,0);
+
+        for(int i=1;i<=getCountQuestions();i++){
+            Cursor cursor=getQuestionCursorById(i);
+            cursor.moveToFirst();
+
+            String correct_answer =cursor.getString(Constants.COL_CORRECT_ANSWER);
+            int attempted =cursor.getInt(Constants.COL_ATTEMPTED);
+            if (attempted==1){
+                String answer=cursor.getString(Constants.COL_ANSWERED);
+                if (answer.equals(correct_answer)){
+                    stat[0]++;
+                }else{
+                    stat[1]++;
+                }
+            }else{
+                stat[2]++;
+            }
+        }
+        return stat;
     }
 
     public Cursor getQuestionCursorById(int id) {

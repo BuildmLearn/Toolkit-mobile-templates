@@ -100,7 +100,8 @@ public class FetchXMLTask extends AsyncTask<String, Void, Void> {
             if (options.size() >= 4) {
                 quesValues.put(Questions.OPTION_4, options.get(3));
             }
-            quesValues.put(Questions.ANSWER, correctAnswer);
+            quesValues.put(Questions.CORRECT_ANSWER, correctAnswer);
+            quesValues.put(Questions.ATTEMPTED, 0);
 
             cVVector.add(quesValues);
         }

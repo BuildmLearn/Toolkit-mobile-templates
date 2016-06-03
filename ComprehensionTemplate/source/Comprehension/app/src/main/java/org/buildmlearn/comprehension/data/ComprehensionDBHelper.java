@@ -29,7 +29,9 @@ class ComprehensionDBHelper extends SQLiteOpenHelper {
                 Questions.OPTION_2 + "  TEXT," +
                 Questions.OPTION_3 + "  TEXT," +
                 Questions.OPTION_4 + "  TEXT," +
-                Questions.ANSWER + "  INTEGER )";
+                Questions.CORRECT_ANSWER + "  INTEGER," +
+                Questions.ANSWERED + "  INTEGER," +
+                Questions.ATTEMPTED + "  INTEGER )";
 
         sqLiteDatabase.execSQL(SQL_CREATE__TABLE_A);
 
