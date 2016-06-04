@@ -25,6 +25,16 @@
             android:label="Comprehension Practise"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".activities.QuestionActivity"
+            android:label="Comprehension Practise"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".activities.LastActivity"
+            android:label="Comprehension Practise"
+            android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>
