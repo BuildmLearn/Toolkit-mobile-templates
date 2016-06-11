@@ -1,4 +1,4 @@
-before_install: cd ComprehensionTemplate/source/Comprehension
+before_install: cd InfoTemplate/source/InfoTemplateAppV2
 
 branches:
   only:
