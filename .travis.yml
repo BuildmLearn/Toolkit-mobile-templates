@@ -1,4 +1,4 @@
-before_install: cd InfoTemplate/source/InfoTemplateAppV2
+before_install: cd InfoTemplate/source/InfoTemplateAppV3
 
 branches:
   only:
