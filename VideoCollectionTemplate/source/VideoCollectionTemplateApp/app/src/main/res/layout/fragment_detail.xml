@@ -13,7 +13,9 @@
         <WebView
             android:id="@+id/player"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/web_view_height" />
+            android:layout_height="@dimen/web_view_height"
+            android:layout_marginEnd="-7dip"
+            android:layout_marginRight="-7dip" />
 
         <TextView
             android:id="@+id/title"
