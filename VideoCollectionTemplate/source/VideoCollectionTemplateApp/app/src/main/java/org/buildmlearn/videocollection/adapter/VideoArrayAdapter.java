@@ -14,8 +14,7 @@ import com.squareup.picasso.Picasso;
 
 import org.buildmlearn.videocollection.Constants;
 import org.buildmlearn.videocollection.R;
-
-import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
+import org.buildmlearn.videocollection.RoundedTransformation;
 
 /**
  * Created by Anupam (opticod) on 12/5/16.
@@ -46,7 +45,7 @@ public class VideoArrayAdapter extends CursorAdapter {
         Picasso
                 .with(context)
                 .load(thumb_url)
-                .transform(new RoundedCornersTransformation(10, 10))
+                .transform(new RoundedTransformation(10, 10))
                 .fit()
                 .centerCrop()
                 .into(viewHolder.thumb, new Callback() {
