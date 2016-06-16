@@ -3,6 +3,7 @@
     <dimen name="headline_leading">32sp</dimen>
     <dimen name="title">20sp</dimen>
     <dimen name="splash_button_margin_top">50dp</dimen>
+    <dimen name="splash_button_margin_top_tablet">200dp</dimen>
     <dimen name="splash_text_margin">25dp</dimen>
     <dimen name="thumb_size">100dp</dimen>
     <dimen name="padding">8dp</dimen>
@@ -13,8 +14,10 @@
     <dimen name="toolbar_height">150dp</dimen>
     <dimen name="medium_margin">15dp</dimen>
     <dimen name="negative_margin">-35dp</dimen>
+    <dimen name="negative_margin_tablet">-60dp</dimen>
     <dimen name="toolbar_height_small">75dp</dimen>
     <dimen name="title_size">16sp</dimen>
     <dimen name="web_view_height">320dp</dimen>
+    <dimen name="extra_margin">150dp</dimen>
 
 </resources>
