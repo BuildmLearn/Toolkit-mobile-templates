@@ -52,31 +52,6 @@ public class MainActivity extends AppCompatActivity
         db.open();
         db.resetCount();
 
-        Menu m = navigationView.getMenu();
-        SubMenu topChannelMenu = m.addSubMenu("Questions");
-        long numQues=db.getCountQuestions();
-
-        for(int i=1;i<=numQues;i++){
-            topChannelMenu.add(String.format(Locale.getDefault(),"Question %1$d",i));
-            topChannelMenu.getItem(i-1).setIcon(R.drawable.ic_assignment_black_24dp);
-            final int finalI = i;
-            topChannelMenu.getItem(i-1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                            Intent intent = new Intent(getApplicationContext(), QuestionActivity.class)
-                                    .setType("text/plain")
-                                    .putExtra(Intent.EXTRA_TEXT, String.valueOf(finalI))
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
-                            finish();
-                    return false;
-                }
-            });
-        }
-
-        MenuItem mi = m.getItem(m.size()-1);
-        mi.setTitle(mi.getTitle());
-
         Cursor cursor = db.getMetaCursor();
         cursor.moveToFirst();
         String title = cursor.getString(Constants.COL_TITLE);
@@ -86,7 +61,7 @@ public class MainActivity extends AppCompatActivity
         final TextView timer = (TextView) findViewById(R.id.timer);
         assert timer != null;
         timer.setText(String.valueOf(time));
-        new CountDownTimer(time * 1000, 1000) {
+        final CountDownTimer countDownTimer = new CountDownTimer(time * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 long min = millisUntilFinished / 60000;
@@ -104,6 +79,31 @@ public class MainActivity extends AppCompatActivity
             }
         }.start();
 
+        Menu m = navigationView.getMenu();
+        SubMenu topChannelMenu = m.addSubMenu("Questions");
+        long numQues = db.getCountQuestions();
+
+        for (int i = 1; i <= numQues; i++) {
+            topChannelMenu.add(String.format(Locale.getDefault(), "Question %1$d", i));
+            topChannelMenu.getItem(i - 1).setIcon(R.drawable.ic_assignment_black_24dp);
+            final int finalI = i;
+            topChannelMenu.getItem(i - 1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    Intent intent = new Intent(getApplicationContext(), QuestionActivity.class)
+                            .setType("text/plain")
+                            .putExtra(Intent.EXTRA_TEXT, String.valueOf(finalI))
+                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    countDownTimer.cancel();
+                    finish();
+                    return false;
+                }
+            });
+        }
+
+        MenuItem mi = m.getItem(m.size() - 1);
+        mi.setTitle(mi.getTitle());
         db.close();
 
         ((TextView) findViewById(R.id.passage)).setText(passage);
@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity
                         .putExtra(Intent.EXTRA_TEXT, "1")
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                countDownTimer.cancel();
                 finish();
             }
         });

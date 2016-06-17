@@ -70,7 +70,7 @@ public class QuestionActivity extends AppCompatActivity
         Cursor meta = db.getMetaCursor();
         meta.moveToFirst();
         String title = meta.getString(Constants.COL_TITLE);
-        toolbar.setTitle(title);
+        getSupportActionBar().setTitle(title);
 
         Menu m = navigationView.getMenu();
         SubMenu topChannelMenu = m.addSubMenu("Questions");

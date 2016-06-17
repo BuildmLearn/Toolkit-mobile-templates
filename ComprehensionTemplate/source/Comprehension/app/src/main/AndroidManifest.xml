@@ -22,16 +22,19 @@
 
         <activity
             android:name=".activities.MainActivity"
+            android:configChanges="orientation|screenSize"
             android:label="Comprehension Practise"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".activities.QuestionActivity"
+            android:configChanges="orientation|screenSize"
             android:label="Comprehension Practise"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".activities.LastActivity"
+            android:configChanges="orientation|screenSize"
             android:label="Comprehension Practise"
             android:theme="@style/AppTheme" />
 
