@@ -119,6 +119,7 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
         });
 
         db = new VideoDb(getContext());
+        db.open();
 
         if (savedInstanceState != null && savedInstanceState.containsKey(SELECTED_KEY)) {
             mPosition = savedInstanceState.getInt(SELECTED_KEY);
@@ -140,7 +141,6 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
         return new CursorLoader(getActivity(), null, Constants.VIDEO_COLUMNS, null, null, sortOrder) {
             @Override
             public Cursor loadInBackground() {
-                db.open();
                 return db.getVideosCursor();
             }
         };
@@ -162,12 +162,17 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
             }
         } catch (Exception ignored) {
         }
-        db.close();
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
         videoListAdapter.swapCursor(null);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        db.close();
     }
 
     public interface Callback {

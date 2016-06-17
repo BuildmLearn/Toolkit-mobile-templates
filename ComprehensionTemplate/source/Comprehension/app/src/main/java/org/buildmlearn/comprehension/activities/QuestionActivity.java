@@ -30,6 +30,8 @@ import java.util.Locale;
 public class QuestionActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private ComprehensionDb db;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,7 @@ public class QuestionActivity extends AppCompatActivity
             questionId = extras.getString(Intent.EXTRA_TEXT);
         }
 
-        final ComprehensionDb db = new ComprehensionDb(this);
+        db = new ComprehensionDb(this);
         db.open();
         Cursor cursor = db.getQuestionCursorById(Integer.parseInt(questionId));
         cursor.moveToFirst();
@@ -93,16 +95,12 @@ public class QuestionActivity extends AppCompatActivity
                     View radioButton = rg.findViewById(radioButtonID);
                     int idx = rg.indexOfChild(radioButton);
 
-                    if (!db.isOpen()) {
-                        db.open();
-                    }
 
                     if (idx == -1) {
                         db.markUnAnswered(Integer.parseInt(finalQuestionId));
                     } else {
                         db.markAnswered(Integer.parseInt(finalQuestionId), idx);
                     }
-                    db.close();
 
                     Intent intent = new Intent(getApplicationContext(), QuestionActivity.class)
                             .setType("text/plain")
@@ -146,10 +144,6 @@ public class QuestionActivity extends AppCompatActivity
                 View radioButton = rg.findViewById(radioButtonID);
                 int idx = rg.indexOfChild(radioButton);
 
-                if (!db.isOpen()) {
-                    db.open();
-                }
-
                 if (idx == -1) {
                     db.markUnAnswered(Integer.parseInt(finalQuestionId));
                 } else {
@@ -160,7 +154,6 @@ public class QuestionActivity extends AppCompatActivity
 
                 long nextQuesId = Integer.parseInt(finalQuestionId) + 1;
 
-                db.close();
                 if (nextQuesId <= numColumns) {
 
                     Intent intent = new Intent(getApplicationContext(), QuestionActivity.class)
@@ -194,17 +187,11 @@ public class QuestionActivity extends AppCompatActivity
                     View radioButton = rg.findViewById(radioButtonID);
                     int idx = rg.indexOfChild(radioButton);
 
-                    if (!db.isOpen()) {
-                        db.open();
-                    }
-
                     if (idx == -1) {
                         db.markUnAnswered(Integer.parseInt(finalQuestionId));
                     } else {
                         db.markAnswered(Integer.parseInt(finalQuestionId), idx);
                     }
-
-                    db.close();
 
                     int prevQuesId = Integer.parseInt(finalQuestionId) - 1;
 
@@ -216,9 +203,6 @@ public class QuestionActivity extends AppCompatActivity
                     }
                 }
             });
-        }
-        if (db.isOpen()) {
-            db.close();
         }
 
     }
@@ -265,5 +249,11 @@ public class QuestionActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        db.close();
     }
 }

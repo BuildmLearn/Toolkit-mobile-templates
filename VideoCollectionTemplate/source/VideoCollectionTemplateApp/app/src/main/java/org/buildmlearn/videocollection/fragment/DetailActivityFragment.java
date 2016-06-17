@@ -51,6 +51,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
         rootView = inflater.inflate(R.layout.fragment_detail, container, false);
 
         db = new VideoDb(getContext());
+        db.open();
 
         return rootView;
     }
@@ -70,7 +71,6 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                     return new CursorLoader(getActivity(), null, Constants.VIDEO_COLUMNS, null, null, null) {
                         @Override
                         public Cursor loadInBackground() {
-                            db.open();
                             return db.getVideoCursorById(Integer.parseInt(video_Id));
                         }
                     };
@@ -154,10 +154,6 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                     @Override
                     public void onClick(View v) {
 
-                        if (!db.isOpen()) {
-                            db.open();
-                        }
-
                         long numColumns = db.getCount();
 
                         long nextVideoId = Integer.parseInt(video_Id) + 1;
@@ -208,7 +204,6 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
             default:
                 throw new UnsupportedOperationException("Unknown Loader");
         }
-        db.close();
     }
 
     @Override
@@ -229,5 +224,11 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
         if (player != null) {
             player.onResume();
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        db.close();
     }
 }
