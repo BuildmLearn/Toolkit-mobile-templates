@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         Cursor cursor = db.getMetaCursor();
         cursor.moveToFirst();
         String title = cursor.getString(Constants.COL_TITLE);
-        toolbar.setTitle(title);
+        getSupportActionBar().setTitle(title);
         String passage = cursor.getString(Constants.COL_PASSAGE);
         final long time = cursor.getLong(Constants.COL_TIME);
         final TextView timer = (TextView) findViewById(R.id.timer);

@@ -14,5 +14,10 @@
     <dimen name="paddingTop">16dp</dimen>
     <dimen name="cardHeightLastActivity">350dp</dimen>
     <dimen name="toolbar_height_small">75dp</dimen>
+    <dimen name="toolbar_height">150dp</dimen>
+    <dimen name="medium_margin">15dp</dimen>
+    <dimen name="negative_margin_tablet">-60dp</dimen>
+    <dimen name="extra_margin">150dp</dimen>
+    <dimen name="splash_button_margin_top_tablet">200dp</dimen>
 
 </resources>
