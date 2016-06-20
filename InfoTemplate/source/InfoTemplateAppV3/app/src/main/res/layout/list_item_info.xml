@@ -11,7 +11,7 @@
         android:contentDescription="@string/info_thumbnail"
         android:paddingLeft="@dimen/paddingTop"
         android:paddingStart="@dimen/paddingTop"
-        android:src="@drawable/ic_local_library_black_36dp" />
+        android:src="@drawable/ic_local_library_black_24dp" />
 
     <TextView
         android:id="@+id/title"
@@ -21,7 +21,6 @@
         android:layout_toEndOf="@+id/thumb"
         android:layout_toRightOf="@+id/thumb"
         android:maxLines="1"
-        android:paddingBottom="5dp"
         android:paddingLeft="@dimen/paddingTop"
         android:paddingRight="@dimen/paddingTop"
         android:textAppearance="?android:textAppearanceMedium" />
