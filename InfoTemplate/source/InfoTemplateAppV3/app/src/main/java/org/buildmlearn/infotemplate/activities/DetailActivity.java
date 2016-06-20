@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.buildmlearn.infotemplate.R;
+import org.buildmlearn.infotemplate.data.DataUtils;
 import org.buildmlearn.infotemplate.fragment.DetailActivityFragment;
 
 /**
@@ -24,6 +25,8 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home_white_24dp);
+        String result[] = DataUtils.read_Title_Author(this);
+        getSupportActionBar().setTitle(result[0]);
 
         Bundle extras = getIntent().getExtras();
         String infoId = null;

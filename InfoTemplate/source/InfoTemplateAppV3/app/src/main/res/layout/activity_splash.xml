@@ -28,7 +28,6 @@
             android:src="@drawable/logo_70" />
 
         <TextView
-            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/splash_text_margin"
@@ -37,6 +36,16 @@
             android:text="@string/main_title"
             android:textColor="@color/white_secondary_text"
             android:textSize="@dimen/headline_leading" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_horizontal"
+            android:text="@string/main_subtitle"
+            android:textColor="@color/white_secondary_text"
+            android:textSize="@dimen/title" />
 
         <TextView
             android:layout_width="match_parent"

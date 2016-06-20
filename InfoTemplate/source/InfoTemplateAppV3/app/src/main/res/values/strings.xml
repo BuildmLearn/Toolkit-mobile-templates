@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Basic mLearning</string>
-    <string name="main_title">mLearning on Biology</string>
+    <string name="main_title">Info App</string>
     <string name="enter">ENTER</string>
     <string name="by">by</string>
     <string name="anupam" translatable="false">Anupam</string>
@@ -15,4 +15,5 @@
     <string name="info_thumbnail">Info Thumbnail</string>
     <string name="background_image">Background Image</string>
     <string name="buildmlearn_logo">BuildmLearn Logo</string>
+    <string name="main_subtitle">Basic mLearning</string>
 </resources>
