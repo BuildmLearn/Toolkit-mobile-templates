@@ -46,6 +46,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
         rootView = inflater.inflate(R.layout.fragment_detail, container, false);
 
         db = new InfoDb(getContext());
+        db.open();
 
         return rootView;
     }
@@ -65,7 +66,6 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                     return new CursorLoader(getActivity(), null, Constants.INFO_COLUMNS, null, null, null) {
                         @Override
                         public Cursor loadInBackground() {
-                            db.open();
                             return db.getInfoCursorById(Integer.parseInt(info_Id));
                         }
                     };
@@ -90,8 +90,6 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
 
                 ((TextView) rootView.findViewById(R.id.description))
                         .setText(description);
-
-                db.open();
 
                 final long numColumns = db.getCount();
 
@@ -157,11 +155,16 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
             default:
                 throw new UnsupportedOperationException("Unknown Loader");
         }
-        db.close();
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        db.close();
     }
 
 }

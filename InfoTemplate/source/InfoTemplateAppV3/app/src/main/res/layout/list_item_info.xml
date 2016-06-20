@@ -21,8 +21,10 @@
         android:layout_toEndOf="@+id/thumb"
         android:layout_toRightOf="@+id/thumb"
         android:maxLines="1"
+        android:paddingEnd="@dimen/paddingTop"
         android:paddingLeft="@dimen/paddingTop"
         android:paddingRight="@dimen/paddingTop"
+        android:paddingStart="@dimen/paddingTop"
         android:textAppearance="?android:textAppearanceMedium" />
 
 </RelativeLayout>

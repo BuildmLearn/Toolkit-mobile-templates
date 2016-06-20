@@ -32,8 +32,10 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/extra_margin"
                 android:layout_marginLeft="@dimen/extra_margin"
-                android:layout_marginRight="@dimen/extra_margin">
+                android:layout_marginRight="@dimen/extra_margin"
+                android:layout_marginStart="@dimen/extra_margin">
 
                 <LinearLayout
                     android:layout_width="match_parent"
