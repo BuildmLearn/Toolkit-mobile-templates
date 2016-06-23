@@ -34,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/title"
+            android:autoLink="web"
             android:paddingBottom="@dimen/paddingTop"
             android:paddingLeft="@dimen/paddingTop"
             android:paddingRight="@dimen/paddingTop"

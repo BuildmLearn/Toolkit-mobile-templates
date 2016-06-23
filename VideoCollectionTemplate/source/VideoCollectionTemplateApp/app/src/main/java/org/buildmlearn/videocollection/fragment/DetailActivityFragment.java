@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,7 +95,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                 String description = data.getString(Constants.COL_DESCRIPTION);
 
                 ((TextView) rootView.findViewById(R.id.description))
-                        .setText(description);
+                        .setText(Html.fromHtml(description));
 
                 player = (WebView) rootView.findViewById(R.id.player);
 
