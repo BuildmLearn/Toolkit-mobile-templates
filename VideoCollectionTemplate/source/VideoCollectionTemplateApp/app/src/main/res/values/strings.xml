@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Video Collection</string>
+    <string name="main_title">Video Collection</string>
+    <string name="main_subtitle">Video Tutorial</string>
+    <string name="enter">ENTER</string>
+    <string name="by">by</string>
+    <string name="anupam" translatable="false">Anupam</string>
+    <string name="title_activity_about">About</string>
+    <string name="list_empty">List is Empty!</string>
+    <string name="previous">PREVIOUS</string>
+    <string name="next">NEXT</string>
+    <string name="exit">EXIT</string>
+    <string name="restart">RESTART</string>
+    <string name="about_us">About Us</string>
+    <string name="about_text">This application has been developed using the BuildmLearn Toolkit.\n\nTo know more about BuildmLearn Toolkit visit <a href="https://buildmlearn.org/">here</a>.</string>
+    <string name="network_unavailable">Network is Unavailable! Please connect to network!</string>
+    <string name="ok">OK</string>
+    <string name="video_thumbnail">Video Thumbnail</string>
+    <string name="background_image">Background Image</string>
+    <string name="buildmlearn_logo">BuildmLearn Logo</string>
+    <string name="last_video">That was the last Video!</string>
+</resources>

@@ -1,7 +1,30 @@
+[![Build Status](https://travis-ci.org/BuildmLearn/Toolkit-mobile-templates.svg)](https://travis-ci.org/BuildmLearn/Toolkit-mobile-templates) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/aa817e5c09b24adeaa998ef73f4393e0)](https://www.codacy.com/app/anupam/Toolkit-mobile-templates?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BuildmLearn/Toolkit-mobile-templates&amp;utm_campaign=Badge_Grade)
+
 Tookit-template-apps
 --------------------
 
-This repository contains the template applications of the toolkit. 
+This repository contains the template applications of the toolkit. BuildmLearn Toolkit app is an easy-to-use android app that helps the users make another mobile apps without any knowledge of android application development. The toolkit helps creating mobile application with various functionality and allows teachers to input their custom content. Targeted at teachers, this toolkit helps them make learning fun and engaging through mobile apps.
+
+# Development Setup
+1. Go to the project repo and click the `Fork` button
+2. Clone your forked repository : `git clone git@github.com:your_name/Toolkit-mobile-templates.git`
+3. Move to android project folder `cd [Template_Name]/source/[Template_App_Name]`
+4. Open the project with Android Studio
+
+Glosarry
+======
+| Folders       | Description  |
+| ------------- |:-------------|
+| ComprehensionTemplate    | Contains apk and source-code of Comprehension Template app |
+| FlashCardTemplate    | Contains apk and source-code of FlashCard Template app |
+| InfoTemplate    | Contains apk and source-code of Info Template app |
+| LearnSpellingsTemplate    | Contains apk and source-code of Learn Spellings Template app |
+| QuizTemplate    | Contains apk and source-code of Quiz Template app |
+| VideoCollectionTemplate    | Contains apk and source-code of Video Collection Template app |
+| ui-design      | Contains UI mockups and wireframes   |
+| [Template_Name]/apk | Contains APKs of that [Template_Name] template |
+| [Template_Name]/source/[Template_App_Name] | Contains Android project files of that [Template_Name] template |
+
 
 License for use and distribution
 ---------------------------------

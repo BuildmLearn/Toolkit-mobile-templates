@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/thumb"
+        android:layout_width="@dimen/thumb_size"
+        android:layout_height="@dimen/thumb_size"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/padding"
+        android:contentDescription="@string/video_thumbnail" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumb"
+        android:layout_toEndOf="@+id/thumb"
+        android:layout_toRightOf="@+id/thumb"
+        android:maxLines="2"
+        android:paddingEnd="@dimen/padding"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding"
+        android:paddingStart="@dimen/padding"
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_toEndOf="@+id/thumb"
+        android:layout_toRightOf="@+id/thumb"
+        android:maxLines="3"
+        android:paddingEnd="@dimen/paddingRight"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/paddingRight"
+        android:paddingStart="@dimen/padding"
+        android:paddingTop="@dimen/paddingLittle" />
+
+</RelativeLayout>

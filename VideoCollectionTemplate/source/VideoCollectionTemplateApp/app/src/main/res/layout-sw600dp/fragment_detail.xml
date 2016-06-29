@@ -1,0 +1,116 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.DetailActivityFragment">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:theme="@style/ToolBarStyle_heading" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_main"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/negative_margin_tablet"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/extra_margin"
+                android:layout_marginRight="@dimen/extra_margin">
+
+                <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    tools:context=".fragment.DetailActivityFragment">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <WebView
+                            android:id="@+id/player"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/web_view_height"
+                            android:layout_marginEnd="-7dip"
+                            android:layout_marginRight="-7dip" />
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/player"
+                            android:layout_marginTop="@dimen/splash_text_margin"
+                            android:paddingLeft="@dimen/paddingTop"
+                            android:paddingRight="@dimen/paddingTop"
+                            android:paddingTop="@dimen/paddingTop"
+                            android:textAppearance="?android:textAppearanceMedium"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/title"
+                            android:autoLink="web"
+                            android:paddingBottom="@dimen/paddingTop"
+                            android:paddingLeft="@dimen/paddingTop"
+                            android:paddingRight="@dimen/paddingTop"
+                            android:paddingTop="@dimen/paddingTop"
+                            android:textAppearance="?android:textAppearanceMedium" />
+
+                        <Button
+                            android:id="@+id/next"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@+id/description"
+                            android:background="@android:color/transparent"
+                            android:paddingBottom="@dimen/paddingTop"
+                            android:paddingLeft="@dimen/paddingTop"
+                            android:paddingRight="@dimen/paddingTop"
+                            android:paddingTop="@dimen/paddingTop"
+                            android:text="@string/next"
+                            android:textAppearance="?android:textAppearanceMedium"
+                            android:textColor="@color/colorAccent" />
+
+                        <Button
+                            android:id="@+id/previous"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/description"
+                            android:layout_toLeftOf="@+id/next"
+                            android:layout_toStartOf="@+id/next"
+                            android:background="@android:color/transparent"
+                            android:paddingBottom="@dimen/paddingTop"
+                            android:paddingLeft="@dimen/paddingTop"
+                            android:paddingRight="@dimen/paddingTop"
+                            android:paddingTop="@dimen/paddingTop"
+                            android:text="@string/previous"
+                            android:textAppearance="?android:textAppearanceMedium"
+                            android:textColor="@color/black_secondary_text" />
+                    </RelativeLayout>
+                </ScrollView>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

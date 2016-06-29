@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_button_margin_top">200dp</dimen>
+    <dimen name="negative_margin_tablet">-60dp</dimen>
+</resources>

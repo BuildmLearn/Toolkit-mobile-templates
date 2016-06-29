@@ -1,0 +1,31 @@
+<buildmlearn_application type="InfoTemplate">
+    <author>
+        <name>Anupam Das</name>
+    </author>
+    <title>mLearning on Biology</title>
+    <data>
+        <item>
+            <item_title>Photosynthesis</item_title>
+            <item_description>Photosynthesis is the process used by plants, algae and certain bacteria to harness energy from sunlight into chemical energy. There are two types of photosynthetic processes: oxygenic photosynthesis and anoxygenic photosynthesis. Oxygenic photosynthesis is the most common and is seen in plants, algae and cyanobacteria. During oxygenic photosynthesis, light energy transfers electrons from water (H2O) to carbon dioxide (CO2), which produces carbohydrates. In this transfer, the CO2 is "reduced," or receives electrons, and the water becomes "oxidized," or loses electrons. Ultimately, oxygen is produced along with carbohydrates.
+            </item_description>
+        </item>
+        <item>
+            <item_title>Respiratory System</item_title>
+            <item_description>The human respiratory system is a series of organs responsible for taking in oxygen and expelling carbon dioxide. The primary organs of the respiratorysystem are lungs, which carry out this exchange of gases as we breathe. Red blood cells collect the oxygen from the lungs and carry it to the parts of the body where it is needed, according to the American Lung Association. During the process, the red blood cells collect the carbon dioxide and transport it back to the lungs, where it leaves the body when we exhale. The human body needs oxygen to sustain itself. A decrease in oxygen is known as hypoxia and a complete lack of oxygen is known as anoxia and, according to MedLine Plus. These conditions can be fatal; after about four minutes without oxygen, brain cells begin dying, according to NYU Langone Medical Center, which can lead to brain damage and ultimately death.</item_description>
+        </item>
+        <item>
+            <item_title>Nervous System</item_title>
+            <item_description>The nervous system is the part of an animal's body that coordinates its voluntary and involuntary actions and transmits signals to and from different parts of its body. Nervous tissue first arose in wormlike organisms about 550 to 600 million years ago. In vertebrate species it consists of two main parts, the central nervous system (CNS) and the peripheral nervous system (PNS). The CNS contains the brain and spinal cord. The PNS consists mainly of nerves, which are enclosed bundles of the long fibers or axons, that connect the CNS to every other part of the body. Nerves that transmit signals from the brain are called motor or efferent nerves, while those nerves that transmit information from the body to the CNS are called sensory or afferent. Most nerves serve both functions and are called mixed nerves. The PNS is divided into a) somatic and b) autonomic nervous system, and c) the enteric nervous system. Somatic nerves mediate voluntary movement. The autonomic nervous system is further subdivided into the sympathetic and the parasympathetic nervous systems. The sympathetic nervous system is activated in cases of emergencies to mobilize energy, while the parasympathetic nervous system is activated when organisms are in a relaxed state. The enteric nervous system functions to control the gastrointestinal system. Both autonomic and enteric nervous systems function involuntarily. Nerves that exit from the cranium are called cranial nerves while those exiting from the spinal cord are called spinal nerves.</item_description>
+        </item>
+        <item>
+            <item_title>Muscular System</item_title>
+            <item_description>The muscular system is an organ system consisting of skeletal, smooth and cardiac muscles. It permits movement of the body, maintains posture, and circulates blood throughout the body. The muscular system in vertebrates is controlled through the nervous system, although some muscles (such as the cardiac muscle) can be completely autonomous. Together with the skeletal system it forms the musculoskeletal system, which is responsible for movement of the human body.</item_description>
+        </item>
+        <item>
+            <item_title>Circulatory System</item_title>
+            <item_description>The circulatory system, also called the cardiovascular system or the vascular system, is an organ system that permits blood to circulate and transport nutrients (such as amino acids and electrolytes), oxygen, carbon dioxide, hormones, and blood cells to and from the cells in the body to provide nourishment and help in fighting diseases, stabilize temperature and pH, and maintain homeostasis. The study of the blood flow is called hemodynamics. The study of the properties of the blood flow is called hemorheology.
+
+                The circulatory system is often seen to comprise two separate systems: the cardiovascular system, which distributes blood, and the lymphatic system, which circulates lymph.[1] The passage of lymph for example takes much longer than that of blood.[2] Blood is a fluid consisting of plasma, red blood cells, white blood cells, and platelets that is circulated by the heart through the vertebrate vascular system, carrying oxygen and nutrients to and waste materials away from all body tissues. Lymph is essentially recycled excess blood plasma after it has been filtered from the interstitial fluid (between cells) and returned to the lymphatic system. The cardiovascular (from Latin words meaning "heart" and "vessel") system comprises the blood, heart, and blood vessels.[3] The lymph, lymph nodes, and lymph vessels form the lymphatic system, which returns filtered blood plasma from the interstitial fluid (between cells) as lymph.</item_description>
+        </item>
+    </data>
+</buildmlearn_application>
