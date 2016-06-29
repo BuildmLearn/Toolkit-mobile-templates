@@ -25,7 +25,7 @@ public class SplashActivity extends Activity {
         final Activity mActivity = this;
         setContentView(R.layout.activity_splash);
 
-        final String result[] = DataUtils.read_Title_Author(this);
+        final String result[] = DataUtils.readTitleAuthor(this);
         TextView title = (TextView) findViewById(R.id.title);
         TextView author_name = (TextView) findViewById(R.id.author_name);
 

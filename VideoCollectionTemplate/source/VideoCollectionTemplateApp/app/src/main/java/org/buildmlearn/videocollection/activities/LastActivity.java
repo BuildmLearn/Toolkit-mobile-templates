@@ -57,6 +57,9 @@ public class LastActivity extends AppCompatActivity {
                 Intent homeIntent = new Intent(this, MainActivity.class);
                 homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(homeIntent);
+                break;
+            default: //do nothing
+                break;
         }
         return (super.onOptionsItemSelected(menuItem));
     }

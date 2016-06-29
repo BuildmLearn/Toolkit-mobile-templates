@@ -25,7 +25,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home_white_24dp);
-        String result[] = DataUtils.read_Title_Author(this);
+        String result[] = DataUtils.readTitleAuthor(this);
         getSupportActionBar().setTitle(result[0]);
 
         Bundle extras = getIntent().getExtras();
@@ -71,6 +71,8 @@ public class DetailActivity extends AppCompatActivity {
                 welcomeAlert.show();
                 ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
 
+                break;
+            default: //do nothing
                 break;
         }
         return (super.onOptionsItemSelected(menuItem));

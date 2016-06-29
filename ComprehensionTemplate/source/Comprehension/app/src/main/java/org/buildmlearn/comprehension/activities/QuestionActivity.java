@@ -63,7 +63,6 @@ public class QuestionActivity extends AppCompatActivity
         String option_2 = cursor.getString(Constants.COL_OPTION_2);
         String option_3 = cursor.getString(Constants.COL_OPTION_3);
         String option_4 = cursor.getString(Constants.COL_OPTION_4);
-        final String correct_answer = cursor.getString(Constants.COL_CORRECT_ANSWER);
         int attempted = cursor.getInt(Constants.COL_ATTEMPTED);
         String answered;
 
@@ -112,9 +111,6 @@ public class QuestionActivity extends AppCompatActivity
                 }
             });
         }
-
-        MenuItem mi = m.getItem(m.size() - 1);
-
 
         ((TextView) findViewById(R.id.question_title)).setText(String.format(Locale.getDefault(), "Question No : %1$s", questionId));
         ((TextView) findViewById(R.id.question)).setText(question);
@@ -228,6 +224,8 @@ public class QuestionActivity extends AppCompatActivity
                 ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
 
                 break;
+            default: //do nothing
+                break;
         }
         return (super.onOptionsItemSelected(menuItem));
     }
@@ -245,7 +243,6 @@ public class QuestionActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
-        int id = item.getItemId();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

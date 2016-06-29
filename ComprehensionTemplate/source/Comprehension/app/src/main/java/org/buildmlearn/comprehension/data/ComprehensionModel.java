@@ -9,6 +9,17 @@ import java.util.ArrayList;
  * Created by Anupam (opticod) on 1/6/16.
  */
 public class ComprehensionModel implements Parcelable {
+    public final Parcelable.Creator<ComprehensionModel> CREATOR = new Parcelable.Creator<ComprehensionModel>() {
+        @Override
+        public ComprehensionModel createFromParcel(Parcel parcel) {
+            return new ComprehensionModel(parcel);
+        }
+
+        @Override
+        public ComprehensionModel[] newArray(int size) {
+            return new ComprehensionModel[size];
+        }
+    };
     private String question;
     private ArrayList<String> options;
     private int correctAnswer;

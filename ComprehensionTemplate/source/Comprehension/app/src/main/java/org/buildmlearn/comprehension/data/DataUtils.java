@@ -16,7 +16,7 @@ import javax.xml.parsers.ParserConfigurationException;
  */
 public class DataUtils {
 
-    public static String[] read_Title_Author(Context myContext) {
+    public static String[] readTitleAuthor(Context myContext) {
         String result[] = new String[2];
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 

@@ -10,7 +10,17 @@ public class ComprehensionMetaModel implements Parcelable {
     public static final String TITLE_TAG = "meta_title";
     public static final String PASSAGE_TAG = "meta_passage";
     public static final String TIMER_TAG = "meta_timer";
-    private static final String ROOT_TAG = "meta_details";
+    public final Parcelable.Creator<ComprehensionMetaModel> CREATOR = new Parcelable.Creator<ComprehensionMetaModel>() {
+        @Override
+        public ComprehensionMetaModel createFromParcel(Parcel parcel) {
+            return new ComprehensionMetaModel(parcel);
+        }
+
+        @Override
+        public ComprehensionMetaModel[] newArray(int size) {
+            return new ComprehensionMetaModel[size];
+        }
+    };
     private String title;
     private String passage;
     private long time;

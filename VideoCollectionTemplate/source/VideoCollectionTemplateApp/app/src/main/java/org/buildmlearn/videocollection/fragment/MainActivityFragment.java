@@ -42,10 +42,6 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
     private View rootView;
     private VideoDb db;
 
-    public MainActivityFragment() {
-
-    }
-
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putParcelableArrayList("videoList", videoList);
@@ -79,7 +75,7 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
         toolbar.setTitle("List of Videos :");
 
         Toolbar maintoolbar = (Toolbar) rootView.findViewById(R.id.toolbar_main);
-        final String result[] = DataUtils.read_Title_Author(getContext());
+        final String result[] = DataUtils.readTitleAuthor(getContext());
         maintoolbar.setTitle(result[0]);
         maintoolbar.inflateMenu(R.menu.menu);
         maintoolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -96,6 +92,8 @@ public class MainActivityFragment extends Fragment implements LoaderManager.Load
                         welcomeAlert.show();
                         assert ((TextView) welcomeAlert.findViewById(android.R.id.message)) != null;
                         ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
+                        break;
+                    default: //do nothing
                         break;
                 }
                 return true;

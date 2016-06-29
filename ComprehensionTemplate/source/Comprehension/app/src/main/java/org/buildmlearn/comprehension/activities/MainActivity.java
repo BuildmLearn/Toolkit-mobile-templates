@@ -153,6 +153,8 @@ public class MainActivity extends AppCompatActivity
                 ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
 
                 break;
+            default: //do nothing
+                break;
         }
         return (super.onOptionsItemSelected(menuItem));
     }

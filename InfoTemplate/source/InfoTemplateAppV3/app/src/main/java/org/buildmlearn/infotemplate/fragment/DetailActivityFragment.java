@@ -69,6 +69,8 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                             return db.getInfoCursorById(Integer.parseInt(info_Id));
                         }
                     };
+                default: //do nothing
+                    break;
             }
         }
         return null;
@@ -159,6 +161,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+        // This constructor is intentionally empty
     }
 
     @Override

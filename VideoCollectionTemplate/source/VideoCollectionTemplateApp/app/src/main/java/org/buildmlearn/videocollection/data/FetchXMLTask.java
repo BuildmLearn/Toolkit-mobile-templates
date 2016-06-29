@@ -61,7 +61,7 @@ public class FetchXMLTask extends AsyncTask<String, Void, Void> {
             title = videoInfo.getTitle();
             description = videoInfo.getDescription();
             link = videoInfo.getLink();
-            thumbnail_url = videoInfo.getThumbnail_url();
+            thumbnail_url = videoInfo.getThumbnailUrl();
 
             ContentValues videoValues = new ContentValues();
 
@@ -117,7 +117,7 @@ public class FetchXMLTask extends AsyncTask<String, Void, Void> {
                     app.setTitle(getValue("video_title", element2));
                     app.setDescription(getValue("video_description", element2));
                     app.setLink(getValue("video_link", element2));
-                    app.setThumbnail_url(getValue("video_thumb_link", element2));
+                    app.setThumbnailUrl(getValue("video_thumb_link", element2));
 
                 }
                 mList.add(app);

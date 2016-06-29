@@ -52,6 +52,7 @@ public class VideoArrayAdapter extends CursorAdapter {
                 .into(viewHolder.thumb, new Callback() {
                     @Override
                     public void onSuccess() {
+                        // This constructor is intentionally empty
                     }
 
                     @Override
@@ -62,15 +63,7 @@ public class VideoArrayAdapter extends CursorAdapter {
                                 .error(R.mipmap.ic_launcher)
                                 .fit()
                                 .centerCrop()
-                                .into(viewHolder.thumb, new Callback() {
-                                    @Override
-                                    public void onSuccess() {
-                                    }
-
-                                    @Override
-                                    public void onError() {
-                                    }
-                                });
+                                .into(viewHolder.thumb);
                     }
                 });
 
