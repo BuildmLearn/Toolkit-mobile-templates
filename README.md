@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/BuildmLearn/Toolkit-mobile-templates.svg)](https://travis-ci.org/BuildmLearn/Toolkit-mobile-templates)
+[![Build Status](https://travis-ci.org/BuildmLearn/Toolkit-mobile-templates.svg)](https://travis-ci.org/BuildmLearn/Toolkit-mobile-templates) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/aa817e5c09b24adeaa998ef73f4393e0)](https://www.codacy.com/app/anupam/Toolkit-mobile-templates?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BuildmLearn/Toolkit-mobile-templates&amp;utm_campaign=Badge_Grade)
 
 Tookit-template-apps
 --------------------

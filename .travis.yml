@@ -1,8 +1,5 @@
 before_install: cd InfoTemplate/source/InfoTemplateAppV3
 
-branches:
-  only:
-    - templates-2016
 language: android
 sudo: false
 jdk: oraclejdk7
