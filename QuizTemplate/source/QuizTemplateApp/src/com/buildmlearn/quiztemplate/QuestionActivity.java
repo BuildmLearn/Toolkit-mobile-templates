@@ -125,7 +125,9 @@ public class QuestionActivity extends ActionBarActivity {
 
 			@Override
 			public void onClick(View arg0) {
-
+				//Clear all the radio buttons
+				iRadioGroup.clearCheck();
+				
 				// set all radios to white
 				for (int i = 0; i < iRadButtonList.size(); i++) {
 					iRadButtonList.get(i).setBackgroundColor(Color.TRANSPARENT);
@@ -162,7 +164,6 @@ public class QuestionActivity extends ActionBarActivity {
 	public void populateQuestion(int index) {
 		for (int i = 0; i < iRadButtonList.size(); i++) {
 			iRadButtonList.get(i).setBackgroundColor(Color.TRANSPARENT);
-			iRadButtonList.get(i).setChecked(false);
 			iRadButtonList.get(i).setVisibility(View.INVISIBLE);
 		}
 

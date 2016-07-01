@@ -37,7 +37,9 @@ public class MainActivity extends ActionBarActivity implements
 	private Animation animation1;
 	private Animation animation2;
 	private View currentView;
-
+	GestureDetector gestureDetector;
+    	View.OnTouchListener gestureListener;
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -119,6 +121,17 @@ public class MainActivity extends ActionBarActivity implements
 
 			}
 		});
+		
+		//Gesture Detector for fling action
+	        gestureDetector = new GestureDetector(this, new FlingDetector());
+	        gestureListener = new View.OnTouchListener() {
+	            public boolean onTouch(View v, MotionEvent event) {
+	                return gestureDetector.onTouchEvent(event);
+	            }
+	        };
+	
+	        questionView.setOnTouchListener(gestureListener);
+	        answerView.setOnTouchListener(gestureListener);
 	}
 
 	public void populateQuestion(int index) {
@@ -202,6 +215,45 @@ public class MainActivity extends ActionBarActivity implements
 		}
 
 	}
+	
+	class FlingDetector extends GestureDetector.SimpleOnGestureListener {
+        private static final int SWIPE_MIN_DISTANCE = 60;
+        private static final int SWIPE_MAX_OFF_PATH = 250;
+        private static final int SWIPE_THRESHOLD_VELOCITY = 60;
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            try {
+                if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH)
+                    return false;
+                // right to left swipe
+                if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    Toast.makeText(MainActivity.this, "Left Swipe", Toast.LENGTH_SHORT).show();
+                    if(currentView==answerView) {
+                        currentView.clearAnimation();
+                        currentView.setAnimation(animation1);
+                        currentView.startAnimation(animation1);
+                    }
+
+                }  else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    Toast.makeText(MainActivity.this, "Right Swipe", Toast.LENGTH_SHORT).show();
+                    if(currentView==questionView) {
+                        currentView.clearAnimation();
+                        currentView.setAnimation(animation1);
+                        currentView.startAnimation(animation1);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return false;
+        }
+
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
+        }
+    }
 
 	@Override
 	public void onAnimationRepeat(Animation animation) {
