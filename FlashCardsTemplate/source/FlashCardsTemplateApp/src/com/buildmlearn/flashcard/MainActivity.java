@@ -9,15 +9,19 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.util.Linkify;
 import android.util.Base64;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,6 +41,7 @@ public class MainActivity extends ActionBarActivity implements
 	private Animation animation1;
 	private Animation animation2;
 	private View currentView;
+	FrameLayout fl;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +67,35 @@ public class MainActivity extends ActionBarActivity implements
 		flipButton = (Button) findViewById(R.id.flip_button);
 		preButton = (Button) findViewById(R.id.pre_button);
 		nextButton = (Button) findViewById(R.id.next_button);
-
+		fl=(FrameLayout)findViewById(R.id.fl);
 		populateQuestion(iQuestionIndex);
 		currentView = questionView;
+		fl.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				currentView.clearAnimation();
+				currentView.setAnimation(animation1);
+				currentView.startAnimation(animation1);
+				Log.e("view", "touch");
+				return false;
+			}
+		});
+		
+		fl.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				currentView.clearAnimation();
+				currentView.setAnimation(animation1);
+				currentView.startAnimation(animation1);
 
+			}
+		});
+		
+		
 		flipButton.setOnClickListener(new OnClickListener() {
 
 			@Override

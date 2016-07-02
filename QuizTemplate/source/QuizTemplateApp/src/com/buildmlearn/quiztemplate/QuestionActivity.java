@@ -136,7 +136,7 @@ public class QuestionActivity extends ActionBarActivity {
 
 				if (iQuestionIndex < gd.model.size()) {
 					populateQuestion(iQuestionIndex);
-
+					iRadioGroup.clearCheck();
 					iSubmitButton.setEnabled(true);
 					// iNextButton.setVisibility(View.GONE);
 				} else {
