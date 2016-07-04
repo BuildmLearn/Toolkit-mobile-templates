@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="headline_leading">32sp</dimen>
+    <dimen name="title">20sp</dimen>
+    <dimen name="splash_button_margin_top">70dp</dimen>
+    <dimen name="splash_text_margin">25dp</dimen>
+    <dimen name="padding">8dp</dimen>
+    <dimen name="paddingButton">8dp</dimen>
+    <dimen name="paddingTop">16dp</dimen>
+    <dimen name="toolbar_height">150dp</dimen>
+    <dimen name="medium_margin">15dp</dimen>
+    <dimen name="negative_margin">-35dp</dimen>
+    <dimen name="extra_margin">150dp</dimen>
+    <dimen name="toolbar_height_small">55dp</dimen>
+
+</resources>
