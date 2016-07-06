@@ -1,4 +1,4 @@
-before_install: cd InfoTemplate/source/InfoTemplateAppV3
+before_install: cd DictationTemplate/source/DictationTemplateApp
 
 language: android
 sudo: false
