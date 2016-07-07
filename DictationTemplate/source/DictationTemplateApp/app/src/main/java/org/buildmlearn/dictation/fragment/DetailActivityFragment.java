@@ -96,7 +96,7 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
         switch (loader.getId()) {
             case DETAIL_LOADER:
 
-                EditText passageText = (EditText) rootView.findViewById(R.id.enter_passage);
+                final EditText passageText = (EditText) rootView.findViewById(R.id.enter_passage);
                 final String passage = data.getString(Constants.COL_PASSAGE);
 
                 rootView.findViewById(R.id.ico_speak).setOnClickListener(new View.OnClickListener() {
@@ -113,11 +113,10 @@ public class DetailActivityFragment extends Fragment implements LoaderCallbacks<
                     }
                 });
 
-                final String passage_usr = passageText.getText().toString();
-
                 rootView.findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        String passage_usr = passageText.getText().toString();
                         Intent intent = new Intent(getActivity(), ResultActivity.class)
                                 .setType("text/plain")
                                 .putExtra(Intent.EXTRA_TEXT, String.valueOf(dict_Id))

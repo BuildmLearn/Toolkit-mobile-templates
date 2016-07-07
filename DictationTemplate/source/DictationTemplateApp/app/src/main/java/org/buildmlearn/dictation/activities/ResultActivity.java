@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.buildmlearn.dictation.Constants;
 import org.buildmlearn.dictation.R;
 import org.buildmlearn.dictation.data.DataUtils;
 import org.buildmlearn.dictation.fragment.ResultActivityFragment;
@@ -30,13 +31,16 @@ public class ResultActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         String infoId = null;
+        String passageEntered = null;
         if (extras != null) {
             infoId = extras.getString(Intent.EXTRA_TEXT);
+            passageEntered = extras.getString(Constants.passage);
         }
 
         if (savedInstanceState == null) {
             Bundle arguments = new Bundle();
             arguments.putString(Intent.EXTRA_TEXT, infoId);
+            arguments.putString(Constants.passage, passageEntered);
 
             ResultActivityFragment fragment = new ResultActivityFragment();
             fragment.setArguments(arguments);

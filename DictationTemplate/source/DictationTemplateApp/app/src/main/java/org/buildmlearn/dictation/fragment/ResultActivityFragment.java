@@ -9,15 +9,23 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import org.buildmlearn.dictation.Constants;
 import org.buildmlearn.dictation.R;
 import org.buildmlearn.dictation.activities.DetailActivity;
 import org.buildmlearn.dictation.data.DictContract;
 import org.buildmlearn.dictation.data.DictDb;
+
+import java.util.LinkedList;
+import java.util.Locale;
+
+import name.fraser.neil.plaintext.diff_match_patch;
+import name.fraser.neil.plaintext.diff_match_patch.Diff;
 
 /**
  * Created by Anupam (opticod) on 4/7/16.
@@ -29,6 +37,7 @@ public class ResultActivityFragment extends Fragment implements LoaderCallbacks<
 
     private View rootView;
     private String dict_Id;
+    private String passageEntered;
     private DictDb db;
 
     public ResultActivityFragment() {
@@ -42,6 +51,7 @@ public class ResultActivityFragment extends Fragment implements LoaderCallbacks<
         Bundle arguments = getArguments();
         if (arguments != null) {
             dict_Id = arguments.getString(Intent.EXTRA_TEXT);
+            passageEntered = arguments.getString(Constants.passage);
         }
         rootView = inflater.inflate(R.layout.fragment_result, container, false);
 
@@ -83,6 +93,19 @@ public class ResultActivityFragment extends Fragment implements LoaderCallbacks<
         }
         switch (loader.getId()) {
             case DETAIL_LOADER:
+
+                String passage = data.getString(Constants.COL_PASSAGE);
+                passageEntered += " ";
+                passage += " ";
+
+                diff_match_patch obj = new diff_match_patch();
+                LinkedList<Diff> llDiffs = obj.diff_WordMode(passageEntered, passage);
+                String result[] = obj.diff_prettyHtml(llDiffs);
+
+                int numTWords = passage.split(" ").length;
+                ((TextView) rootView.findViewById(R.id.score)).setText(String.format(Locale.ENGLISH, "SCORE : %s / %d", result[1], numTWords));
+
+                ((TextView) rootView.findViewById(R.id.checked_text)).setText(Html.fromHtml(result[0]));
 
                 rootView.findViewById(R.id.restart).setOnClickListener(new View.OnClickListener() {
                     @Override
