@@ -23,13 +23,13 @@
                 android:id="@+id/score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/paddingTop"
                 android:paddingEnd="@dimen/paddingTop"
                 android:paddingLeft="@dimen/paddingTop"
                 android:paddingRight="@dimen/paddingTop"
                 android:paddingStart="@dimen/paddingTop"
                 android:paddingTop="@dimen/paddingTop"
-                android:textAppearance="?android:textAppearanceMedium" />
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/checked_text"
