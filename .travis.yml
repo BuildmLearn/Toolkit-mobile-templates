@@ -1,4 +1,4 @@
-before_install: cd DictationTemplate/source/DictationTemplateApp
+before_install: cd MatchTemplate/source/MatchTemplateApp
 
 language: android
 sudo: false
