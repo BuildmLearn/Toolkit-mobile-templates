@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/first_list_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:paddingBottom="@dimen/paddingTop"
+            android:paddingLeft="@dimen/paddingTop"
+            android:paddingStart="@dimen/paddingTop"
+            android:paddingTop="@dimen/paddingTop"
+            android:src="@drawable/ic_keyboard_capslock_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/first_list_down"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:paddingBottom="@dimen/paddingTop"
+            android:paddingEnd="@dimen/paddingTop"
+            android:paddingRight="@dimen/paddingTop"
+            android:paddingTop="@dimen/paddingTop"
+            android:src="@drawable/ic_keyboard_capslock_black_down_24dp"
+            android:text="@string/previous" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="79dp" />
+</LinearLayout>
