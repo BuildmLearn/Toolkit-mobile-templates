@@ -46,8 +46,8 @@ public class MatchDb {
         );
     }
 
-    public Cursor getMatchCursor() {
-
+    public Cursor getRandMatchCursor() {
+/*
         return db.query(
                 MatchContract.Matches.TABLE_NAME,
                 null,
@@ -57,6 +57,9 @@ public class MatchDb {
                 null,
                 null
         );
+        */
+        return db.query(MatchContract.Matches.TABLE_NAME + " Order BY RANDOM() ",
+                new String[]{"*"}, null, null, null, null, null);
     }
 
     public Cursor getMatchCursorById(int id) {

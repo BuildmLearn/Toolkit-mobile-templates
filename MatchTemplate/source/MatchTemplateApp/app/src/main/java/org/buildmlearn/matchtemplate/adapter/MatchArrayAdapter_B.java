@@ -1,51 +1,49 @@
 package org.buildmlearn.matchtemplate.adapter;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CursorAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import org.buildmlearn.matchtemplate.Constants;
 import org.buildmlearn.matchtemplate.R;
+import org.buildmlearn.matchtemplate.data.MatchModel;
+
+import java.util.ArrayList;
 
 /**
  * Created by Anupam (opticod) on 24/7/16.
  */
-public class MatchArrayAdapter_B extends CursorAdapter {
+public class MatchArrayAdapter_B extends ArrayAdapter<MatchModel> {
 
-    public MatchArrayAdapter_B(Context context, Cursor cursor) {
-        super(context, cursor, 0);
+    public MatchArrayAdapter_B(Context context, ArrayList<MatchModel> lists) {
+        super(context, 0, lists);
     }
 
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item_info_b, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        view.setTag(viewHolder);
-        return view;
-    }
+    public View getView(int position, View convertView, ViewGroup parent) {
 
-    /*
-     *  This is where we fill-in the views with the contents of the cursor.
-    */
-    @Override
-    public void bindView(View view, final Context context, Cursor cursor) {
-        final ViewHolder viewHolder = (ViewHolder) view.getTag();
+        MatchModel match = getItem(position);
 
-        String title = cursor.getString(Constants.COL_MATCH_B);
-        viewHolder.text.setText(title);
+        ViewHolder viewHolder;
 
+        if (convertView == null) {
+            viewHolder = new ViewHolder();
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            convertView = inflater.inflate(R.layout.list_item_info_a, parent, false);
+            viewHolder.text = (TextView) convertView.findViewById(R.id.text);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
+        viewHolder.text.setText(match.getMatchB());
+
+        return convertView;
     }
 
     public static class ViewHolder {
 
-        public final TextView text;
-
-        public ViewHolder(View view) {
-            text = (TextView) view.findViewById(R.id.text);
-        }
+        public TextView text;
     }
 }

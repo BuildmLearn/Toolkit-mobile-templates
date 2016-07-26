@@ -15,6 +15,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.buildmlearn.matchtemplate.Constants;
 import org.buildmlearn.matchtemplate.R;
 import org.buildmlearn.matchtemplate.adapter.MatchArrayAdapter_A;
 import org.buildmlearn.matchtemplate.adapter.MatchArrayAdapter_B;
@@ -88,16 +89,39 @@ public class MainActivityFragment extends Fragment {
         db = new MatchDb(getContext());
         db.open();
 
-        Cursor cursorMatchesA = db.getMatchCursor();
-        Cursor cursorMatchesB = db.getMatchCursor();
+        Cursor cursorMatchesA = db.getRandMatchCursor();
+        Cursor cursorMatchesB = db.getRandMatchCursor();
+
+        ArrayList<MatchModel> matchesA = new ArrayList<>();
+        ArrayList<MatchModel> matchesB = new ArrayList<>();
+
+        if (cursorMatchesA != null) {
+            while (cursorMatchesA.moveToNext()) {
+                MatchModel match = new MatchModel();
+                match.setMatchA(cursorMatchesA.getString(Constants.COL_MATCH_A));
+                match.setMatchB(cursorMatchesA.getString(Constants.COL_MATCH_B));
+                matchesA.add(match);
+            }
+            cursorMatchesA.close();
+        }
+
+        if (cursorMatchesB != null) {
+            while (cursorMatchesB.moveToNext()) {
+                MatchModel match = new MatchModel();
+                match.setMatchA(cursorMatchesB.getString(Constants.COL_MATCH_A));
+                match.setMatchB(cursorMatchesB.getString(Constants.COL_MATCH_B));
+                matchesB.add(match);
+            }
+            cursorMatchesB.close();
+        }
 
         matchListAdapterA =
                 new MatchArrayAdapter_A(
-                        getActivity(), cursorMatchesA);
+                        getActivity(), matchesA);
 
         matchListAdapterB =
                 new MatchArrayAdapter_B(
-                        getActivity(), cursorMatchesB);
+                        getActivity(), matchesB);
 
         rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
