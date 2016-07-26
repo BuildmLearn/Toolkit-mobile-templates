@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,6 +22,7 @@ import org.buildmlearn.matchtemplate.data.MatchDb;
 import org.buildmlearn.matchtemplate.data.MatchModel;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Anupam (opticod) on 24/7/16.
@@ -92,15 +92,12 @@ public class MainActivityFragment extends Fragment {
         Cursor cursorMatchesA = db.getRandMatchCursor();
         Cursor cursorMatchesB = db.getRandMatchCursor();
 
-        ArrayList<MatchModel> matchesA = new ArrayList<>();
-        ArrayList<MatchModel> matchesB = new ArrayList<>();
-
         if (cursorMatchesA != null) {
             while (cursorMatchesA.moveToNext()) {
                 MatchModel match = new MatchModel();
                 match.setMatchA(cursorMatchesA.getString(Constants.COL_MATCH_A));
                 match.setMatchB(cursorMatchesA.getString(Constants.COL_MATCH_B));
-                matchesA.add(match);
+                matchListA.add(match);
             }
             cursorMatchesA.close();
         }
@@ -110,56 +107,55 @@ public class MainActivityFragment extends Fragment {
                 MatchModel match = new MatchModel();
                 match.setMatchA(cursorMatchesB.getString(Constants.COL_MATCH_A));
                 match.setMatchB(cursorMatchesB.getString(Constants.COL_MATCH_B));
-                matchesB.add(match);
+                matchListB.add(match);
             }
             cursorMatchesB.close();
         }
 
         matchListAdapterA =
                 new MatchArrayAdapter_A(
-                        getActivity(), matchesA);
+                        getActivity(), matchListA);
 
         matchListAdapterB =
                 new MatchArrayAdapter_B(
-                        getActivity(), matchesB);
+                        getActivity(), matchListB);
 
         rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         listViewA = (ListView) rootView.findViewById(R.id.list_view_match_A);
         listViewB = (ListView) rootView.findViewById(R.id.list_view_match_B);
 
+        handleListViewListeners();
+
+        listViewA.setAdapter(matchListAdapterA);
+        listViewB.setAdapter(matchListAdapterB);
+
+        View header_A = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_main_header_a, null);
+        View footer_A = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_main_footer_a, null);
+        listViewA.addHeaderView(header_A);
+        listViewA.addFooterView(footer_A);
+
+        View header_B = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_main_header_b, null);
+        View footer_B = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_main_footer_b, null);
+        listViewB.addHeaderView(header_B);
+        listViewB.addFooterView(footer_B);
+
+        if (savedInstanceState != null && savedInstanceState.containsKey(SELECTED_KEY_A) && savedInstanceState.containsKey(SELECTED_KEY_B)) {
+            mPositionA = savedInstanceState.getInt(SELECTED_KEY_A);
+            mPositionB = savedInstanceState.getInt(SELECTED_KEY_B);
+        }
+
+        handleButtonListener(rootView);
+
+        return rootView;
+    }
+
+    private void handleListViewListeners() {
         listViewA.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (parent == clickSourceA) {
-                    Log.e(getClass().getName(), " A" + position);
-                    if (position == 0) {
-                        return;
-                    }
-
-                    if (selectedPositionA == position - 1) {
-                        selectedPositionA = -1;
-                        if (view instanceof CardView) {
-                            ((CardView) view).setCardBackgroundColor(Color.WHITE);
-                        } else {
-                            view.setBackgroundResource(0);
-                        }
-                    } else {
-                        if (selectedViewA != null) {
-                            if (selectedViewA instanceof CardView) {
-                                ((CardView) selectedViewA).setCardBackgroundColor(Color.WHITE);
-                            } else {
-                                selectedViewA.setBackgroundResource(0);
-                            }
-                        }
-                        selectedViewA = view;
-                        selectedPositionA = position - 1;
-                        if (view instanceof CardView) {
-                            ((CardView) view).setCardBackgroundColor(Color.LTGRAY);
-                        } else {
-                            view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.color_divider));
-                        }
-                    }
+                    highlightListA(position, view);
                 }
             }
         });
@@ -168,34 +164,7 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (parent != clickSourceA) {
-                    Log.e(getClass().getName(), " B" + position);
-                    if (position == 0) {
-                        return;
-                    }
-
-                    if (selectedPositionB == position - 1) {
-                        selectedPositionB = -1;
-                        if (view instanceof CardView) {
-                            ((CardView) view).setCardBackgroundColor(Color.WHITE);
-                        } else {
-                            view.setBackgroundResource(0);
-                        }
-                    } else {
-                        if (selectedViewB != null) {
-                            if (selectedViewB instanceof CardView) {
-                                ((CardView) selectedViewB).setCardBackgroundColor(Color.WHITE);
-                            } else {
-                                selectedViewB.setBackgroundResource(0);
-                            }
-                        }
-                        selectedViewB = view;
-                        selectedPositionB = position - 1;
-                        if (view instanceof CardView) {
-                            ((CardView) view).setCardBackgroundColor(Color.LTGRAY);
-                        } else {
-                            view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.color_divider));
-                        }
-                    }
+                    highlightListB(position, view);
                 }
             }
         });
@@ -225,25 +194,112 @@ public class MainActivityFragment extends Fragment {
             }
         });
 
-        listViewA.setAdapter(matchListAdapterA);
-        listViewB.setAdapter(matchListAdapterB);
+    }
 
-        View header_A = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_main_header_a, null);
-        View footer_A = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_main_footer_a, null);
-        listViewA.addHeaderView(header_A);
-        listViewA.addFooterView(footer_A);
+    private void handleButtonListener(View rootView) {
+        rootView.findViewById(R.id.first_list_up).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectedPositionA != -1 && selectedPositionA >= 1 && selectedPositionA < matchListA.size()) {
+                    Collections.swap(matchListA, selectedPositionA, selectedPositionA - 1);
+                    matchListAdapterA.notifyDataSetChanged();
+                    highlightListA(selectedPositionA, listViewA.getChildAt(selectedPositionA));
+                }
+            }
+        });
 
-        View header_B = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_main_header_b, null);
-        View footer_B = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_main_footer_b, null);
-        listViewB.addHeaderView(header_B);
-        listViewB.addFooterView(footer_B);
+        rootView.findViewById(R.id.first_list_down).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectedPositionA != -1 && selectedPositionA >= 0 && selectedPositionA <= matchListA.size() - 2) {
+                    Collections.swap(matchListA, selectedPositionA, selectedPositionA + 1);
+                    matchListAdapterA.notifyDataSetChanged();
+                    highlightListA(selectedPositionA + 2, listViewA.getChildAt(selectedPositionA + 2));
+                }
+            }
+        });
 
-        if (savedInstanceState != null && savedInstanceState.containsKey(SELECTED_KEY_A) && savedInstanceState.containsKey(SELECTED_KEY_B)) {
-            mPositionA = savedInstanceState.getInt(SELECTED_KEY_A);
-            mPositionB = savedInstanceState.getInt(SELECTED_KEY_B);
+        rootView.findViewById(R.id.second_list_up).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectedPositionB != -1 && selectedPositionB >= 1 && selectedPositionB < matchListB.size()) {
+                    Collections.swap(matchListB, selectedPositionB, selectedPositionB - 1);
+                    matchListAdapterB.notifyDataSetChanged();
+                    highlightListB(selectedPositionB, listViewB.getChildAt(selectedPositionB));
+                }
+            }
+        });
+
+        rootView.findViewById(R.id.second_list_down).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectedPositionB != -1 && selectedPositionB >= 0 && selectedPositionB <= matchListB.size() - 2) {
+                    Collections.swap(matchListB, selectedPositionB, selectedPositionB + 1);
+                    matchListAdapterB.notifyDataSetChanged();
+                    highlightListB(selectedPositionB + 2, listViewB.getChildAt(selectedPositionB + 2));
+                }
+            }
+        });
+    }
+
+    public void highlightListA(int position, View view) {
+        if (position == 0) {
+            return;
         }
 
-        return rootView;
+        if (selectedPositionA == position - 1) {
+            selectedPositionA = -1;
+            if (view instanceof CardView) {
+                ((CardView) view).setCardBackgroundColor(Color.WHITE);
+            } else {
+                view.setBackgroundResource(0);
+            }
+        } else {
+            if (selectedViewA != null) {
+                if (selectedViewA instanceof CardView) {
+                    ((CardView) selectedViewA).setCardBackgroundColor(Color.WHITE);
+                } else {
+                    selectedViewA.setBackgroundResource(0);
+                }
+            }
+            selectedViewA = view;
+            selectedPositionA = position - 1;
+            if (view instanceof CardView) {
+                ((CardView) view).setCardBackgroundColor(Color.LTGRAY);
+            } else {
+                view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.color_divider));
+            }
+        }
+    }
+
+    public void highlightListB(int position, View view) {
+        if (position == 0) {
+            return;
+        }
+
+        if (selectedPositionB == position - 1) {
+            selectedPositionB = -1;
+            if (view instanceof CardView) {
+                ((CardView) view).setCardBackgroundColor(Color.WHITE);
+            } else {
+                view.setBackgroundResource(0);
+            }
+        } else {
+            if (selectedViewB != null) {
+                if (selectedViewB instanceof CardView) {
+                    ((CardView) selectedViewB).setCardBackgroundColor(Color.WHITE);
+                } else {
+                    selectedViewB.setBackgroundResource(0);
+                }
+            }
+            selectedViewB = view;
+            selectedPositionB = position - 1;
+            if (view instanceof CardView) {
+                ((CardView) view).setCardBackgroundColor(Color.LTGRAY);
+            } else {
+                view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.color_divider));
+            }
+        }
     }
 
     @Override
