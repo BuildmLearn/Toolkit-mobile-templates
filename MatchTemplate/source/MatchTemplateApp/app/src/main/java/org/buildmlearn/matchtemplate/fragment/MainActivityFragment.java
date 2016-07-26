@@ -1,8 +1,12 @@
 package org.buildmlearn.matchtemplate.fragment;
 
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,13 +24,12 @@ import org.buildmlearn.matchtemplate.data.MatchModel;
 import java.util.ArrayList;
 
 /**
- * Created by Anupam (opticod) on 11/6/16.
+ * Created by Anupam (opticod) on 24/7/16.
  */
 public class MainActivityFragment extends Fragment {
 
     private static final String SELECTED_KEY_A = "selected_position_a";
     private static final String SELECTED_KEY_B = "selected_position_b";
-    private static final int INFO_LOADER = 0;
 
     private MatchArrayAdapter_A matchListAdapterA;
     private MatchArrayAdapter_B matchListAdapterB;
@@ -35,14 +38,19 @@ public class MainActivityFragment extends Fragment {
     private ListView listViewA;
     private ListView listViewB;
 
-    private View clickSource;
-    private View touchSource;
-
-    private int offset = 0;
     private ArrayList<MatchModel> matchListA;
     private ArrayList<MatchModel> matchListB;
     private View rootView;
     private MatchDb db;
+
+    private int selectedPositionA = -1;
+    private int selectedPositionB = -1;
+
+    private View selectedViewA;
+    private View selectedViewB;
+    private View clickSourceA;
+    private View clickSourceB;
+
 
     public MainActivityFragment() {
 
@@ -96,70 +104,85 @@ public class MainActivityFragment extends Fragment {
         listViewA = (ListView) rootView.findViewById(R.id.list_view_match_A);
         listViewB = (ListView) rootView.findViewById(R.id.list_view_match_B);
 
-        listViewA.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (touchSource == null) {
-                    touchSource = v;
-                }
-                if (v == touchSource) {
-                    listViewB.dispatchTouchEvent(event);
-                    if (event.getAction() == MotionEvent.ACTION_UP) {
-                        clickSource = v;
-                        touchSource = null;
-                    }
-                }
-                return false;
-            }
-        });
-
-        listViewB.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (touchSource == null) {
-                    touchSource = v;
-                }
-                if (v == touchSource) {
-                    listViewA.dispatchTouchEvent(event);
-                    if (event.getAction() == MotionEvent.ACTION_UP) {
-                        clickSource = v;
-                        touchSource = null;
-                    }
-                }
-                return false;
-            }
-        });
-
         listViewA.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (parent == clickSource) {
-                    //do something
+                if (parent == clickSourceA) {
+                    Log.e(getClass().getName(), " A" + position);
+                    if (position == 0) {
+                        return;
+                    }
+
+                    if (selectedPositionA == position - 1) {
+                        selectedPositionA = -1;
+                        if (view instanceof CardView) {
+                            ((CardView) view).setCardBackgroundColor(Color.WHITE);
+                        } else {
+                            view.setBackgroundResource(0);
+                        }
+                    } else {
+                        if (selectedViewA != null) {
+                            if (selectedViewA instanceof CardView) {
+                                ((CardView) selectedViewA).setCardBackgroundColor(Color.WHITE);
+                            } else {
+                                selectedViewA.setBackgroundResource(0);
+                            }
+                        }
+                        selectedViewA = view;
+                        selectedPositionA = position - 1;
+                        if (view instanceof CardView) {
+                            ((CardView) view).setCardBackgroundColor(Color.LTGRAY);
+                        } else {
+                            view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.color_divider));
+                        }
+                    }
                 }
             }
         });
-
 
         listViewB.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (parent == clickSource) {
-                    //do something
+                if (parent != clickSourceA) {
+                    Log.e(getClass().getName(), " B" + position);
+                    if (position == 0) {
+                        return;
+                    }
+
+                    if (selectedPositionB == position - 1) {
+                        selectedPositionB = -1;
+                        if (view instanceof CardView) {
+                            ((CardView) view).setCardBackgroundColor(Color.WHITE);
+                        } else {
+                            view.setBackgroundResource(0);
+                        }
+                    } else {
+                        if (selectedViewB != null) {
+                            if (selectedViewB instanceof CardView) {
+                                ((CardView) selectedViewB).setCardBackgroundColor(Color.WHITE);
+                            } else {
+                                selectedViewB.setBackgroundResource(0);
+                            }
+                        }
+                        selectedViewB = view;
+                        selectedPositionB = position - 1;
+                        if (view instanceof CardView) {
+                            ((CardView) view).setCardBackgroundColor(Color.LTGRAY);
+                        } else {
+                            view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.color_divider));
+                        }
+                    }
                 }
             }
         });
 
-        listViewA.setOnScrollListener(new AbsListView.OnScrollListener() {
+        listViewA.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                if (view == clickSource) {
-                    listViewB.setSelectionFromTop(firstVisibleItem, view.getChildAt(0).getTop() + offset);
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    clickSourceA = v;
                 }
+                return false;
             }
         });
 
@@ -171,28 +194,15 @@ public class MainActivityFragment extends Fragment {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                if (view == clickSource) {
-                    listViewA.setSelectionFromTop(firstVisibleItem, view.getChildAt(0).getTop() + offset);
-                }
+                View v = view.getChildAt(0);
+                clickSourceB = view;
+                if (v != null)
+                    listViewA.setSelectionFromTop(firstVisibleItem, v.getTop());
             }
         });
 
         listViewA.setAdapter(matchListAdapterA);
         listViewB.setAdapter(matchListAdapterB);
-
-        listViewA.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                mPositionA = position;
-            }
-        });
-
-        listViewA.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                mPositionB = position;
-            }
-        });
 
         View header_A = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_main_header_a, null);
         View footer_A = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_main_footer_a, null);
@@ -217,5 +227,4 @@ public class MainActivityFragment extends Fragment {
         super.onDestroyView();
         db.close();
     }
-
 }
