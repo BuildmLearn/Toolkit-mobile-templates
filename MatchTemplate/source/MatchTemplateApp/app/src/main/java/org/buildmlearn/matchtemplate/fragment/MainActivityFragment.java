@@ -1,5 +1,6 @@
 package org.buildmlearn.matchtemplate.fragment;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 
 import org.buildmlearn.matchtemplate.Constants;
 import org.buildmlearn.matchtemplate.R;
+import org.buildmlearn.matchtemplate.activities.DetailActivity;
 import org.buildmlearn.matchtemplate.adapter.MatchArrayAdapter_A;
 import org.buildmlearn.matchtemplate.adapter.MatchArrayAdapter_B;
 import org.buildmlearn.matchtemplate.data.MatchDb;
@@ -147,6 +149,16 @@ public class MainActivityFragment extends Fragment {
 
         handleButtonListener(rootView);
 
+        rootView.findViewById(R.id.check_answer).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DetailActivity.class)
+                        .setType("text/plain")
+                        .putParcelableArrayListExtra(Constants.first_list, matchListA)
+                        .putParcelableArrayListExtra(Constants.second_list, matchListB);
+                startActivity(intent);
+            }
+        });
         return rootView;
     }
 

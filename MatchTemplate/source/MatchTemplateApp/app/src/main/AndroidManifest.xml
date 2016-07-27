@@ -22,6 +22,9 @@
                 <activity
                     android:name=".activities.MainActivity"
                     android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activities.DetailActivity"
+            android:theme="@style/AppTheme" />
 
     </application>
 

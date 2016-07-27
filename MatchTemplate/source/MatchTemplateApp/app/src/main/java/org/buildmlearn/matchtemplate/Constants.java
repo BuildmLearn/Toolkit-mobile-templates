@@ -13,4 +13,6 @@ public class Constants {
     public static final int COL_MATCH_A = 1;
     public static final int COL_MATCH_B = 2;
     public static final String firstrun = "firstRun";
+    public static final String first_list = "firstList";
+    public static final String second_list = "secondList";
 }
