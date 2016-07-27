@@ -12,9 +12,7 @@ public class MatchMetaModel implements Parcelable {
     public static final String TITLE_TAG = "meta_title";
     public static final String FIRST_TITLE_TAG = "meta_first_list_title";
     public static final String SECOND_TITLE_TAG = "meta_second_list_title";
-    private static final String ROOT_TAG = "meta_details";
-
-    public final Parcelable.Creator<MatchMetaModel> CREATOR = new Parcelable.Creator<MatchMetaModel>() {
+    public final static Parcelable.Creator<MatchMetaModel> CREATOR = new Parcelable.Creator<MatchMetaModel>() {
         @Override
         public MatchMetaModel createFromParcel(Parcel parcel) {
             return new MatchMetaModel(parcel);
@@ -25,7 +23,7 @@ public class MatchMetaModel implements Parcelable {
             return new MatchMetaModel[size];
         }
     };
-
+    private static final String ROOT_TAG = "meta_details";
     private String title;
     private String first_list_title;
     private String second_list_title;

@@ -10,7 +10,7 @@ import android.os.Parcelable;
  */
 
 public class MatchModel implements Parcelable {
-    public final Parcelable.Creator<MatchModel> CREATOR = new Parcelable.Creator<MatchModel>() {
+    public final static Parcelable.Creator<MatchModel> CREATOR = new Parcelable.Creator<MatchModel>() {
         @Override
         public MatchModel createFromParcel(Parcel parcel) {
             return new MatchModel(parcel);
@@ -24,10 +24,18 @@ public class MatchModel implements Parcelable {
 
     private String matchA;
     private String matchB;
+    private int correct;
 
     public MatchModel(String A, String B) {
         this.matchA = A;
         this.matchB = B;
+        correct = -1;
+    }
+
+    public MatchModel(String A, String B, int c) {
+        this.matchA = A;
+        this.matchB = B;
+        this.correct = c;
     }
 
     public MatchModel() {
@@ -43,6 +51,14 @@ public class MatchModel implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(matchA);
         dest.writeString(matchB);
+    }
+
+    public int getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(int correct) {
+        this.correct = correct;
     }
 
     @Override

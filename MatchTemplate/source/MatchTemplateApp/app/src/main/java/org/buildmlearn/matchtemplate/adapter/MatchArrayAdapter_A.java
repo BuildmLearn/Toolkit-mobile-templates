@@ -1,6 +1,7 @@
 package org.buildmlearn.matchtemplate.adapter;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,11 @@ public class MatchArrayAdapter_A extends ArrayAdapter<MatchModel> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.text.setText(match.getMatchA());
+        if (match.getCorrect() == 2) {
+            convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.item_correct));
+        } else if (match.getCorrect() == 1) {
+            convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.item_wrong));
+        }
 
         return convertView;
     }
