@@ -5,5 +5,9 @@
     <dimen name="splash_button_margin_top">70dp</dimen>
     <dimen name="splash_text_margin">25dp</dimen>
     <dimen name="paddingTop">16dp</dimen>
+    <dimen name="toolbar_height">150dp</dimen>
+    <dimen name="medium_margin">15dp</dimen>
+    <dimen name="negative_margin">-60dp</dimen>
+    <dimen name="extra_margin">75dp</dimen>
 
 </resources>
