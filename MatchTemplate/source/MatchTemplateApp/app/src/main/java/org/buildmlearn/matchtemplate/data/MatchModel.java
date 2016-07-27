@@ -26,18 +26,6 @@ public class MatchModel implements Parcelable {
     private String matchB;
     private int correct;
 
-    public MatchModel(String A, String B) {
-        this.matchA = A;
-        this.matchB = B;
-        correct = -1;
-    }
-
-    public MatchModel(String A, String B, int c) {
-        this.matchA = A;
-        this.matchB = B;
-        this.correct = c;
-    }
-
     public MatchModel() {
 
     }

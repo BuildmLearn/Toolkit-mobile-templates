@@ -1,5 +1,6 @@
 package org.buildmlearn.matchtemplate.activities;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import org.buildmlearn.matchtemplate.Constants;
 import org.buildmlearn.matchtemplate.R;
+import org.buildmlearn.matchtemplate.data.MatchDb;
 import org.buildmlearn.matchtemplate.data.MatchModel;
 import org.buildmlearn.matchtemplate.fragment.DetailActivityFragment;
 
@@ -45,6 +47,13 @@ public class DetailActivity extends AppCompatActivity {
                     .add(R.id.info_detail_container, fragment)
                     .commit();
         }
+        MatchDb db = new MatchDb(this);
+        db.open();
+
+        Cursor meta = db.getMetaCursor();
+        meta.moveToFirst();
+        getSupportActionBar().setTitle(meta.getString(Constants.COL_TITLE_META));
+        db.close();
     }
 
     @Override

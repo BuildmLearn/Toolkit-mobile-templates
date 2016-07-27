@@ -1,6 +1,7 @@
 package org.buildmlearn.matchtemplate.fragment;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -32,8 +33,6 @@ public class DetailActivityFragment extends Fragment {
     private static final String SELECTED_KEY_A = "selected_position_a";
     private static final String SELECTED_KEY_B = "selected_position_b";
 
-    private MatchArrayAdapter_A matchListAdapterA;
-    private MatchArrayAdapter_B matchListAdapterB;
     private int mPositionA = ListView.INVALID_POSITION;
     private int mPositionB = ListView.INVALID_POSITION;
     private ListView listViewA;
@@ -41,7 +40,6 @@ public class DetailActivityFragment extends Fragment {
 
     private ArrayList<MatchModel> matchListA;
     private ArrayList<MatchModel> matchListB;
-    private View rootView;
     private MatchDb db;
 
     public DetailActivityFragment() {
@@ -101,15 +99,13 @@ public class DetailActivityFragment extends Fragment {
         }
 
 
-        matchListAdapterA =
-                new MatchArrayAdapter_A(
-                        getActivity(), matchListA);
+        MatchArrayAdapter_A matchListAdapterA = new MatchArrayAdapter_A(
+                getActivity(), matchListA);
 
-        matchListAdapterB =
-                new MatchArrayAdapter_B(
-                        getActivity(), matchListB);
+        MatchArrayAdapter_B matchListAdapterB = new MatchArrayAdapter_B(
+                getActivity(), matchListB);
 
-        rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         listViewA = (ListView) rootView.findViewById(R.id.list_view_match_A);
         listViewB = (ListView) rootView.findViewById(R.id.list_view_match_B);
@@ -151,6 +147,13 @@ public class DetailActivityFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        Cursor meta = db.getMetaCursor();
+
+        meta.moveToFirst();
+        ((TextView) rootView.findViewById(R.id.first_list_title)).setText(meta.getString(Constants.COL_FIRST_TITLE));
+        ((TextView) rootView.findViewById(R.id.second_list_title)).setText(meta.getString(Constants.COL_SECOND_TITLE));
+
         return rootView;
     }
 

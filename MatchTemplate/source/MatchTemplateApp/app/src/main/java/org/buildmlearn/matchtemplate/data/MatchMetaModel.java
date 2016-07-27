@@ -23,7 +23,6 @@ public class MatchMetaModel implements Parcelable {
             return new MatchMetaModel[size];
         }
     };
-    private static final String ROOT_TAG = "meta_details";
     private String title;
     private String first_list_title;
     private String second_list_title;
@@ -56,24 +55,12 @@ public class MatchMetaModel implements Parcelable {
         return first_list_title;
     }
 
-    public void setFirst_list_title(String first_list_title) {
-        this.first_list_title = first_list_title;
-    }
-
     public String getSecond_list_title() {
         return second_list_title;
     }
 
-    public void setSecond_list_title(String second_list_title) {
-        this.second_list_title = second_list_title;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
 }

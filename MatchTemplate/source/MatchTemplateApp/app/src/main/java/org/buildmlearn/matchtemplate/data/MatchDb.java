@@ -3,7 +3,6 @@ package org.buildmlearn.matchtemplate.data;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
@@ -25,10 +24,6 @@ public class MatchDb {
         db = dbHelper.getWritableDatabase();
     }
 
-    public boolean isOpen() {
-        return db.isOpen();
-    }
-
     public void close() {
         dbHelper.close();
     }
@@ -47,40 +42,9 @@ public class MatchDb {
     }
 
     public Cursor getRandMatchCursor() {
-/*
-        return db.query(
-                MatchContract.Matches.TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null
-        );
-        */
+
         return db.query(MatchContract.Matches.TABLE_NAME + " Order BY RANDOM() ",
                 new String[]{"*"}, null, null, null, null, null);
-    }
-
-    public Cursor getMatchCursorById(int id) {
-
-        String selection = MatchContract.Matches._ID + EQUAL + id;
-
-        return db.query(
-                MatchContract.Matches.TABLE_NAME,
-                null,
-                selection,
-                null,
-                null,
-                null,
-                null
-        );
-    }
-
-    public long getCountMatches() {
-
-        return DatabaseUtils.queryNumEntries(db,
-                MatchContract.Matches.TABLE_NAME);
     }
 
     public int bulkInsertMatches(@NonNull ContentValues[] values) {

@@ -1,5 +1,6 @@
 package org.buildmlearn.matchtemplate.activities;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.buildmlearn.matchtemplate.Constants;
 import org.buildmlearn.matchtemplate.R;
+import org.buildmlearn.matchtemplate.data.MatchDb;
 
 /**
  * Created by Anupam (opticod) on 24/7/16.
@@ -20,6 +23,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MatchDb db = new MatchDb(this);
+        db.open();
+
+        Cursor meta = db.getMetaCursor();
+        meta.moveToFirst();
+        getSupportActionBar().setTitle(meta.getString(Constants.COL_TITLE_META));
+        db.close();
+
     }
 
     @Override

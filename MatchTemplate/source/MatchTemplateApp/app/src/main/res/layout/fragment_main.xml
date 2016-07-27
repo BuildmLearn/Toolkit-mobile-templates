@@ -32,6 +32,7 @@
                 android:id="@+id/list_view_match_B"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="-4dp"
                 android:layout_marginRight="-4dp"
                 android:layout_weight="1"
                 android:divider="#ADFF2F"
@@ -40,7 +41,6 @@
                 android:textAppearance="?android:textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/empty"
                 style="@style/TextAppearance.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -102,7 +102,6 @@ public class FetchXMLTask extends AsyncTask<String, Void, Void> {
         }
         String fileName = params[0];
         ArrayList<MatchModel> mList;
-        ArrayList<String> mOptions;
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 

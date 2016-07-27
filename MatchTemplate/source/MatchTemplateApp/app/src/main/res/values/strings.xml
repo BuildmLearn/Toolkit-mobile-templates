@@ -5,17 +5,18 @@
     <string name="by">by</string>
     <string name="anupam" translatable="false">Anupam</string>
     <string name="title_activity_about">About</string>
-    <string name="list_empty">List is Empty!</string>
     <string name="previous">PREVIOUS</string>
-    <string name="next">NEXT</string>
-    <string name="exit">EXIT</string>
     <string name="about_us">About Us</string>
     <string name="about_text">This application has been developed using the BuildmLearn Toolkit.\n\nTo know more about BuildmLearn Toolkit visit <a href="https://buildmlearn.org/">here</a>.</string>
     <string name="ok">OK</string>
-    <string name="info_thumbnail">Info Thumbnail</string>
     <string name="background_image">Background Image</string>
     <string name="buildmlearn_logo">BuildmLearn Logo</string>
     <string name="main_subtitle">Country-Capital Match</string>
     <string name="check_answers">CHECK ANSWERS</string>
     <string name="try_again">TRY AGAIN</string>
+    <string name="first_list_up">First List Up</string>
+    <string name="first_list_down">First List Down</string>
+    <string name="second_list_up">Second List Up</string>
+    <string name="separator">Separator</string>
+    <string name="second_list_down">Second List Down</string>
 </resources>

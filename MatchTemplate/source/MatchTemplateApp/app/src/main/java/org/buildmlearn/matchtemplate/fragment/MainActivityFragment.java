@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.buildmlearn.matchtemplate.Constants;
 import org.buildmlearn.matchtemplate.R;
@@ -43,7 +44,6 @@ public class MainActivityFragment extends Fragment {
 
     private ArrayList<MatchModel> matchListA;
     private ArrayList<MatchModel> matchListB;
-    private View rootView;
     private MatchDb db;
 
     private int selectedPositionA = -1;
@@ -52,7 +52,6 @@ public class MainActivityFragment extends Fragment {
     private View selectedViewA;
     private View selectedViewB;
     private View clickSourceA;
-    private View clickSourceB;
 
 
     public MainActivityFragment() {
@@ -94,6 +93,8 @@ public class MainActivityFragment extends Fragment {
         Cursor cursorMatchesA = db.getRandMatchCursor();
         Cursor cursorMatchesB = db.getRandMatchCursor();
 
+        Cursor meta = db.getMetaCursor();
+
         if (cursorMatchesA != null) {
             while (cursorMatchesA.moveToNext()) {
                 MatchModel match = new MatchModel();
@@ -122,7 +123,7 @@ public class MainActivityFragment extends Fragment {
                 new MatchArrayAdapter_B(
                         getActivity(), matchListB);
 
-        rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         listViewA = (ListView) rootView.findViewById(R.id.list_view_match_A);
         listViewB = (ListView) rootView.findViewById(R.id.list_view_match_B);
@@ -159,6 +160,11 @@ public class MainActivityFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        meta.moveToFirst();
+        ((TextView) rootView.findViewById(R.id.first_list_title)).setText(meta.getString(Constants.COL_FIRST_TITLE));
+        ((TextView) rootView.findViewById(R.id.second_list_title)).setText(meta.getString(Constants.COL_SECOND_TITLE));
+
         return rootView;
     }
 
@@ -200,7 +206,6 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 View v = view.getChildAt(0);
-                clickSourceB = view;
                 if (v != null)
                     listViewA.setSelectionFromTop(firstVisibleItem, v.getTop());
             }
@@ -254,7 +259,7 @@ public class MainActivityFragment extends Fragment {
         });
     }
 
-    public void highlightListA(int position, View view) {
+    private void highlightListA(int position, View view) {
         if (position == 0) {
             return;
         }
@@ -284,7 +289,7 @@ public class MainActivityFragment extends Fragment {
         }
     }
 
-    public void highlightListB(int position, View view) {
+    private void highlightListB(int position, View view) {
         if (position == 0) {
             return;
         }
