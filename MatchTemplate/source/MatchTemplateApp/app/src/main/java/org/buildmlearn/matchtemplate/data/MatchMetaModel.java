@@ -51,11 +51,11 @@ public class MatchMetaModel implements Parcelable {
         dest.writeString(second_list_title);
     }
 
-    public String getFirst_list_title() {
+    public String getFirstListTitle() {
         return first_list_title;
     }
 
-    public String getSecond_list_title() {
+    public String getSecondListTitle() {
         return second_list_title;
     }
 

@@ -53,11 +53,6 @@ public class MainActivityFragment extends Fragment {
     private View selectedViewB;
     private View clickSourceA;
 
-
-    public MainActivityFragment() {
-
-    }
-
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putParcelableArrayList("matchListA", matchListA);

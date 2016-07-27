@@ -42,10 +42,6 @@ public class DetailActivityFragment extends Fragment {
     private ArrayList<MatchModel> matchListB;
     private MatchDb db;
 
-    public DetailActivityFragment() {
-
-    }
-
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putParcelableArrayList("matchListA", matchListA);
@@ -170,7 +166,7 @@ public class DetailActivityFragment extends Fragment {
         listViewB.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
-
+                //Left empty
             }
 
             @Override

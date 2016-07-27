@@ -54,8 +54,8 @@ public class FetchXMLTask extends AsyncTask<String, Void, Void> {
         String second_list_title;
 
         title = metaDetails.getTitle();
-        first_list_title = metaDetails.getFirst_list_title();
-        second_list_title = metaDetails.getSecond_list_title();
+        first_list_title = metaDetails.getFirstListTitle();
+        second_list_title = metaDetails.getSecondListTitle();
 
         ContentValues metaValues = new ContentValues();
 
