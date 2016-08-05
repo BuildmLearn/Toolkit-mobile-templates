@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.facebook.stetho.Stetho;
-
 import org.buildmlearn.learnspellings.Constants;
 import org.buildmlearn.learnspellings.R;
 import org.buildmlearn.learnspellings.data.DataUtils;
@@ -27,8 +25,6 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         final Activity mActivity = this;
         setContentView(R.layout.activity_splash);
-
-        Stetho.initializeWithDefaults(this);
 
         final String result[] = DataUtils.readTitleAuthor(this);
         TextView title = (TextView) findViewById(R.id.title);
