@@ -10,7 +10,6 @@
     <string name="by">by</string>
     <string name="anupam" translatable="false">Anupam</string>
     <string name="title_activity_about">About</string>
-    <string name="previous">PREVIOUS</string>
     <string name="next">NEXT</string>
     <string name="exit">EXIT</string>
     <string name="restart">RESTART</string>
@@ -19,8 +18,6 @@
     <string name="ok">OK</string>
     <string name="background_image">Background Image</string>
     <string name="buildmlearn_logo">BuildmLearn Logo</string>
-    <string name="go_to_questions">GO TO QUESTIONS</string>
-    <string name="passage_title">Passage :</string>
     <string name="completed_message">Hurrah! You have completed.</string>
     <string name="spell_it">SPELL IT</string>
     <string name="skip">SKIP</string>

@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity
     private static final float MIN_SPEECH_RATE = 0.01f;
     private android.app.AlertDialog mAlert;
     private Context mContext;
-    private TextView mTv_WordNumber;
     private Button mBtn_Spell, mBtn_Skip;
     private EditText mEt_Spelling;
     private SeekBar mSb_SpeechRate;
@@ -63,10 +62,12 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        assert drawer != null;
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
 
         mContext = MainActivity.this;
@@ -109,12 +110,11 @@ public class MainActivity extends AppCompatActivity
         mBtn_Spell = (Button) findViewById(R.id.spell_it);
         mBtn_Skip = (Button) findViewById(R.id.skip);
         mSb_SpeechRate = (SeekBar) findViewById(R.id.seek_bar);
-        mTv_WordNumber = (TextView) findViewById(R.id.intro_number);
+        TextView mTv_WordNumber = (TextView) findViewById(R.id.intro_number);
 
         mBtn_Spell.setEnabled(false);
         mBtn_Skip.setEnabled(false);
-        mTv_WordNumber.setText("Word #" + Integer.parseInt(spellId) + " of "
-                + numQues);
+        mTv_WordNumber.setText(String.format(Locale.ENGLISH, "Word #%d of %d", Integer.parseInt(spellId), numQues));
 
         Cursor spell_cursor = db.getSpellingCursorById(Integer.parseInt(spellId));
         spell_cursor.moveToFirst();
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void setListeners(final String spellId, final String word, final String meaning, final String answered) {
+    private void setListeners(final String spellId, final String word, final String meaning, final String answered) {
 
         findViewById(R.id.skip).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity
 
                     @Override
                     public void onClick(View v) {
-                        submit(spellId, word, meaning);
+                        submit(spellId);
                     }
                 });
             }
@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private void submit(String spell, String word, String meaning) {
+    private void submit(String spell) {
         String input = mEt_Spelling.getText().toString().trim();
         if (input.length() == 0) {
             Toast.makeText(mContext, "Please enter the spelling",
@@ -236,6 +236,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -267,6 +268,7 @@ public class MainActivity extends AppCompatActivity
                 builder.setPositiveButton(getString(R.string.ok), null);
                 AlertDialog welcomeAlert = builder.create();
                 welcomeAlert.show();
+                assert ((TextView) welcomeAlert.findViewById(android.R.id.message)) != null;
                 ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
 
                 break;
@@ -279,6 +281,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

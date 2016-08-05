@@ -49,7 +49,7 @@ public class SpellDb {
 
     }
 
-    public void markUnAnswered(int id) {
+    private void markUnAnswered(int id) {
 
         ContentValues values = new ContentValues();
         values.put(Spellings.ANSWERED, "");

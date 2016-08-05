@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by Anupam (opticod) on 1/6/16.
  */
 public class SpellModel implements Parcelable {
-    public final Parcelable.Creator<SpellModel> CREATOR = new Parcelable.Creator<SpellModel>() {
+    public final static Parcelable.Creator<SpellModel> CREATOR = new Parcelable.Creator<SpellModel>() {
         @Override
         public SpellModel createFromParcel(Parcel parcel) {
             return new SpellModel(parcel);

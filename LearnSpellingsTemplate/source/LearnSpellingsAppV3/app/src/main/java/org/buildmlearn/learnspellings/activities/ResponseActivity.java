@@ -33,7 +33,6 @@ public class ResponseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Context mContext;
-    private TextView mTv_WordNumber;
     private SpellDb db;
 
 
@@ -47,10 +46,12 @@ public class ResponseActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        assert drawer != null;
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
 
         mContext = ResponseActivity.this;
@@ -97,10 +98,9 @@ public class ResponseActivity extends AppCompatActivity
         MenuItem mi = m.getItem(m.size() - 1);
         mi.setTitle(mi.getTitle());
 
-        mTv_WordNumber = (TextView) findViewById(R.id.intro_number);
+        TextView mTv_WordNumber = (TextView) findViewById(R.id.intro_number);
 
-        mTv_WordNumber.setText("Word #" + Integer.parseInt(spellId) + " of "
-                + numQues);
+        mTv_WordNumber.setText(String.format(Locale.ENGLISH, "Word #%d of %d", Integer.parseInt(spellId), numQues));
 
         String message;
         String word_text_view;
@@ -112,9 +112,12 @@ public class ResponseActivity extends AppCompatActivity
             word_text_view = "Correct Spell:&nbsp <font color=\"#7fe77f\">" + word + "</font> <br />You entered:&nbsp <font color=\"#ee9797\">" + answered + "</font>";
         }
 
+        assert ((TextView) findViewById(R.id.intro_response)) != null;
         ((TextView) findViewById(R.id.intro_response)).setText(message);
+        assert ((TextView) findViewById(R.id.word)) != null;
         ((TextView) findViewById(R.id.word)).setText(Html.fromHtml(word_text_view), TextView.BufferType.SPANNABLE);
 
+        assert ((TextView) findViewById(R.id.meaning)) != null;
         ((TextView) findViewById(R.id.meaning)).setText(meaning);
 
         final String finalSpellId = spellId;
@@ -150,6 +153,7 @@ public class ResponseActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -181,6 +185,7 @@ public class ResponseActivity extends AppCompatActivity
                 builder.setPositiveButton(getString(R.string.ok), null);
                 AlertDialog welcomeAlert = builder.create();
                 welcomeAlert.show();
+                assert ((TextView) welcomeAlert.findViewById(android.R.id.message)) != null;
                 ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
 
                 break;
@@ -193,6 +198,7 @@ public class ResponseActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
