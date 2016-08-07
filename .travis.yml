@@ -1,4 +1,4 @@
-before_install: cd LearnSpellingsTemplate/source/LearnSpellingsAppV3
+before_install: cd FlashCardsTemplate/source/FlashCardsTemplateAppV3
 
 language: android
 sudo: false
