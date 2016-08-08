@@ -47,7 +47,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    ViewPager viewPager;
+    private ViewPager viewPager;
     private Context mContext;
     private FlashDb db;
 
@@ -113,9 +113,12 @@ public class MainActivity extends AppCompatActivity
         String hint = flash_cursor.getString(Constants.COL_HINT);
         String base64 = flash_cursor.getString(Constants.COL_BASE64);
 
+        assert findViewById(R.id.intro_number) != null;
         ((TextView) findViewById(R.id.intro_number)).setText(String.format(Locale.ENGLISH, "Card #%d of %d", Integer.parseInt(FlashId), numFlash));
+        assert findViewById(R.id.question) != null;
         ((TextView) findViewById(R.id.question)).setText(question);
-        ((TextView) findViewById(R.id.hint)).setText("Hint : " + hint);
+        assert findViewById(R.id.hint) != null;
+        ((TextView) findViewById(R.id.hint)).setText(String.format(Locale.ENGLISH, "Hint : %s", hint));
 
         Button prv = (Button) findViewById(R.id.previous);
         Button flip = (Button) findViewById(R.id.flip);
@@ -124,6 +127,7 @@ public class MainActivity extends AppCompatActivity
 
 
         if (null != FlashId && FlashId.equals("1")) {
+            assert prv != null;
             prv.setEnabled(false);
             prv.setTextColor(ContextCompat.getColor(mContext, R.color.grey_shade_4));
         }
@@ -141,6 +145,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         final String finalFlashId1 = FlashId;
+        assert prv != null;
         prv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,6 +160,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         final String finalFlashId = FlashId;
+        assert next != null;
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -179,6 +185,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        assert flip != null;
         flip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -237,7 +244,8 @@ public class MainActivity extends AppCompatActivity
                 builder.setPositiveButton(getString(R.string.ok), null);
                 AlertDialog welcomeAlert = builder.create();
                 welcomeAlert.show();
-                assert ((TextView) welcomeAlert.findViewById(android.R.id.message)) != null;
+                assert welcomeAlert.findViewById(android.R.id.message) != null;
+                assert welcomeAlert.findViewById(android.R.id.message) != null;
                 ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
 
                 break;
@@ -257,7 +265,7 @@ public class MainActivity extends AppCompatActivity
 
     class MyPagerAdapter extends PagerAdapter {
 
-        FlashModel model;
+        final FlashModel model;
 
         public MyPagerAdapter(FlashModel mFlash) {
             this.model = mFlash;
@@ -265,7 +273,7 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            View cardView = null;
+            View cardView;
 
             if (position == 0) {
                 cardView = LayoutInflater.from(MainActivity.this).inflate(R.layout.question_layout_flash_card, container, false);

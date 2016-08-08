@@ -27,10 +27,6 @@ public class FlashDb {
         db = dbHelper.getWritableDatabase();
     }
 
-    public boolean isOpen() {
-        return db.isOpen();
-    }
-
     public void close() {
         dbHelper.close();
     }

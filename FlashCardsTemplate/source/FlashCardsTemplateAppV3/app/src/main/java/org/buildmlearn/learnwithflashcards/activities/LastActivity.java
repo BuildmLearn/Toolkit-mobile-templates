@@ -13,14 +13,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.buildmlearn.learnwithflashcards.R;
-import org.buildmlearn.learnwithflashcards.data.FlashDb;
 
 /**
  * Created by Anupam (opticod) on 8/7/16.
  */
 public class LastActivity extends AppCompatActivity {
-
-    private FlashDb db;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,7 +69,7 @@ public class LastActivity extends AppCompatActivity {
                 builder.setPositiveButton(getString(R.string.ok), null);
                 AlertDialog welcomeAlert = builder.create();
                 welcomeAlert.show();
-                assert ((TextView) welcomeAlert.findViewById(android.R.id.message)) != null;
+                assert welcomeAlert.findViewById(android.R.id.message) != null;
                 ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
 
                 break;

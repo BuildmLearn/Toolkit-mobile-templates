@@ -25,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:contentDescription="@string/backdrop_image"
                 android:scaleType="centerCrop"
                 android:src="@drawable/image_quiz" />
         </LinearLayout>

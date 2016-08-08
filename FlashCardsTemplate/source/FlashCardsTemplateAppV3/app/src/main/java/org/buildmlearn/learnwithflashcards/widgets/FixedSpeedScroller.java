@@ -6,18 +6,10 @@ import android.widget.Scroller;
 
 public class FixedSpeedScroller extends Scroller {
 
-    private int mDuration = 500;
-
-    public FixedSpeedScroller(Context context) {
-        super(context);
-    }
+    private final int mDuration = 500;
 
     public FixedSpeedScroller(Context context, Interpolator interpolator) {
         super(context, interpolator);
-    }
-
-    public FixedSpeedScroller(Context context, Interpolator interpolator, boolean flywheel) {
-        super(context, interpolator, flywheel);
     }
 
 
