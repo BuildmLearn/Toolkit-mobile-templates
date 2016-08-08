@@ -1,0 +1,92 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.LastActivity">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:theme="@style/ToolBarStyle_heading" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_main"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/negative_margin_tablet"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cardHeightLastActivity"
+                android:layout_marginLeft="@dimen/extra_margin"
+                android:layout_marginRight="@dimen/extra_margin"
+                android:layout_marginTop="@dimen/paddingTop">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/paddingTop"
+                        android:paddingLeft="@dimen/paddingTop"
+                        android:paddingRight="@dimen/paddingTop"
+                        android:paddingTop="@dimen/paddingTop"
+                        android:text="@string/completed_message"
+                        android:textAppearance="?android:textAppearanceMedium" />
+
+                    <Button
+                        android:id="@+id/exit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@android:color/transparent"
+                        android:paddingBottom="@dimen/paddingTop"
+                        android:paddingLeft="@dimen/paddingTop"
+                        android:paddingRight="@dimen/paddingTop"
+                        android:paddingTop="@dimen/paddingTop"
+                        android:text="@string/exit"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@color/colorAccent" />
+
+                    <Button
+                        android:id="@+id/restart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toLeftOf="@+id/exit"
+                        android:layout_toStartOf="@+id/exit"
+                        android:background="@android:color/transparent"
+                        android:paddingBottom="@dimen/paddingTop"
+                        android:paddingLeft="@dimen/paddingTop"
+                        android:paddingRight="@dimen/paddingTop"
+                        android:paddingTop="@dimen/paddingTop"
+                        android:text="@string/restart"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@color/black_secondary_text" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </RelativeLayout>
+</merge>
