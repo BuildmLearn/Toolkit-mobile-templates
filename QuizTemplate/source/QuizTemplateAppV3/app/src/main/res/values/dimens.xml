@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="headline_leading">32sp</dimen>
+    <dimen name="title">20sp</dimen>
+    <dimen name="radio_button_margin_top">32dp</dimen>
+    <dimen name="splash_button_margin_top">50dp</dimen>
+    <dimen name="splash_button_margin_top_radio">80dp</dimen>
+    <dimen name="splash_text_margin">25dp</dimen>
+    <dimen name="paddingTop">16dp</dimen>
+    <dimen name="cardHeightLastActivity">350dp</dimen>
+    <dimen name="button_up_margin">60dp</dimen>
+    <dimen name="toolbar_height_small">75dp</dimen>
+    <dimen name="toolbar_height">150dp</dimen>
+    <dimen name="medium_margin">15dp</dimen>
+    <dimen name="negative_margin_tablet">-60dp</dimen>
+    <dimen name="extra_margin">150dp</dimen>
+    <dimen name="splash_button_margin_top_tablet">200dp</dimen>
+
+</resources>
