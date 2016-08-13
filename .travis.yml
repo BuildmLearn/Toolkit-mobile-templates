@@ -1,4 +1,4 @@
-before_install: cd /QuizTemplate/source/QuizTemplateAppV3
+before_install: cd QuizTemplate/source/QuizTemplateAppV3
 
 language: android
 sudo: false
