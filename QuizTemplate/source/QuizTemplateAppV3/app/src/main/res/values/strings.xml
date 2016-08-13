@@ -19,7 +19,5 @@
     <string name="ok">OK</string>
     <string name="background_image">Background Image</string>
     <string name="buildmlearn_logo">BuildmLearn Logo</string>
-    <string name="go_to_questions">GO TO QUESTIONS</string>
-    <string name="passage_title">Passage :</string>
     <string name="completed_message">Hurrah! You have completed the Quiz.</string>
 </resources>

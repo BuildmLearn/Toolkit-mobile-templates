@@ -36,8 +36,11 @@ public class LastActivity extends AppCompatActivity {
 
         int stat[] = db.getStatistics();
 
+        assert ((TextView) findViewById(R.id.correct)) != null;
         ((TextView) findViewById(R.id.correct)).setText(String.format(Locale.getDefault(), "Total Correct : %1$d", stat[0]));
+        assert ((TextView) findViewById(R.id.wrong)) != null;
         ((TextView) findViewById(R.id.wrong)).setText(String.format(Locale.getDefault(), "Total Wrong : %1$d", stat[1]));
+        assert ((TextView) findViewById(R.id.un_answered)) != null;
         ((TextView) findViewById(R.id.un_answered)).setText(String.format(Locale.getDefault(), "Total Unanswered : %1$d", stat[2]));
 
         findViewById(R.id.restart).setOnClickListener(new View.OnClickListener() {
@@ -85,6 +88,7 @@ public class LastActivity extends AppCompatActivity {
                 builder.setPositiveButton(getString(R.string.ok), null);
                 AlertDialog welcomeAlert = builder.create();
                 welcomeAlert.show();
+                assert ((TextView) welcomeAlert.findViewById(android.R.id.message)) != null;
                 ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
 
                 break;

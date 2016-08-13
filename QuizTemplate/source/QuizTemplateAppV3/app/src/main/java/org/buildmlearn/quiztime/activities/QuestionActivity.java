@@ -42,10 +42,12 @@ public class QuestionActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        assert drawer != null;
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
 
         Bundle extras = getIntent().getExtras();
@@ -78,6 +80,7 @@ public class QuestionActivity extends AppCompatActivity
 
         if (attempted == 1) {
             answered = cursor.getString(Constants.COL_ANSWERED);
+            assert rg != null;
             rg.check(rg.getChildAt(Integer.parseInt(answered)).getId());
         }
         for (int i = 1; i <= numQues; i++) {
@@ -87,6 +90,7 @@ public class QuestionActivity extends AppCompatActivity
             topChannelMenu.getItem(i - 1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
+                    assert rg != null;
                     int radioButtonID = rg.getCheckedRadioButtonId();
                     View radioButton = rg.findViewById(radioButtonID);
                     int idx = rg.indexOfChild(radioButton);
@@ -109,22 +113,28 @@ public class QuestionActivity extends AppCompatActivity
             });
         }
 
+        assert ((TextView) findViewById(R.id.question_title)) != null;
         ((TextView) findViewById(R.id.question_title)).setText(String.format(Locale.getDefault(), "Question No : %1$s", questionId));
+        assert ((TextView) findViewById(R.id.question)) != null;
         ((TextView) findViewById(R.id.question)).setText(question);
         if (option_1 != null) {
             findViewById(R.id.radioButton1).setVisibility(View.VISIBLE);
+            assert ((TextView) findViewById(R.id.radioButton1)) != null;
             ((TextView) findViewById(R.id.radioButton1)).setText(option_1);
         }
         if (option_2 != null) {
             findViewById(R.id.radioButton2).setVisibility(View.VISIBLE);
+            assert ((TextView) findViewById(R.id.radioButton2)) != null;
             ((TextView) findViewById(R.id.radioButton2)).setText(option_2);
         }
         if (option_3 != null) {
             findViewById(R.id.radioButton3).setVisibility(View.VISIBLE);
+            assert ((TextView) findViewById(R.id.radioButton3)) != null;
             ((TextView) findViewById(R.id.radioButton3)).setText(option_3);
         }
         if (option_4 != null) {
             findViewById(R.id.radioButton4).setVisibility(View.VISIBLE);
+            assert ((TextView) findViewById(R.id.radioButton4)) != null;
             ((TextView) findViewById(R.id.radioButton4)).setText(option_4);
         }
 
@@ -132,6 +142,7 @@ public class QuestionActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
+                assert rg != null;
                 int radioButtonID = rg.getCheckedRadioButtonId();
                 View radioButton = rg.findViewById(radioButtonID);
                 int idx = rg.indexOfChild(radioButton);
@@ -175,6 +186,7 @@ public class QuestionActivity extends AppCompatActivity
                 @Override
                 public void onClick(View v) {
 
+                    assert rg != null;
                     int radioButtonID = rg.getCheckedRadioButtonId();
                     View radioButton = rg.findViewById(radioButtonID);
                     int idx = rg.indexOfChild(radioButton);
@@ -217,6 +229,7 @@ public class QuestionActivity extends AppCompatActivity
                 builder.setPositiveButton(getString(R.string.ok), null);
                 AlertDialog welcomeAlert = builder.create();
                 welcomeAlert.show();
+                assert ((TextView) welcomeAlert.findViewById(android.R.id.message)) != null;
                 ((TextView) welcomeAlert.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
 
                 break;
@@ -229,6 +242,7 @@ public class QuestionActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -240,6 +254,7 @@ public class QuestionActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
