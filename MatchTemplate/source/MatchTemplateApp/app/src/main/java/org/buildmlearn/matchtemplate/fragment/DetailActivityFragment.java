@@ -139,7 +139,9 @@ public class DetailActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), MainActivity.class)
-                        .setType("text/plain");
+                        .setType("text/plain")
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                 startActivity(intent);
             }
         });
