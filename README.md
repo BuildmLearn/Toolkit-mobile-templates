@@ -3,7 +3,7 @@
 Tookit-template-apps
 --------------------
 
-This repository contains the template applications of the toolkit. BuildmLearn Toolkit app is an easy-to-use android app that helps the users make another mobile apps without any knowledge of android application development. The toolkit helps creating mobile application with various functionality and allows teachers to input their custom content. Targeted at teachers, this toolkit helps them make learning fun and engaging through mobile apps.
+This repository contains the template applications of the toolkit. [BuildmLearn Toolkit app](https://github.com/BuildmLearn/BuildmLearn-Toolkit-Android) is an easy-to-use android app that helps the users make another mobile apps without any knowledge of android application development. The toolkit helps creating mobile application with various functionality and allows teachers to input their custom content. Targeted at teachers, this toolkit helps them make learning fun and engaging through mobile apps.
 
 # Development Setup
 1. Go to the project repo and click the `Fork` button
@@ -27,6 +27,7 @@ Glosarry
 | [Template_Name]/apk | Contains APKs of that [Template_Name] template |
 | [Template_Name]/source/[Template_App_Name] | Contains Android project files of that [Template_Name] template |
 
+For complete documentation, please visit: http://buildmlearn.github.io/Toolkit-mobile-templates/
 
 License for use and distribution
 ---------------------------------
