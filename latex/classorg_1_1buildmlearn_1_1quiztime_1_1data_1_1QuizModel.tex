@@ -1,0 +1,183 @@
+\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel}{}\section{org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model Class Reference}
+\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel}\index{org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model@{org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model}}
+
+
+Model used to save quiz entries in database for quiz template\textquotesingle{}s app.  
+
+
+
+
+Inheritance diagram for org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a6edd6fc87ecca733758244af765476c4}{Quiz\+Model} ()
+\item 
+int \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a096de5851958330cbb3ad03fe7a5cc18}{describe\+Contents} ()
+\item 
+void \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ad6382aa8376dbde55531e6a0a274eb74}{write\+To\+Parcel} (Parcel dest, int flags)
+\item 
+String \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_abba335db2d409549f41d10bbd05a8bab}{get\+Question} ()
+\item 
+void \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a07aefd1723f5bf604fc024e9b2983e45}{set\+Question} (String \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a766d7c74280ac9f78f0ef37b81a98992}{question})
+\item 
+Array\+List$<$ String $>$ \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ae4dad0dfeb2020e9f8827542fd625c07}{get\+Options} ()
+\item 
+void \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_aba75fdb5e643146b136d72f0a8113d1c}{set\+Options} (Array\+List$<$ String $>$ \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a1bc4a9ea2622409109f2b6b48080d31c}{options})
+\item 
+int \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ae01ec7b523f46ffcbfce7439f1f714b0}{get\+Correct\+Answer} ()
+\item 
+void \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_acee1d3fe01cabd54c5717b229f40ae93}{set\+Correct\+Answer} (int \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ad061f6ad5ac348ef167a366c95d707e9}{correct\+Answer})
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Parcelable.\+Creator$<$ \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel}{Quiz\+Model} $>$ \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ac4e21d36758e65d378176b71be2811f3}{C\+R\+E\+A\+T\+OR}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a3dd0c4cfc6e1e5ff12cda78729732555}{Quiz\+Model} (Parcel in)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a766d7c74280ac9f78f0ef37b81a98992}{question}
+\item 
+Array\+List$<$ String $>$ \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a1bc4a9ea2622409109f2b6b48080d31c}{options}
+\item 
+int \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ad061f6ad5ac348ef167a366c95d707e9}{correct\+Answer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Model used to save quiz entries in database for quiz template\textquotesingle{}s app. 
+
+Created by Anupam (opticod) on 11/8/16. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!Quiz\+Model@{Quiz\+Model}}
+\index{Quiz\+Model@{Quiz\+Model}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{Quiz\+Model(\+Parcel in)}{QuizModel(Parcel in)}}]{\setlength{\rightskip}{0pt plus 5cm}org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+Quiz\+Model (
+\begin{DoxyParamCaption}
+\item[{Parcel}]{in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a3dd0c4cfc6e1e5ff12cda78729732555}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a3dd0c4cfc6e1e5ff12cda78729732555}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!Quiz\+Model@{Quiz\+Model}}
+\index{Quiz\+Model@{Quiz\+Model}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{Quiz\+Model()}{QuizModel()}}]{\setlength{\rightskip}{0pt plus 5cm}org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+Quiz\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a6edd6fc87ecca733758244af765476c4}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a6edd6fc87ecca733758244af765476c4}
+
+
+\subsection{Member Function Documentation}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!describe\+Contents@{describe\+Contents}}
+\index{describe\+Contents@{describe\+Contents}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{describe\+Contents()}{describeContents()}}]{\setlength{\rightskip}{0pt plus 5cm}int org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+describe\+Contents (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a096de5851958330cbb3ad03fe7a5cc18}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a096de5851958330cbb3ad03fe7a5cc18}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!get\+Correct\+Answer@{get\+Correct\+Answer}}
+\index{get\+Correct\+Answer@{get\+Correct\+Answer}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{get\+Correct\+Answer()}{getCorrectAnswer()}}]{\setlength{\rightskip}{0pt plus 5cm}int org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+get\+Correct\+Answer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ae01ec7b523f46ffcbfce7439f1f714b0}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ae01ec7b523f46ffcbfce7439f1f714b0}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!get\+Options@{get\+Options}}
+\index{get\+Options@{get\+Options}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{get\+Options()}{getOptions()}}]{\setlength{\rightskip}{0pt plus 5cm}Array\+List$<$String$>$ org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+get\+Options (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ae4dad0dfeb2020e9f8827542fd625c07}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ae4dad0dfeb2020e9f8827542fd625c07}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!get\+Question@{get\+Question}}
+\index{get\+Question@{get\+Question}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{get\+Question()}{getQuestion()}}]{\setlength{\rightskip}{0pt plus 5cm}String org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+get\+Question (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_abba335db2d409549f41d10bbd05a8bab}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_abba335db2d409549f41d10bbd05a8bab}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!set\+Correct\+Answer@{set\+Correct\+Answer}}
+\index{set\+Correct\+Answer@{set\+Correct\+Answer}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{set\+Correct\+Answer(int correct\+Answer)}{setCorrectAnswer(int correctAnswer)}}]{\setlength{\rightskip}{0pt plus 5cm}void org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+set\+Correct\+Answer (
+\begin{DoxyParamCaption}
+\item[{int}]{correct\+Answer}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_acee1d3fe01cabd54c5717b229f40ae93}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_acee1d3fe01cabd54c5717b229f40ae93}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!set\+Options@{set\+Options}}
+\index{set\+Options@{set\+Options}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{set\+Options(\+Array\+List$<$ String $>$ options)}{setOptions(ArrayList< String > options)}}]{\setlength{\rightskip}{0pt plus 5cm}void org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+set\+Options (
+\begin{DoxyParamCaption}
+\item[{Array\+List$<$ String $>$}]{options}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_aba75fdb5e643146b136d72f0a8113d1c}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_aba75fdb5e643146b136d72f0a8113d1c}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!set\+Question@{set\+Question}}
+\index{set\+Question@{set\+Question}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{set\+Question(\+String question)}{setQuestion(String question)}}]{\setlength{\rightskip}{0pt plus 5cm}void org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+set\+Question (
+\begin{DoxyParamCaption}
+\item[{String}]{question}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a07aefd1723f5bf604fc024e9b2983e45}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a07aefd1723f5bf604fc024e9b2983e45}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!write\+To\+Parcel@{write\+To\+Parcel}}
+\index{write\+To\+Parcel@{write\+To\+Parcel}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{write\+To\+Parcel(\+Parcel dest, int flags)}{writeToParcel(Parcel dest, int flags)}}]{\setlength{\rightskip}{0pt plus 5cm}void org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+write\+To\+Parcel (
+\begin{DoxyParamCaption}
+\item[{Parcel}]{dest, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ad6382aa8376dbde55531e6a0a274eb74}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ad6382aa8376dbde55531e6a0a274eb74}
+
+
+\subsection{Member Data Documentation}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!correct\+Answer@{correct\+Answer}}
+\index{correct\+Answer@{correct\+Answer}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{correct\+Answer}{correctAnswer}}]{\setlength{\rightskip}{0pt plus 5cm}int org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+correct\+Answer\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ad061f6ad5ac348ef167a366c95d707e9}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ad061f6ad5ac348ef167a366c95d707e9}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!C\+R\+E\+A\+T\+OR@{C\+R\+E\+A\+T\+OR}}
+\index{C\+R\+E\+A\+T\+OR@{C\+R\+E\+A\+T\+OR}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{C\+R\+E\+A\+T\+OR}{CREATOR}}]{\setlength{\rightskip}{0pt plus 5cm}final Parcelable.\+Creator$<${\bf Quiz\+Model}$>$ org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+C\+R\+E\+A\+T\+OR}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ac4e21d36758e65d378176b71be2811f3}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_ac4e21d36758e65d378176b71be2811f3}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Parcelable.Creator<\hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a6edd6fc87ecca733758244af765476c4}{QuizModel}>() \{
+        @Override
+        \textcolor{keyword}{public} \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a6edd6fc87ecca733758244af765476c4}{QuizModel} createFromParcel(Parcel parcel) \{
+            \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a6edd6fc87ecca733758244af765476c4}{QuizModel}(parcel);
+        \}
+
+        @Override
+        \textcolor{keyword}{public} \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a6edd6fc87ecca733758244af765476c4}{QuizModel}[] newArray(\textcolor{keywordtype}{int} size) \{
+            \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a6edd6fc87ecca733758244af765476c4}{QuizModel}[size];
+        \}
+    \}
+\end{DoxyCode}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!options@{options}}
+\index{options@{options}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{options}{options}}]{\setlength{\rightskip}{0pt plus 5cm}Array\+List$<$String$>$ org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+options\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a1bc4a9ea2622409109f2b6b48080d31c}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a1bc4a9ea2622409109f2b6b48080d31c}
+\index{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}!question@{question}}
+\index{question@{question}!org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model@{org\+::buildmlearn\+::quiztime\+::data\+::\+Quiz\+Model}}
+\subsubsection[{\texorpdfstring{question}{question}}]{\setlength{\rightskip}{0pt plus 5cm}String org.\+buildmlearn.\+quiztime.\+data.\+Quiz\+Model.\+question\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a766d7c74280ac9f78f0ef37b81a98992}{}\label{classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel_a766d7c74280ac9f78f0ef37b81a98992}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Quiz\+Template/source/\+Quiz\+Template\+App\+V3/app/src/main/java/org/buildmlearn/quiztime/data/\hyperlink{QuizModel_8java}{Quiz\+Model.\+java}\end{DoxyCompactItemize}

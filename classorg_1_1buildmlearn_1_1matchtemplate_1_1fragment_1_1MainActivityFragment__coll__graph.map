@@ -1,0 +1,6 @@
+<map id="org.buildmlearn.matchtemplate.fragment.MainActivityFragment" name="org.buildmlearn.matchtemplate.fragment.MainActivityFragment">
+<area shape="rect" id="node3" href="$classorg_1_1buildmlearn_1_1matchtemplate_1_1adapter_1_1MatchArrayAdapter__A.html" title="Custom Adapter for match template&#39;s app. " alt="" coords="547,57,798,98"/>
+<area shape="rect" id="node5" href="$classorg_1_1buildmlearn_1_1matchtemplate_1_1adapter_1_1MatchArrayAdapter__B.html" title="Custom Adapter for match template&#39;s app. " alt="" coords="547,122,798,163"/>
+<area shape="rect" id="node6" href="$classorg_1_1buildmlearn_1_1matchtemplate_1_1data_1_1MatchDb.html" title="Contains database util functions for match template&#39;s app. " alt="" coords="556,187,789,229"/>
+<area shape="rect" id="node8" title="DatabaseHelper for match template&#39;s app. " alt="" coords="185,207,419,249"/>
+</map>

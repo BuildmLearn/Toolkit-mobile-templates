@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['datautils_2ejava',['DataUtils.java',['../ComprehensionTemplate_2source_2Comprehension_2app_2src_2main_2java_2org_2buildmlearn_2comprehension_2data_2DataUtils_8java.html',1,'']]],
+  ['datautils_2ejava',['DataUtils.java',['../DictationTemplate_2source_2DictationTemplateApp_2app_2src_2main_2java_2org_2buildmlearn_2dictation_2data_2DataUtils_8java.html',1,'']]],
+  ['datautils_2ejava',['DataUtils.java',['../InfoTemplate_2source_2InfoTemplateAppV3_2app_2src_2main_2java_2org_2buildmlearn_2infotemplate_2data_2DataUtils_8java.html',1,'']]],
+  ['datautils_2ejava',['DataUtils.java',['../VideoCollectionTemplate_2source_2VideoCollectionTemplateApp_2app_2src_2main_2java_2org_2buildmle013b34ea684e2708e64b4b961571aa67.html',1,'']]],
+  ['datautils_2ejava',['DataUtils.java',['../LearnSpellingsTemplate_2source_2LearnSpellingsAppV3_2app_2src_2main_2java_2org_2buildmlearn_2leaaf439b0d67e1b2f3f955067c37f1bc25.html',1,'']]],
+  ['datautils_2ejava',['DataUtils.java',['../FlashCardsTemplate_2source_2FlashCardsTemplateAppV3_2app_2src_2main_2java_2org_2buildmlearn_2lead72dd80b0dee0cb1129f55d2c9ae1e8a.html',1,'']]],
+  ['datautils_2ejava',['DataUtils.java',['../MatchTemplate_2source_2MatchTemplateApp_2app_2src_2main_2java_2org_2buildmlearn_2matchtemplate_2data_2DataUtils_8java.html',1,'']]],
+  ['datautils_2ejava',['DataUtils.java',['../QuizTemplate_2source_2QuizTemplateAppV3_2app_2src_2main_2java_2org_2buildmlearn_2quiztime_2data_2DataUtils_8java.html',1,'']]],
+  ['detailactivity_2ejava',['DetailActivity.java',['../DictationTemplate_2source_2DictationTemplateApp_2app_2src_2main_2java_2org_2buildmlearn_2dictati439f1b62b8cfb7bea3b0953394ec23ab.html',1,'']]],
+  ['detailactivity_2ejava',['DetailActivity.java',['../InfoTemplate_2source_2InfoTemplateAppV3_2app_2src_2main_2java_2org_2buildmlearn_2infotemplate_2activities_2DetailActivity_8java.html',1,'']]],
+  ['detailactivity_2ejava',['DetailActivity.java',['../MatchTemplate_2source_2MatchTemplateApp_2app_2src_2main_2java_2org_2buildmlearn_2matchtemplate_2be61d8da09eb0481c1630e0dc8f4781a.html',1,'']]],
+  ['detailactivity_2ejava',['DetailActivity.java',['../VideoCollectionTemplate_2source_2VideoCollectionTemplateApp_2app_2src_2main_2java_2org_2buildmlea928e2d82bf56507677eaff9646343d6.html',1,'']]],
+  ['detailactivityfragment_2ejava',['DetailActivityFragment.java',['../MatchTemplate_2source_2MatchTemplateApp_2app_2src_2main_2java_2org_2buildmlearn_2matchtemplate_214ffae52d596ba7c06cdf792c03758c2.html',1,'']]],
+  ['detailactivityfragment_2ejava',['DetailActivityFragment.java',['../VideoCollectionTemplate_2source_2VideoCollectionTemplateApp_2app_2src_2main_2java_2org_2buildmle0499cacd4ed87567fd1ea39b0dbd3950.html',1,'']]],
+  ['detailactivityfragment_2ejava',['DetailActivityFragment.java',['../DictationTemplate_2source_2DictationTemplateApp_2app_2src_2main_2java_2org_2buildmlearn_2dictatid1c47e4a090d94dec80c4479897b3a2c.html',1,'']]],
+  ['detailactivityfragment_2ejava',['DetailActivityFragment.java',['../InfoTemplate_2source_2InfoTemplateAppV3_2app_2src_2main_2java_2org_2buildmlearn_2infotemplate_2f97fa1c29ed126df6b9893c55cb59dfb1.html',1,'']]],
+  ['dictarrayadapter_2ejava',['DictArrayAdapter.java',['../DictArrayAdapter_8java.html',1,'']]],
+  ['dictcontract_2ejava',['DictContract.java',['../DictContract_8java.html',1,'']]],
+  ['dictdb_2ejava',['DictDb.java',['../DictDb_8java.html',1,'']]],
+  ['dictdbhelper_2ejava',['DictDBHelper.java',['../DictDBHelper_8java.html',1,'']]],
+  ['dictmodel_2ejava',['DictModel.java',['../DictModel_8java.html',1,'']]],
+  ['diff_5fmatch_5fpatch_2ejava',['diff_match_patch.java',['../diff__match__patch_8java.html',1,'']]]
+];

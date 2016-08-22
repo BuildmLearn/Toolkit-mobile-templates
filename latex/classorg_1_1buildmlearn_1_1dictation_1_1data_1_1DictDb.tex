@@ -1,0 +1,132 @@
+\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb}{}\section{org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db Class Reference}
+\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb}\index{org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db@{org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db}}
+
+
+Contains database util functions for dictation template\textquotesingle{}s app.  
+
+
+
+
+Collaboration diagram for org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_ae1077faf9c7a29a3ab47ab8c855389db}{Dict\+Db} (Context context)
+\item 
+void \hyperlink{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a953259b11c6f923e10194de1ff318e3f}{open} ()  throws S\+Q\+L\+Exception 
+\item 
+boolean \hyperlink{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aeaf01974bc3f338db2e2bad5a78d199f}{is\+Open} ()
+\item 
+void \hyperlink{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_ab67c25ccc24fca6458fbc83a9d66bc05}{close} ()
+\item 
+Cursor \hyperlink{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aa4871cbe065fb160ed4bf4ebab25d1ef}{get\+Dicts\+Cursor} ()
+\item 
+Cursor \hyperlink{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aecbbba0d72c1e00480046ce363fe4d49}{get\+Dict\+Cursor\+By\+Id} (int id)
+\item 
+long \hyperlink{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_ab920f64971cc9dc5fc7cd1804807e46c}{get\+Count} ()
+\item 
+int \hyperlink{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a009d94f0edc628f762b688f1166070b2}{bulk\+Insert} (@Non\+Null Content\+Values\mbox{[}$\,$\mbox{]} values)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Dict\+D\+B\+Helper \hyperlink{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a3190b76f3c5b41ed1a1efd1fbb904177}{db\+Helper}
+\item 
+S\+Q\+Lite\+Database \hyperlink{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a2aa3deb66d74d970b61f80add55e9c00}{db}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \hyperlink{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aaad02877c23d7b290ffbee474e69790f}{E\+Q\+U\+AL} = \char`\"{} == \char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains database util functions for dictation template\textquotesingle{}s app. 
+
+Created by Anupam (opticod) on 4/7/16. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}!Dict\+Db@{Dict\+Db}}
+\index{Dict\+Db@{Dict\+Db}!org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}}
+\subsubsection[{\texorpdfstring{Dict\+Db(\+Context context)}{DictDb(Context context)}}]{\setlength{\rightskip}{0pt plus 5cm}org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db.\+Dict\+Db (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_ae1077faf9c7a29a3ab47ab8c855389db}{}\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_ae1077faf9c7a29a3ab47ab8c855389db}
+
+
+\subsection{Member Function Documentation}
+\index{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}!bulk\+Insert@{bulk\+Insert}}
+\index{bulk\+Insert@{bulk\+Insert}!org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}}
+\subsubsection[{\texorpdfstring{bulk\+Insert("@Non\+Null Content\+Values[] values)}{bulkInsert(@NonNull ContentValues[] values)}}]{\setlength{\rightskip}{0pt plus 5cm}int org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db.\+bulk\+Insert (
+\begin{DoxyParamCaption}
+\item[{@Non\+Null Content\+Values\mbox{[}$\,$\mbox{]}}]{values}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a009d94f0edc628f762b688f1166070b2}{}\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a009d94f0edc628f762b688f1166070b2}
+\index{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}!close@{close}}
+\index{close@{close}!org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}}
+\subsubsection[{\texorpdfstring{close()}{close()}}]{\setlength{\rightskip}{0pt plus 5cm}void org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db.\+close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_ab67c25ccc24fca6458fbc83a9d66bc05}{}\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_ab67c25ccc24fca6458fbc83a9d66bc05}
+\index{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}!get\+Count@{get\+Count}}
+\index{get\+Count@{get\+Count}!org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}}
+\subsubsection[{\texorpdfstring{get\+Count()}{getCount()}}]{\setlength{\rightskip}{0pt plus 5cm}long org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db.\+get\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_ab920f64971cc9dc5fc7cd1804807e46c}{}\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_ab920f64971cc9dc5fc7cd1804807e46c}
+\index{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}!get\+Dict\+Cursor\+By\+Id@{get\+Dict\+Cursor\+By\+Id}}
+\index{get\+Dict\+Cursor\+By\+Id@{get\+Dict\+Cursor\+By\+Id}!org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}}
+\subsubsection[{\texorpdfstring{get\+Dict\+Cursor\+By\+Id(int id)}{getDictCursorById(int id)}}]{\setlength{\rightskip}{0pt plus 5cm}Cursor org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db.\+get\+Dict\+Cursor\+By\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aecbbba0d72c1e00480046ce363fe4d49}{}\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aecbbba0d72c1e00480046ce363fe4d49}
+\index{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}!get\+Dicts\+Cursor@{get\+Dicts\+Cursor}}
+\index{get\+Dicts\+Cursor@{get\+Dicts\+Cursor}!org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}}
+\subsubsection[{\texorpdfstring{get\+Dicts\+Cursor()}{getDictsCursor()}}]{\setlength{\rightskip}{0pt plus 5cm}Cursor org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db.\+get\+Dicts\+Cursor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aa4871cbe065fb160ed4bf4ebab25d1ef}{}\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aa4871cbe065fb160ed4bf4ebab25d1ef}
+\index{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}!is\+Open@{is\+Open}}
+\index{is\+Open@{is\+Open}!org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}}
+\subsubsection[{\texorpdfstring{is\+Open()}{isOpen()}}]{\setlength{\rightskip}{0pt plus 5cm}boolean org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db.\+is\+Open (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aeaf01974bc3f338db2e2bad5a78d199f}{}\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aeaf01974bc3f338db2e2bad5a78d199f}
+\index{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}!open@{open}}
+\index{open@{open}!org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}}
+\subsubsection[{\texorpdfstring{open()}{open()}}]{\setlength{\rightskip}{0pt plus 5cm}void org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db.\+open (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws S\+Q\+L\+Exception}\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a953259b11c6f923e10194de1ff318e3f}{}\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a953259b11c6f923e10194de1ff318e3f}
+
+
+\subsection{Member Data Documentation}
+\index{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}!db@{db}}
+\index{db@{db}!org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}}
+\subsubsection[{\texorpdfstring{db}{db}}]{\setlength{\rightskip}{0pt plus 5cm}S\+Q\+Lite\+Database org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db.\+db\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a2aa3deb66d74d970b61f80add55e9c00}{}\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a2aa3deb66d74d970b61f80add55e9c00}
+\index{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}!db\+Helper@{db\+Helper}}
+\index{db\+Helper@{db\+Helper}!org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}}
+\subsubsection[{\texorpdfstring{db\+Helper}{dbHelper}}]{\setlength{\rightskip}{0pt plus 5cm}final Dict\+D\+B\+Helper org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db.\+db\+Helper\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a3190b76f3c5b41ed1a1efd1fbb904177}{}\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_a3190b76f3c5b41ed1a1efd1fbb904177}
+\index{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}!E\+Q\+U\+AL@{E\+Q\+U\+AL}}
+\index{E\+Q\+U\+AL@{E\+Q\+U\+AL}!org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db@{org\+::buildmlearn\+::dictation\+::data\+::\+Dict\+Db}}
+\subsubsection[{\texorpdfstring{E\+Q\+U\+AL}{EQUAL}}]{\setlength{\rightskip}{0pt plus 5cm}final String org.\+buildmlearn.\+dictation.\+data.\+Dict\+Db.\+E\+Q\+U\+AL = \char`\"{} == \char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aaad02877c23d7b290ffbee474e69790f}{}\label{classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb_aaad02877c23d7b290ffbee474e69790f}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Dictation\+Template/source/\+Dictation\+Template\+App/app/src/main/java/org/buildmlearn/dictation/data/\hyperlink{DictDb_8java}{Dict\+Db.\+java}\end{DoxyCompactItemize}

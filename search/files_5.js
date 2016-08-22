@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['mainactivity_2ejava',['MainActivity.java',['../ComprehensionTemplate_2source_2Comprehension_2app_2src_2main_2java_2org_2buildmlearn_2comprehense76c71ae58cf792a863238a3f6aaa1de.html',1,'']]],
+  ['mainactivity_2ejava',['MainActivity.java',['../DictationTemplate_2source_2DictationTemplateApp_2app_2src_2main_2java_2org_2buildmlearn_2dictatie38e07d6063741dc1656d8ad93c19d73.html',1,'']]],
+  ['mainactivity_2ejava',['MainActivity.java',['../InfoTemplate_2source_2InfoTemplateAppV3_2app_2src_2main_2java_2org_2buildmlearn_2infotemplate_2activities_2MainActivity_8java.html',1,'']]],
+  ['mainactivity_2ejava',['MainActivity.java',['../LearnSpellingsTemplate_2source_2LearnSpellingsAppV3_2app_2src_2main_2java_2org_2buildmlearn_2lea467f2fc2ddaf76cbe39ef028ec0293ec.html',1,'']]],
+  ['mainactivity_2ejava',['MainActivity.java',['../FlashCardsTemplate_2source_2FlashCardsTemplateAppV3_2app_2src_2main_2java_2org_2buildmlearn_2lea662cfb7ae014a144960116dfe6806ec9.html',1,'']]],
+  ['mainactivity_2ejava',['MainActivity.java',['../MatchTemplate_2source_2MatchTemplateApp_2app_2src_2main_2java_2org_2buildmlearn_2matchtemplate_2activities_2MainActivity_8java.html',1,'']]],
+  ['mainactivity_2ejava',['MainActivity.java',['../VideoCollectionTemplate_2source_2VideoCollectionTemplateApp_2app_2src_2main_2java_2org_2buildmle0ca82921566ce3f0ef578fb0f395c5b6.html',1,'']]],
+  ['mainactivityfragment_2ejava',['MainActivityFragment.java',['../DictationTemplate_2source_2DictationTemplateApp_2app_2src_2main_2java_2org_2buildmlearn_2dictati3611c804a9f7d5640dad8f6b7ba116ed.html',1,'']]],
+  ['mainactivityfragment_2ejava',['MainActivityFragment.java',['../VideoCollectionTemplate_2source_2VideoCollectionTemplateApp_2app_2src_2main_2java_2org_2buildmle5ec78e4cdd65bc5e3b3154db5d4ed40b.html',1,'']]],
+  ['mainactivityfragment_2ejava',['MainActivityFragment.java',['../InfoTemplate_2source_2InfoTemplateAppV3_2app_2src_2main_2java_2org_2buildmlearn_2infotemplate_2fcc5a6e7e0c3e52d3892aebb1b333ffde.html',1,'']]],
+  ['mainactivityfragment_2ejava',['MainActivityFragment.java',['../MatchTemplate_2source_2MatchTemplateApp_2app_2src_2main_2java_2org_2buildmlearn_2matchtemplate_28ba3955079e039e8d5f320826056b22b.html',1,'']]],
+  ['matcharrayadapter_5fa_2ejava',['MatchArrayAdapter_A.java',['../MatchArrayAdapter__A_8java.html',1,'']]],
+  ['matcharrayadapter_5fb_2ejava',['MatchArrayAdapter_B.java',['../MatchArrayAdapter__B_8java.html',1,'']]],
+  ['matchcontract_2ejava',['MatchContract.java',['../MatchContract_8java.html',1,'']]],
+  ['matchdb_2ejava',['MatchDb.java',['../MatchDb_8java.html',1,'']]],
+  ['matchdbhelper_2ejava',['MatchDBHelper.java',['../MatchDBHelper_8java.html',1,'']]],
+  ['matchmetamodel_2ejava',['MatchMetaModel.java',['../MatchMetaModel_8java.html',1,'']]],
+  ['matchmodel_2ejava',['MatchModel.java',['../MatchModel_8java.html',1,'']]]
+];

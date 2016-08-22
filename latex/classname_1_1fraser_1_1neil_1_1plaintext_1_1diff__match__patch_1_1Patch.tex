@@ -1,0 +1,83 @@
+\hypertarget{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch}{}\section{name.\+fraser.\+neil.\+plaintext.\+diff\+\_\+match\+\_\+patch.\+Patch Class Reference}
+\label{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch}\index{name.\+fraser.\+neil.\+plaintext.\+diff\+\_\+match\+\_\+patch.\+Patch@{name.\+fraser.\+neil.\+plaintext.\+diff\+\_\+match\+\_\+patch.\+Patch}}
+
+
+Collaboration diagram for name.\+fraser.\+neil.\+plaintext.\+diff\+\_\+match\+\_\+patch.\+Patch\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a4ae1f214668d66217e2a7ac0cedcf349}{Patch} ()
+\item 
+String \hyperlink{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_aa49a2e65f4a704ea5dda396a7db0998c}{to\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Linked\+List$<$ \hyperlink{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Diff}{Diff} $>$ \hyperlink{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_ab6f658bc7ff4fa17016e2916b9027d91}{diffs}
+\item 
+int \hyperlink{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a4f03f9504baa942ce9ec137492240ab1}{start1}
+\item 
+int \hyperlink{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a3b9d1c37a8620c995ca00fffd615954f}{start2}
+\item 
+int \hyperlink{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a08ee5c588f9e6b7d9ffcc9beaa4c378e}{length1}
+\item 
+int \hyperlink{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a3380cffe60690c311e04be2c6c3a8fb1}{length2}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class representing one patch operation. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}!Patch@{Patch}}
+\index{Patch@{Patch}!name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}}
+\subsubsection[{\texorpdfstring{Patch()}{Patch()}}]{\setlength{\rightskip}{0pt plus 5cm}name.\+fraser.\+neil.\+plaintext.\+diff\+\_\+match\+\_\+patch.\+Patch.\+Patch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a4ae1f214668d66217e2a7ac0cedcf349}{}\label{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a4ae1f214668d66217e2a7ac0cedcf349}
+Constructor. Initializes with an empty list of diffs. 
+
+\subsection{Member Function Documentation}
+\index{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}}
+\subsubsection[{\texorpdfstring{to\+String()}{toString()}}]{\setlength{\rightskip}{0pt plus 5cm}String name.\+fraser.\+neil.\+plaintext.\+diff\+\_\+match\+\_\+patch.\+Patch.\+to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_aa49a2e65f4a704ea5dda396a7db0998c}{}\label{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_aa49a2e65f4a704ea5dda396a7db0998c}
+Emmulate G\+NU diff\textquotesingle{}s format. Header\+: @ -\/382,8 +481,9 @ Indicies are printed as 1-\/based, not 0-\/based.
+
+\begin{DoxyReturn}{Returns}
+The G\+NU diff string. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}!diffs@{diffs}}
+\index{diffs@{diffs}!name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}}
+\subsubsection[{\texorpdfstring{diffs}{diffs}}]{\setlength{\rightskip}{0pt plus 5cm}Linked\+List$<${\bf Diff}$>$ name.\+fraser.\+neil.\+plaintext.\+diff\+\_\+match\+\_\+patch.\+Patch.\+diffs}\hypertarget{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_ab6f658bc7ff4fa17016e2916b9027d91}{}\label{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_ab6f658bc7ff4fa17016e2916b9027d91}
+\index{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}!length1@{length1}}
+\index{length1@{length1}!name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}}
+\subsubsection[{\texorpdfstring{length1}{length1}}]{\setlength{\rightskip}{0pt plus 5cm}int name.\+fraser.\+neil.\+plaintext.\+diff\+\_\+match\+\_\+patch.\+Patch.\+length1}\hypertarget{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a08ee5c588f9e6b7d9ffcc9beaa4c378e}{}\label{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a08ee5c588f9e6b7d9ffcc9beaa4c378e}
+\index{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}!length2@{length2}}
+\index{length2@{length2}!name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}}
+\subsubsection[{\texorpdfstring{length2}{length2}}]{\setlength{\rightskip}{0pt plus 5cm}int name.\+fraser.\+neil.\+plaintext.\+diff\+\_\+match\+\_\+patch.\+Patch.\+length2}\hypertarget{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a3380cffe60690c311e04be2c6c3a8fb1}{}\label{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a3380cffe60690c311e04be2c6c3a8fb1}
+\index{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}!start1@{start1}}
+\index{start1@{start1}!name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}}
+\subsubsection[{\texorpdfstring{start1}{start1}}]{\setlength{\rightskip}{0pt plus 5cm}int name.\+fraser.\+neil.\+plaintext.\+diff\+\_\+match\+\_\+patch.\+Patch.\+start1}\hypertarget{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a4f03f9504baa942ce9ec137492240ab1}{}\label{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a4f03f9504baa942ce9ec137492240ab1}
+\index{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}!start2@{start2}}
+\index{start2@{start2}!name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch@{name\+::fraser\+::neil\+::plaintext\+::diff\+\_\+match\+\_\+patch\+::\+Patch}}
+\subsubsection[{\texorpdfstring{start2}{start2}}]{\setlength{\rightskip}{0pt plus 5cm}int name.\+fraser.\+neil.\+plaintext.\+diff\+\_\+match\+\_\+patch.\+Patch.\+start2}\hypertarget{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a3b9d1c37a8620c995ca00fffd615954f}{}\label{classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch_a3b9d1c37a8620c995ca00fffd615954f}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Dictation\+Template/source/\+Dictation\+Template\+App/app/src/main/java/name/fraser/neil/plaintext/\hyperlink{diff__match__patch_8java}{diff\+\_\+match\+\_\+patch.\+java}\end{DoxyCompactItemize}

@@ -1,0 +1,114 @@
+\hypertarget{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb}{}\section{org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db Class Reference}
+\label{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb}\index{org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db@{org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db}}
+
+
+Contains database util functions for flash card template\textquotesingle{}s simulator.  
+
+
+
+
+Collaboration diagram for org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_abc3246e80aa12fdbfd782304844ad684}{Flash\+Db} (Context context)
+\item 
+void \hyperlink{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a26fa49089f6263124879642af1979510}{open} ()  throws S\+Q\+L\+Exception 
+\item 
+void \hyperlink{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_ad08f6012d8ac5b51a6540e929da5e26f}{close} ()
+\item 
+Cursor \hyperlink{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a89895504bbc669a2332078494c3f96e4}{get\+Flash\+Cursor\+By\+Id} (int id)
+\item 
+long \hyperlink{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a1a480423fe0e60ff47d152334db936b3}{get\+Count\+Flash\+Cards} ()
+\item 
+int \hyperlink{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a28b3b7aa21605086648929b9e934ca61}{bulk\+Insert\+Flash\+Cards} (@Non\+Null Content\+Values\mbox{[}$\,$\mbox{]} values)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Flash\+D\+B\+Helper \hyperlink{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_aa4f4f1766677fb1a2fb50c7b771a59d4}{db\+Helper}
+\item 
+S\+Q\+Lite\+Database \hyperlink{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a09b4dd49dc2257badf4060a1afd7a85a}{db}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \hyperlink{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a829e7276c4c3e65c62f653d4c814f7c7}{E\+Q\+U\+AL} = \char`\"{} == \char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains database util functions for flash card template\textquotesingle{}s simulator. 
+
+Created by Anupam (opticod) on 7/7/16. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}!Flash\+Db@{Flash\+Db}}
+\index{Flash\+Db@{Flash\+Db}!org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}}
+\subsubsection[{\texorpdfstring{Flash\+Db(\+Context context)}{FlashDb(Context context)}}]{\setlength{\rightskip}{0pt plus 5cm}org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db.\+Flash\+Db (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_abc3246e80aa12fdbfd782304844ad684}{}\label{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_abc3246e80aa12fdbfd782304844ad684}
+
+
+\subsection{Member Function Documentation}
+\index{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}!bulk\+Insert\+Flash\+Cards@{bulk\+Insert\+Flash\+Cards}}
+\index{bulk\+Insert\+Flash\+Cards@{bulk\+Insert\+Flash\+Cards}!org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}}
+\subsubsection[{\texorpdfstring{bulk\+Insert\+Flash\+Cards("@Non\+Null Content\+Values[] values)}{bulkInsertFlashCards(@NonNull ContentValues[] values)}}]{\setlength{\rightskip}{0pt plus 5cm}int org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db.\+bulk\+Insert\+Flash\+Cards (
+\begin{DoxyParamCaption}
+\item[{@Non\+Null Content\+Values\mbox{[}$\,$\mbox{]}}]{values}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a28b3b7aa21605086648929b9e934ca61}{}\label{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a28b3b7aa21605086648929b9e934ca61}
+\index{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}!close@{close}}
+\index{close@{close}!org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}}
+\subsubsection[{\texorpdfstring{close()}{close()}}]{\setlength{\rightskip}{0pt plus 5cm}void org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db.\+close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_ad08f6012d8ac5b51a6540e929da5e26f}{}\label{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_ad08f6012d8ac5b51a6540e929da5e26f}
+\index{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}!get\+Count\+Flash\+Cards@{get\+Count\+Flash\+Cards}}
+\index{get\+Count\+Flash\+Cards@{get\+Count\+Flash\+Cards}!org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}}
+\subsubsection[{\texorpdfstring{get\+Count\+Flash\+Cards()}{getCountFlashCards()}}]{\setlength{\rightskip}{0pt plus 5cm}long org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db.\+get\+Count\+Flash\+Cards (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a1a480423fe0e60ff47d152334db936b3}{}\label{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a1a480423fe0e60ff47d152334db936b3}
+\index{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}!get\+Flash\+Cursor\+By\+Id@{get\+Flash\+Cursor\+By\+Id}}
+\index{get\+Flash\+Cursor\+By\+Id@{get\+Flash\+Cursor\+By\+Id}!org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}}
+\subsubsection[{\texorpdfstring{get\+Flash\+Cursor\+By\+Id(int id)}{getFlashCursorById(int id)}}]{\setlength{\rightskip}{0pt plus 5cm}Cursor org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db.\+get\+Flash\+Cursor\+By\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a89895504bbc669a2332078494c3f96e4}{}\label{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a89895504bbc669a2332078494c3f96e4}
+\index{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}!open@{open}}
+\index{open@{open}!org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}}
+\subsubsection[{\texorpdfstring{open()}{open()}}]{\setlength{\rightskip}{0pt plus 5cm}void org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db.\+open (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws S\+Q\+L\+Exception}\hypertarget{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a26fa49089f6263124879642af1979510}{}\label{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a26fa49089f6263124879642af1979510}
+
+
+\subsection{Member Data Documentation}
+\index{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}!db@{db}}
+\index{db@{db}!org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}}
+\subsubsection[{\texorpdfstring{db}{db}}]{\setlength{\rightskip}{0pt plus 5cm}S\+Q\+Lite\+Database org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db.\+db\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a09b4dd49dc2257badf4060a1afd7a85a}{}\label{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a09b4dd49dc2257badf4060a1afd7a85a}
+\index{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}!db\+Helper@{db\+Helper}}
+\index{db\+Helper@{db\+Helper}!org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}}
+\subsubsection[{\texorpdfstring{db\+Helper}{dbHelper}}]{\setlength{\rightskip}{0pt plus 5cm}final Flash\+D\+B\+Helper org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db.\+db\+Helper\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_aa4f4f1766677fb1a2fb50c7b771a59d4}{}\label{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_aa4f4f1766677fb1a2fb50c7b771a59d4}
+\index{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}!E\+Q\+U\+AL@{E\+Q\+U\+AL}}
+\index{E\+Q\+U\+AL@{E\+Q\+U\+AL}!org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db@{org\+::buildmlearn\+::learnwithflashcards\+::data\+::\+Flash\+Db}}
+\subsubsection[{\texorpdfstring{E\+Q\+U\+AL}{EQUAL}}]{\setlength{\rightskip}{0pt plus 5cm}final String org.\+buildmlearn.\+learnwithflashcards.\+data.\+Flash\+Db.\+E\+Q\+U\+AL = \char`\"{} == \char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a829e7276c4c3e65c62f653d4c814f7c7}{}\label{classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashDb_a829e7276c4c3e65c62f653d4c814f7c7}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Flash\+Cards\+Template/source/\+Flash\+Cards\+Template\+App\+V3/app/src/main/java/org/buildmlearn/learnwithflashcards/data/\hyperlink{FlashDb_8java}{Flash\+Db.\+java}\end{DoxyCompactItemize}

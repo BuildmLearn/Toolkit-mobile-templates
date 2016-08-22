@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classorg_1_1buildmlearn_1_1comprehension_1_1data_1_1ComprehensionContract_1_1MetaDetails.html" title="org.buildmlearn.comprehension.data.\lComprehensionContract.MetaDetails" alt="" coords="168,5,405,47"/>
+<area shape="rect" id="node3" href="$classorg_1_1buildmlearn_1_1comprehension_1_1data_1_1ComprehensionContract_1_1Questions.html" title="org.buildmlearn.comprehension.data.\lComprehensionContract.Questions" alt="" coords="169,71,404,112"/>
+<area shape="rect" id="node4" href="$classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictContract_1_1Dict.html" title="org.buildmlearn.dictation.data.\lDictContract.Dict" alt="" coords="189,136,385,177"/>
+<area shape="rect" id="node5" href="$classorg_1_1buildmlearn_1_1infotemplate_1_1data_1_1InfoContract_1_1Info.html" title="org.buildmlearn.infotemplate.data.\lInfoContract.Info" alt="" coords="177,201,396,243"/>
+<area shape="rect" id="node6" href="$classorg_1_1buildmlearn_1_1learnspellings_1_1data_1_1SpellContract_1_1Spellings.html" title="org.buildmlearn.learnspellings.data.\lSpellContract.Spellings" alt="" coords="173,267,400,308"/>
+<area shape="rect" id="node7" href="$classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashContract_1_1FlashCards.html" title="org.buildmlearn.learnwithflashcards.data.\lFlashContract.FlashCards" alt="" coords="157,332,416,373"/>
+<area shape="rect" id="node8" href="$classorg_1_1buildmlearn_1_1matchtemplate_1_1data_1_1MatchContract_1_1Matches.html" title="org.buildmlearn.matchtemplate.data.\lMatchContract.Matches" alt="" coords="170,397,403,439"/>
+<area shape="rect" id="node9" href="$classorg_1_1buildmlearn_1_1matchtemplate_1_1data_1_1MatchContract_1_1MetaDetails.html" title="org.buildmlearn.matchtemplate.data.\lMatchContract.MetaDetails" alt="" coords="170,463,403,504"/>
+<area shape="rect" id="node10" href="$classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizContract_1_1Questions.html" title="org.buildmlearn.quiztime.data.\lQuizContract.Questions" alt="" coords="189,528,385,569"/>
+<area shape="rect" id="node11" href="$classorg_1_1buildmlearn_1_1videocollection_1_1data_1_1VideoContract_1_1Videos.html" title="org.buildmlearn.videocollection.data.\lVideoContract.Videos" alt="" coords="170,593,403,635"/>
+</map>

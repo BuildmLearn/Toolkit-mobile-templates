@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classorg_1_1buildmlearn_1_1comprehension_1_1data_1_1ComprehensionMetaModel.html" title="Model class for Comprehension Meta Template Editor data Created by Anupam (opticod) on 1/6/16..." alt="" coords="148,5,383,47"/>
+<area shape="rect" id="node3" href="$classorg_1_1buildmlearn_1_1comprehension_1_1data_1_1ComprehensionModel.html" title="Model class for Comprehension Template Editor data Created by Anupam (opticod) on 1/6/16..." alt="" coords="148,71,383,112"/>
+<area shape="rect" id="node4" href="$classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictModel.html" title="Model used to save dict entries in database for comprehension template&#39;s app. " alt="" coords="167,136,363,177"/>
+<area shape="rect" id="node5" href="$classorg_1_1buildmlearn_1_1infotemplate_1_1data_1_1InfoModel.html" title="Model used to save info entries in database for info template&#39;s app. " alt="" coords="156,201,375,243"/>
+<area shape="rect" id="node6" href="$classorg_1_1buildmlearn_1_1learnspellings_1_1data_1_1SpellModel.html" title="Model used to save spell entries in database for spell template&#39;s app. " alt="" coords="152,267,379,308"/>
+<area shape="rect" id="node7" href="$classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FlashModel.html" title="Model used to save flash entries in database for flash card template&#39;s simulator. ..." alt="" coords="136,332,395,373"/>
+<area shape="rect" id="node8" href="$classorg_1_1buildmlearn_1_1matchtemplate_1_1data_1_1MatchMetaModel.html" title="Model class for Match The Following Meta Template Editor data Created by Anupam (opticod) on 24/7/16..." alt="" coords="149,397,382,439"/>
+<area shape="rect" id="node9" href="$classorg_1_1buildmlearn_1_1matchtemplate_1_1data_1_1MatchModel.html" title="Model class for Match The Following Template Editor data. " alt="" coords="149,463,382,504"/>
+<area shape="rect" id="node10" href="$classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1QuizModel.html" title="Model used to save quiz entries in database for quiz template&#39;s app. " alt="" coords="167,528,363,569"/>
+<area shape="rect" id="node11" href="$classorg_1_1buildmlearn_1_1videocollection_1_1data_1_1VideoModel.html" title="Model used to save video entries in database for video collection template&#39;s simulator. " alt="" coords="149,593,382,635"/>
+</map>

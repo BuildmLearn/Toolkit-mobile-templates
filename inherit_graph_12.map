@@ -1,0 +1,10 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classorg_1_1buildmlearn_1_1comprehension_1_1data_1_1FetchXMLTask.html" title="Used to parse XML and save in database for comprehension template&#39;s app. " alt="" coords="153,5,388,47"/>
+<area shape="rect" id="node3" href="$classorg_1_1buildmlearn_1_1dictation_1_1data_1_1FetchXMLTask.html" title="Used to parse XML and save in database for dictation template&#39;s app. " alt="" coords="173,71,369,112"/>
+<area shape="rect" id="node4" href="$classorg_1_1buildmlearn_1_1infotemplate_1_1data_1_1FetchXMLTask.html" title="Used to parse XML and save in database for info template&#39;s app. " alt="" coords="161,136,380,177"/>
+<area shape="rect" id="node5" href="$classorg_1_1buildmlearn_1_1learnspellings_1_1data_1_1FetchXMLTask.html" title="Used to parse XML and save in database for learn spelling template&#39;s app. " alt="" coords="157,201,384,243"/>
+<area shape="rect" id="node6" href="$classorg_1_1buildmlearn_1_1learnwithflashcards_1_1data_1_1FetchXMLTask.html" title="Used to parse XML and save in database for flash card template&#39;s simulator. " alt="" coords="141,267,400,308"/>
+<area shape="rect" id="node7" href="$classorg_1_1buildmlearn_1_1matchtemplate_1_1data_1_1FetchXMLTask.html" title="Used to parse XML and save in database for match template&#39;s app. " alt="" coords="154,332,387,373"/>
+<area shape="rect" id="node8" href="$classorg_1_1buildmlearn_1_1quiztime_1_1data_1_1FetchXMLTask.html" title="Used to parse XML and save in database for quiz template&#39;s app. " alt="" coords="173,397,369,439"/>
+<area shape="rect" id="node9" href="$classorg_1_1buildmlearn_1_1videocollection_1_1data_1_1FetchXMLTask.html" title="Used to parse XML and save in database for video collection template&#39;s app. " alt="" coords="154,463,387,504"/>
+</map>

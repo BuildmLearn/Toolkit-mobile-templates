@@ -1,0 +1,5 @@
+<map id="org.buildmlearn.dictation.fragment.MainActivityFragment" name="org.buildmlearn.dictation.fragment.MainActivityFragment">
+<area shape="rect" id="node5" href="$classorg_1_1buildmlearn_1_1dictation_1_1data_1_1DictDb.html" title="Contains database util functions for dictation template&#39;s app. " alt="" coords="519,187,715,229"/>
+<area shape="rect" id="node7" title="DatabaseHelper for dictation template&#39;s app. " alt="" coords="185,217,381,258"/>
+<area shape="rect" id="node11" href="$classorg_1_1buildmlearn_1_1dictation_1_1adapter_1_1DictArrayAdapter.html" title="Custom Adapter for dictation template&#39;s app. " alt="" coords="509,355,724,397"/>
+</map>

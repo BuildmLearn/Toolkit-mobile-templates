@@ -1,0 +1,12 @@
+var searchData=
+[
+  ['patch',['Patch',['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch_1_1Patch.html#a4ae1f214668d66217e2a7ac0cedcf349',1,'name::fraser::neil::plaintext::diff_match_patch::Patch']]],
+  ['patch_5faddcontext',['patch_addContext',['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch.html#a980700e16581de1848118de0b29086c8',1,'name::fraser::neil::plaintext::diff_match_patch']]],
+  ['patch_5faddpadding',['patch_addPadding',['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch.html#a058d109ed2947aefd7c0a86bedcf16b5',1,'name::fraser::neil::plaintext::diff_match_patch']]],
+  ['patch_5fapply',['patch_apply',['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch.html#a874b83ad5159cf5a7be96aba8da98806',1,'name::fraser::neil::plaintext::diff_match_patch']]],
+  ['patch_5fdeepcopy',['patch_deepCopy',['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch.html#a21cc85e40d61a8a2ebe115ef217bdc5c',1,'name::fraser::neil::plaintext::diff_match_patch']]],
+  ['patch_5ffromtext',['patch_fromText',['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch.html#ac296da76e7e74e912727112ba7ff84ae',1,'name::fraser::neil::plaintext::diff_match_patch']]],
+  ['patch_5fmake',['patch_make',['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch.html#a68c90615c738bf717863a06c9ef688cb',1,'name.fraser.neil.plaintext.diff_match_patch.patch_make(String text1, String text2)'],['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch.html#a86d5c3426914b15f68be0ca1544cc897',1,'name.fraser.neil.plaintext.diff_match_patch.patch_make(LinkedList&lt; Diff &gt; diffs)'],['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch.html#afd372d28eefadcc64b08432c57098805',1,'name.fraser.neil.plaintext.diff_match_patch.patch_make(String text1, String text2, LinkedList&lt; Diff &gt; diffs)'],['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch.html#af0aa1a2aee66225d99f9dc10dc5e0edd',1,'name.fraser.neil.plaintext.diff_match_patch.patch_make(String text1, LinkedList&lt; Diff &gt; diffs)']]],
+  ['patch_5fsplitmax',['patch_splitMax',['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch.html#ad1f04d0671cdcb5e739333c1d2df519c',1,'name::fraser::neil::plaintext::diff_match_patch']]],
+  ['patch_5ftotext',['patch_toText',['../classname_1_1fraser_1_1neil_1_1plaintext_1_1diff__match__patch.html#a167785d3c8b918754a5d4eaf19e3773f',1,'name::fraser::neil::plaintext::diff_match_patch']]]
+];
