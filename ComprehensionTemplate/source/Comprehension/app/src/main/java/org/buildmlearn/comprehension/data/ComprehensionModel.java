@@ -6,6 +6,8 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 /**
+ * @brief Model class for Comprehension Template Editor data
+ * <p/>
  * Created by Anupam (opticod) on 1/6/16.
  */
 public class ComprehensionModel implements Parcelable {

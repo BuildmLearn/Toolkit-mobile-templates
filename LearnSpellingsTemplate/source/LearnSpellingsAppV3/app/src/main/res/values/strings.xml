@@ -1,0 +1,32 @@
+<resources>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="app_name">Learn Spellings</string>
+    <string name="main_title">Learn Spellings</string>
+    <string name="main_subtitle">Biological Spelling Puzzle</string>
+    <string name="enter">ENTER</string>
+    <string name="by">by</string>
+    <string name="anupam" translatable="false">Anupam</string>
+    <string name="title_activity_about">About</string>
+    <string name="next">NEXT</string>
+    <string name="exit">EXIT</string>
+    <string name="restart">RESTART</string>
+    <string name="about_us">About Us</string>
+    <string name="about_text">This application has been developed using the BuildmLearn Toolkit.\n\nTo know more about BuildmLearn Toolkit visit <a href="https://buildmlearn.org/">here</a>.</string>
+    <string name="ok">OK</string>
+    <string name="background_image">Background Image</string>
+    <string name="buildmlearn_logo">BuildmLearn Logo</string>
+    <string name="completed_message">Hurrah! You have completed.</string>
+    <string name="spell_it">SPELL IT</string>
+    <string name="skip">SKIP</string>
+    <string name="listen">LISTEN</string>
+    <string name="submit">SUBMIT</string>
+    <string name="enter_spelling">Enter Spelling</string>
+    <string name="high">High</string>
+    <string name="normal">Normal</string>
+    <string name="low">Low</string>
+    <string name="speech_rate">Speech Rate :</string>
+    <string name="intro_text">Press SPEAK when you are ready. You may adjust the speech rate using the slider. Listen to the words as many times before answering. If you are not sure, you can skip the word.</string>
+</resources>

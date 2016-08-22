@@ -28,6 +28,8 @@ import org.buildmlearn.videocollection.data.VideoModel;
 import java.util.ArrayList;
 
 /**
+ * @brief Fragment containing list of videos in video collection template's app.
+ *
  * Created by Anupam (opticod) on 12/5/16.
  */
 public class MainActivityFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {

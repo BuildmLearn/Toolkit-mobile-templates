@@ -20,6 +20,8 @@ import org.buildmlearn.infotemplate.data.InfoContract;
 import org.buildmlearn.infotemplate.data.InfoDb;
 
 /**
+ * @brief Fragment for details of items in info template's app.
+ *
  * Created by Anupam (opticod) on 11/6/16.
  */
 public class DetailActivityFragment extends Fragment implements LoaderCallbacks<Cursor> {

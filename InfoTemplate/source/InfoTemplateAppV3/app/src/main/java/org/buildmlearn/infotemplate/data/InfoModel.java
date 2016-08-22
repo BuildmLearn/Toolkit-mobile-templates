@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
+ * @brief Model used to save info entries in database for info template's app.
+ *
  * Created by Anupam (opticod) on 11/6/16.
  */
 public class InfoModel implements Parcelable {

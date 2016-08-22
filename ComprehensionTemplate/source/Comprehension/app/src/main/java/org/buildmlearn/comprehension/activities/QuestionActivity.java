@@ -25,6 +25,8 @@ import org.buildmlearn.comprehension.data.ComprehensionDb;
 import java.util.Locale;
 
 /**
+ * @brief Question Fragment for comprehension template's app.
+ *
  * Created by Anupam (opticod) on 2/6/16.
  */
 public class QuestionActivity extends AppCompatActivity

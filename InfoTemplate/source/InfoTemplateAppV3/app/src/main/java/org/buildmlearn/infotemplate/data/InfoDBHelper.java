@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import org.buildmlearn.infotemplate.data.InfoContract.Info;
 
 /**
+ * @brief Contains database util functions for info template's app.
+ *
  * Created by Anupam (opticod) on 11/6/16.
  */
 

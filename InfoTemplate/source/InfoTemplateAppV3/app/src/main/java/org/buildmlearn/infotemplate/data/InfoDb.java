@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
 /**
+ * @brief Contains database util functions for info template's app.
+ *
  * Created by Anupam (opticod) on 11/6/16.
  */
 public class InfoDb {

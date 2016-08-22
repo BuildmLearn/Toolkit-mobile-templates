@@ -16,9 +16,11 @@ Glosarry
 | Folders       | Description  |
 | ------------- |:-------------|
 | ComprehensionTemplate    | Contains apk and source-code of Comprehension Template app |
+| DictationTemplate    | Contains apk and source-code of Dictation Template app |
 | FlashCardTemplate    | Contains apk and source-code of FlashCard Template app |
 | InfoTemplate    | Contains apk and source-code of Info Template app |
 | LearnSpellingsTemplate    | Contains apk and source-code of Learn Spellings Template app |
+| MatchTemplate    | Contains apk and source-code of Match Template app |
 | QuizTemplate    | Contains apk and source-code of Quiz Template app |
 | VideoCollectionTemplate    | Contains apk and source-code of Video Collection Template app |
 | ui-design      | Contains UI mockups and wireframes   |

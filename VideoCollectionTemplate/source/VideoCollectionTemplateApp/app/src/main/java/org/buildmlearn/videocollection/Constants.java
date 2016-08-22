@@ -3,6 +3,8 @@ package org.buildmlearn.videocollection;
 import org.buildmlearn.videocollection.data.VideoContract;
 
 /**
+ * @brief Constants used in video collection template's app relating databases.
+ *
  * Created by Anupam (opticod) on 13/5/16.
  */
 public class Constants {

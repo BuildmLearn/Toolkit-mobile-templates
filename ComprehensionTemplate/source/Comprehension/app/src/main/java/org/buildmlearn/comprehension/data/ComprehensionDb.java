@@ -14,6 +14,8 @@ import org.buildmlearn.comprehension.data.ComprehensionContract.Questions;
 import java.util.Arrays;
 
 /**
+ * @brief Contains database util functions for comprehension template's app.
+ *
  * Created by Anupam (opticod) on 1/6/16.
  */
 public class ComprehensionDb {

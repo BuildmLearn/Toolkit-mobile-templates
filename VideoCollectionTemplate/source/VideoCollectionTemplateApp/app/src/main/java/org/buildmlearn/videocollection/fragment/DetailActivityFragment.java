@@ -25,6 +25,8 @@ import org.buildmlearn.videocollection.data.VideoContract;
 import org.buildmlearn.videocollection.data.VideoDb;
 
 /**
+ * @brief Fragment containing details of video items in video collection template's app.
+ *
  * Created by Anupam (opticod) on 13/5/16.
  */
 public class DetailActivityFragment extends Fragment implements LoaderCallbacks<Cursor> {
