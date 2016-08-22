@@ -1,6 +1,8 @@
 package org.buildmlearn.matchtemplate;
 
 /**
+ * @brief Constants used in match template's app relating databases.
+ *
  * Created by Anupam (opticod) on 24/7/16.
  */
 public class Constants {

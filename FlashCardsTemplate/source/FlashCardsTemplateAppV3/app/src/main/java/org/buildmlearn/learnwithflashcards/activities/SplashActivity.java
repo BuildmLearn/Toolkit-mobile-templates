@@ -14,6 +14,8 @@ import org.buildmlearn.learnwithflashcards.data.FetchXMLTask;
 import org.buildmlearn.learnwithflashcards.data.FlashDb;
 
 /**
+ * @brief Splash intro activity for flash card template's app.
+ *
  * Created by Anupam (opticod) on 7/7/16.
  */
 public class SplashActivity extends Activity {

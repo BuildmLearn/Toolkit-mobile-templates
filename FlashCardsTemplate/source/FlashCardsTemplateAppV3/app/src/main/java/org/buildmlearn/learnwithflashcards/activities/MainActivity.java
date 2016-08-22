@@ -41,6 +41,8 @@ import java.lang.reflect.Field;
 import java.util.Locale;
 
 /**
+ * @brief Activity containing the flash cards in dictation template's app.
+ *
  * Created by Anupam (opticod) on 7/7/16.
  */
 

@@ -5,6 +5,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
+ * @brief Util to check network connection in video collection template's app.
+ *
  * Created by Anupam(opticod) on 17/5/16.
  */
 public class NetworkUtils {

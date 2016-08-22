@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
+ * @brief Activity for the users to match column A with column B in match template's app.
+ *
  * Created by Anupam (opticod) on 24/7/16.
  */
 public class MainActivityFragment extends Fragment {

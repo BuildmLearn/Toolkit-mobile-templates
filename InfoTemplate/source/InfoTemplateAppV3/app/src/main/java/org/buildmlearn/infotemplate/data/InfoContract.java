@@ -3,6 +3,8 @@ package org.buildmlearn.infotemplate.data;
 import android.provider.BaseColumns;
 
 /**
+ * @brief Contains database contracts for info template's app.
+ *
  * Created by Anupam (opticod) on 11/6/16.
  */
 

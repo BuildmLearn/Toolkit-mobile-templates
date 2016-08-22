@@ -30,6 +30,8 @@ import org.buildmlearn.dictation.data.DictModel;
 import java.util.ArrayList;
 
 /**
+ * @brief Activity to hear dictation in dictation template's app.
+ *
  * Created by Anupam (opticod) on 4/7/16.
  */
 public class MainActivityFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {

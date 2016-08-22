@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import org.buildmlearn.learnwithflashcards.data.FlashContract.FlashCards;
 
 /**
+ * @brief DatabaseHelper for flash card template's simulator.
+ *
  * Created by Anupam (opticod) on 7/7/16.
  */
 

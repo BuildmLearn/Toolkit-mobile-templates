@@ -18,6 +18,8 @@ import org.buildmlearn.quiztime.data.QuizDb;
 import java.util.Locale;
 
 /**
+ * @brief Activity for displaying score to user in quiz template app.
+ *
  * Created by Anupam (opticod) on 11/8/16.
  */
 public class LastActivity extends AppCompatActivity {

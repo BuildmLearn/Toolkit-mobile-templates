@@ -20,6 +20,8 @@ import org.buildmlearn.comprehension.data.ComprehensionDb;
 import java.util.Locale;
 
 /**
+ * @brief Last Fragment for comprehension template's app.
+ *
  * Created by Anupam (opticod) on 2/6/16.
  */
 public class LastActivity extends AppCompatActivity {

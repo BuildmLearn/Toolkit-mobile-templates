@@ -3,6 +3,8 @@ package org.buildmlearn.dictation;
 import org.buildmlearn.dictation.data.DictContract;
 
 /**
+ * @brief Constants used in dictation template's app relating databases.
+ *
  * Created by Anupam (opticod) on 4/7/16.
  */
 public class Constants {

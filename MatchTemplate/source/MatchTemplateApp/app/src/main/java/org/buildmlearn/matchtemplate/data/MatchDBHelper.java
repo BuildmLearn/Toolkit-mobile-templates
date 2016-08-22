@@ -8,6 +8,8 @@ import org.buildmlearn.matchtemplate.data.MatchContract.Matches;
 import org.buildmlearn.matchtemplate.data.MatchContract.MetaDetails;
 
 /**
+ * @brief DatabaseHelper for match template's app.
+ *
  * Created by Anupam (opticod) on 24/7/16.
  */
 

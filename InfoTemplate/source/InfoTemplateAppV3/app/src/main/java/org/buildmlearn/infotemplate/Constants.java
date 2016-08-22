@@ -3,6 +3,8 @@ package org.buildmlearn.infotemplate;
 import org.buildmlearn.infotemplate.data.InfoContract;
 
 /**
+ * @brief Constants used in info template's simulator relating databases.
+ *
  * Created by Anupam (opticod) on 13/5/16.
  */
 public class Constants {

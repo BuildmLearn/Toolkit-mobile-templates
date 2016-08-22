@@ -3,6 +3,8 @@ package org.buildmlearn.dictation.data;
 import android.provider.BaseColumns;
 
 /**
+ * @brief Contains database contracts for dictation template's app.
+ *
  * Created by Anupam (opticod) on 4/7/16.
  */
 

@@ -13,6 +13,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 /**
+ * @brief Contains xml data utils for quiz template's app.
+ *
  * Created by Anupam (opticod) on 11/8/16.
  */
 public class DataUtils {

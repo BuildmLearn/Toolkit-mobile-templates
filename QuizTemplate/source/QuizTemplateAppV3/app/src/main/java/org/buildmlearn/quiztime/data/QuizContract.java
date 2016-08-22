@@ -3,6 +3,8 @@ package org.buildmlearn.quiztime.data;
 import android.provider.BaseColumns;
 
 /**
+ * @brief Contains database contracts for quiz template's app.
+ *
  * Created by Anupam (opticod) on 11/8/16.
  */
 

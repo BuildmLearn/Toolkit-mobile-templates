@@ -14,6 +14,8 @@ import org.buildmlearn.matchtemplate.data.MatchModel;
 import java.util.ArrayList;
 
 /**
+ * @brief Custom Adapter for match template's app.
+ *
  * Created by Anupam (opticod) on 24/7/16.
  */
 public class MatchArrayAdapter_B extends ArrayAdapter<MatchModel> {

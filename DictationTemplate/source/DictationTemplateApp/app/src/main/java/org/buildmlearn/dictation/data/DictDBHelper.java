@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import org.buildmlearn.dictation.data.DictContract.Dict;
 
 /**
+ * @brief DatabaseHelper for dictation template's app.
+ *
  * Created by Anupam (opticod) on 4/7/16.
  */
 

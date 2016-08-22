@@ -8,6 +8,8 @@ import org.buildmlearn.comprehension.data.ComprehensionContract.MetaDetails;
 import org.buildmlearn.comprehension.data.ComprehensionContract.Questions;
 
 /**
+ * @brief DatabaseHelper for comprehension template's app.
+ *
  * Created by Anupam (opticod) on 1/6/16.
  */
 

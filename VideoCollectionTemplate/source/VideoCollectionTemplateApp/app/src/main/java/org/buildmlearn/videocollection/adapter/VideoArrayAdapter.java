@@ -18,6 +18,8 @@ import org.buildmlearn.videocollection.R;
 import org.buildmlearn.videocollection.RoundedTransformation;
 
 /**
+ * @brief Adapter for displaying VideoCollection Template Editor data in app.
+ * <p/>
  * Created by Anupam (opticod) on 12/5/16.
  */
 public class VideoArrayAdapter extends CursorAdapter {

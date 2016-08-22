@@ -13,6 +13,8 @@ import org.buildmlearn.matchtemplate.data.DataUtils;
 import org.buildmlearn.matchtemplate.data.FetchXMLTask;
 
 /**
+ * @brief Splash intro Activity for match template's app.
+ *
  * Created by Anupam (opticod) on 24/7/16.
  */
 public class SplashActivity extends Activity {

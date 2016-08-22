@@ -31,6 +31,8 @@ import java.util.HashMap;
 import java.util.Locale;
 
 /**
+ * @brief Activity for taking user input(dictation) in dictation template's app.
+ *
  * Created by Anupam (opticod) on 4/7/16.
  */
 public class DetailActivityFragment extends Fragment implements LoaderCallbacks<Cursor> {

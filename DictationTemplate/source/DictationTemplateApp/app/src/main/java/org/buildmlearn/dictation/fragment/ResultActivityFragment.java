@@ -28,6 +28,8 @@ import name.fraser.neil.plaintext.diff_match_patch;
 import name.fraser.neil.plaintext.diff_match_patch.Diff;
 
 /**
+ * @brief Activity for displaying score to user in dictation template's app.
+ *
  * Created by Anupam (opticod) on 4/7/16.
  */
 public class ResultActivityFragment extends Fragment implements LoaderCallbacks<Cursor> {

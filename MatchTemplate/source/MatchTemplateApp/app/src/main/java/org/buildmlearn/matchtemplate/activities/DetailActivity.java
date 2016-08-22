@@ -18,6 +18,8 @@ import org.buildmlearn.matchtemplate.fragment.DetailActivityFragment;
 import java.util.ArrayList;
 
 /**
+ * @brief Activity for displaying score with matched results in match template's app.
+ *
  * Created by Anupam (opticod) on 26/7/16.
  */
 public class DetailActivity extends AppCompatActivity {

@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import org.buildmlearn.quiztime.data.QuizContract.Questions;
 
 /**
+ * @brief DatabaseHelper for quiz template's app.
+ *
  * Created by Anupam (opticod) on 11/8/16.
  */
 

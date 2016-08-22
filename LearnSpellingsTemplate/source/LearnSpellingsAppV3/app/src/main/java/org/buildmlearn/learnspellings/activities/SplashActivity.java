@@ -14,6 +14,8 @@ import org.buildmlearn.learnspellings.data.FetchXMLTask;
 import org.buildmlearn.learnspellings.data.SpellDb;
 
 /**
+ * @brief Splash intro Activity for spelling template's app.
+ *
  * Created by Anupam (opticod) on 31/5/16.
  */
 public class SplashActivity extends Activity {

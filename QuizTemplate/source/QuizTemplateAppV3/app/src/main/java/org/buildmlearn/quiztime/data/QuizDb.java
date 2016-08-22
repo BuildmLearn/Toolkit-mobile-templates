@@ -14,6 +14,8 @@ import org.buildmlearn.quiztime.data.QuizContract.Questions;
 import java.util.Arrays;
 
 /**
+ * @brief Contains database util functions for quiz template's app.
+ *
  * Created by Anupam (opticod) on 11/8/16.
  */
 public class QuizDb {

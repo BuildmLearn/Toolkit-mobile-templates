@@ -20,6 +20,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 /**
+ * @brief Used to parse XML and save in database for flash card template's simulator.
+ *
  * Created by Anupam (opticod) on 7/7/16.
  */
 public class FetchXMLTask extends AsyncTask<String, Void, Void> {

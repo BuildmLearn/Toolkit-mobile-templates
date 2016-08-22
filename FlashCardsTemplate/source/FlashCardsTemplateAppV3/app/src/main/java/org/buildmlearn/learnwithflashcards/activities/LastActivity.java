@@ -15,6 +15,8 @@ import android.widget.TextView;
 import org.buildmlearn.learnwithflashcards.R;
 
 /**
+ * @brief Activity for displaying score to user in flash card template's app.
+ *
  * Created by Anupam (opticod) on 8/7/16.
  */
 public class LastActivity extends AppCompatActivity {

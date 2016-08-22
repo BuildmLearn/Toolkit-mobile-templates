@@ -25,6 +25,8 @@ import org.buildmlearn.comprehension.data.ComprehensionDb;
 import java.util.Locale;
 
 /**
+ * @brief Main Fragment for comprehension template's app.
+ *
  * Created by Anupam (opticod) on 31/5/16.
  */
 

@@ -36,6 +36,8 @@ import java.util.HashMap;
 import java.util.Locale;
 
 /**
+ * @brief Activity for the users to test their spelling skills. spelling template's app.
+ *
  * Created by Anupam (opticod) on 31/5/16.
  */
 

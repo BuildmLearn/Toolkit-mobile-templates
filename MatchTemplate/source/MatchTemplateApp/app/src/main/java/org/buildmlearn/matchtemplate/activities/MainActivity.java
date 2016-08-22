@@ -14,6 +14,8 @@ import org.buildmlearn.matchtemplate.R;
 import org.buildmlearn.matchtemplate.data.MatchDb;
 
 /**
+ * @brief Activity for the users to match column A with column B in match template's app.
+ *
  * Created by Anupam (opticod) on 24/7/16.
  */
 public class MainActivity extends AppCompatActivity {

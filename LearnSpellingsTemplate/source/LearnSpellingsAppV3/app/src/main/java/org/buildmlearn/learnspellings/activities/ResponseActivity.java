@@ -26,6 +26,8 @@ import org.buildmlearn.learnspellings.data.SpellDb;
 import java.util.Locale;
 
 /**
+ * @brief Activity for displaying the correct and user entered spell to users in spelling template's app.
+ *
  * Created by Anupam (opticod) on 31/5/16.
  */
 

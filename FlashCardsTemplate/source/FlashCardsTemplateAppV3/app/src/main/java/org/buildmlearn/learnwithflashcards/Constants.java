@@ -1,6 +1,8 @@
 package org.buildmlearn.learnwithflashcards;
 
 /**
+ * @brief Constants used in flash card template's app relating databases.
+ *
  * Created by Anupam (opticod) on 7/7/16.
  */
 public class Constants {

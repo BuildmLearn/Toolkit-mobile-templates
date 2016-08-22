@@ -11,6 +11,8 @@ import android.support.annotation.NonNull;
 import org.buildmlearn.learnwithflashcards.data.FlashContract.FlashCards;
 
 /**
+ * @brief Contains database util functions for flash card template's simulator.
+ *
  * Created by Anupam (opticod) on 7/7/16.
  */
 public class FlashDb {

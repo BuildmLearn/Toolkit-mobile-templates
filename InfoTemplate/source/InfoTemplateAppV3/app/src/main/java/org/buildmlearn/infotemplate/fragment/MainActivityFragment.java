@@ -28,6 +28,8 @@ import org.buildmlearn.infotemplate.data.InfoModel;
 import java.util.ArrayList;
 
 /**
+ * @brief Fragment containing the list of items in info template's app.
+ *
  * Created by Anupam (opticod) on 11/6/16.
  */
 public class MainActivityFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {

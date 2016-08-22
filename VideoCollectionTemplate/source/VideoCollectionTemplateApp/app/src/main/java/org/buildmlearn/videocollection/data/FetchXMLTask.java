@@ -20,6 +20,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 /**
+ * @brief Used to parse XML and save in database for video collection template's app.
+ *
  * Created by Anupam (opticod) on 13/5/16.
  */
 public class FetchXMLTask extends AsyncTask<String, Void, Void> {

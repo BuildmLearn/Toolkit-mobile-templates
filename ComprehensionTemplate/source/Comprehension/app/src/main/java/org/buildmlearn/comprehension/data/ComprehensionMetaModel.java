@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
+ * @brief Model class for Comprehension Meta Template Editor data
  * Created by Anupam (opticod) on 1/6/16.
  */
 public class ComprehensionMetaModel implements Parcelable {

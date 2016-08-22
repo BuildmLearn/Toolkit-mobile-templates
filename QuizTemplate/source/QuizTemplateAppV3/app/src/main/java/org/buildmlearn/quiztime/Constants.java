@@ -1,6 +1,8 @@
 package org.buildmlearn.quiztime;
 
 /**
+ * @brief Constants used in quiz template's app relating databases.
+ *
  * Created by Anupam (opticod) on 11/8/16.
  */
 public class Constants {

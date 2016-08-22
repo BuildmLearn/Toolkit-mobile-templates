@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
+ * @brief Model used to save spell entries in database for spell template's app.
+ *
  * Created by Anupam (opticod) on 1/6/16.
  */
 public class SpellModel implements Parcelable {

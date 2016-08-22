@@ -1,6 +1,8 @@
 package org.buildmlearn.comprehension;
 
 /**
+ * @brief Constants used in comprehension template's app relating databases.
+ *
  * Created by Anupam (opticod) on 31/5/16.
  */
 public class Constants {

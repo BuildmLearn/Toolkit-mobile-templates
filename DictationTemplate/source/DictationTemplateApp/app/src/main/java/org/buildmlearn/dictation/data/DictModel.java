@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
+ * @brief Model used to save dict entries in database for comprehension template's app.
+ *
  * Created by Anupam (opticod) on 4/7/16.
  */
 public class DictModel implements Parcelable {

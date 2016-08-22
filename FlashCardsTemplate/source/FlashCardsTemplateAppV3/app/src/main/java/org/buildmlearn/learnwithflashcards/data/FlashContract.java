@@ -3,6 +3,8 @@ package org.buildmlearn.learnwithflashcards.data;
 import android.provider.BaseColumns;
 
 /**
+ * @brief Contains database contracts for flash card template's simulator.
+ *
  * Created by Anupam (opticod) on 7/7/16.
  */
 

@@ -14,6 +14,8 @@ import org.buildmlearn.quiztime.data.FetchXMLTask;
 import org.buildmlearn.quiztime.data.QuizDb;
 
 /**
+ * @brief Splash intro Activity for quiz template app.
+ *
  * Created by Anupam (opticod) on 11/8/16.
  */
 public class SplashActivity extends Activity {

@@ -3,6 +3,8 @@ package org.buildmlearn.matchtemplate.data;
 import android.provider.BaseColumns;
 
 /**
+ * @brief Contains database contracts for match template's app.
+ *
  * Created by Anupam (opticod) on 24/7/16.
  */
 

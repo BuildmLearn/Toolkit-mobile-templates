@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 /**
+ * @brief Activity for displaying score with matched results in match template's app.
+ *
  * Created by Anupam (opticod) on 26/7/16.
  */
 public class DetailActivityFragment extends Fragment {

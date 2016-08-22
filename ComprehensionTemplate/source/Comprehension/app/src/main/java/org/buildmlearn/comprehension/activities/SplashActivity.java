@@ -13,6 +13,8 @@ import org.buildmlearn.comprehension.data.DataUtils;
 import org.buildmlearn.comprehension.data.FetchXMLTask;
 
 /**
+ * @brief Splash intro Fragment for comprehension template's app.
+ *
  * Created by Anupam (opticod) on 31/5/16.
  */
 public class SplashActivity extends Activity {

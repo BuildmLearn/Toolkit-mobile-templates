@@ -18,6 +18,8 @@ import org.buildmlearn.learnspellings.data.SpellDb;
 import java.util.Locale;
 
 /**
+ * @brief Activity for displaying score to user in learnspelling template's app.
+ *
  * Created by Anupam (opticod) on 2/6/16.
  */
 public class LastActivity extends AppCompatActivity {

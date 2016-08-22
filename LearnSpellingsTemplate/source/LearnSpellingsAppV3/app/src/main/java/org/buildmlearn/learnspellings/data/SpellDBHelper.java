@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import org.buildmlearn.learnspellings.data.SpellContract.Spellings;
 
 /**
+ * @brief DatabaseHelper for spell template's app.
+ *
  * Created by Anupam (opticod) on 1/6/16.
  */
 

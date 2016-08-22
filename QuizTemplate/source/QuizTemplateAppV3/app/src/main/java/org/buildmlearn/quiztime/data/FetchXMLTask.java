@@ -21,6 +21,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 /**
+ * @brief Used to parse XML and save in database for quiz template's app.
+ *
  * Created by Anupam (opticod) on 11/8/16.
  */
 public class FetchXMLTask extends AsyncTask<String, Void, Void> {

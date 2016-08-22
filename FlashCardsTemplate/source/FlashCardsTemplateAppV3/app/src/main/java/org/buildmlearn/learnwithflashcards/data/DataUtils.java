@@ -12,6 +12,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 /**
+ * @brief Contains xml data utils for flash card template's simulator.
+ *
  * Created by Anupam (opticod) on 7/7/16.
  */
 public class DataUtils {

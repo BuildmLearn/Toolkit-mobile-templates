@@ -25,6 +25,8 @@ import org.buildmlearn.quiztime.data.QuizDb;
 import java.util.Locale;
 
 /**
+ * @brief Question Activity for quiz template app.
+ *
  * Created by Anupam (opticod) on 11/8/16.
  */
 public class QuestionActivity extends AppCompatActivity

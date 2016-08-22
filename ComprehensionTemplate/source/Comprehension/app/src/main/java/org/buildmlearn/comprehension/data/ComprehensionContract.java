@@ -3,6 +3,8 @@ package org.buildmlearn.comprehension.data;
 import android.provider.BaseColumns;
 
 /**
+ * @brief Contains database contracts for comprehension template's app.
+ *
  * Created by Anupam (opticod) on 1/6/16.
  */
 
