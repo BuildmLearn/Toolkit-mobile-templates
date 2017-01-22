@@ -1,6 +1,7 @@
 package org.buildmlearn.dictation.fragment;
 
 import android.app.FragmentManager;
+import android.app.TaskStackBuilder;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import org.buildmlearn.dictation.Constants;
 import org.buildmlearn.dictation.R;
 import org.buildmlearn.dictation.activities.DetailActivity;
+import org.buildmlearn.dictation.activities.MainActivity;
 import org.buildmlearn.dictation.data.DictContract;
 import org.buildmlearn.dictation.data.DictDb;
 
@@ -113,11 +115,11 @@ public class ResultActivityFragment extends Fragment implements LoaderCallbacks<
                     @Override
                     public void onClick(View v) {
                         getActivity().getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                        Intent intent = new Intent(getActivity(), DetailActivity.class)
-                                .setType("text/plain")
-                                .putExtra(Intent.EXTRA_TEXT, dict_Id)
-                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
+                        TaskStackBuilder.create(getContext())
+                                .addParentStack(MainActivity.class)
+                                .addNextIntent(new Intent(getContext(),MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                                .addNextIntent(new Intent(getContext(),DetailActivity.class).setType("text/plain").putExtra(Intent.EXTRA_TEXT,dict_Id))
+                                .startActivities();
                     }
                 });
 
