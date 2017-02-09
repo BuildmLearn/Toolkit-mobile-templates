@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -29,6 +30,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.buildmlearn.learnwithflashcards.Constants;
 import org.buildmlearn.learnwithflashcards.R;
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity
     private ViewPager viewPager;
     private Context mContext;
     private FlashDb db;
+    private boolean isBackPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,9 +217,23 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
-        }
-    }
+            if (isBackPressed){
+                finish();
+                super.onBackPressed();
+            }
+            else{
+                Toast.makeText(this, "Tap back once more to exit.", Toast.LENGTH_SHORT).show();
+                isBackPressed=true;
+                new Handler().postDelayed(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        isBackPressed= false;
+                    }
+                }, 3000);
+            }
+    }}
 
     @Override
     public void onDestroy() {

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.support.design.widget.NavigationView;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity
     private SpellDb db;
     private TextToSpeech tts;
     private ProgressDialog progress;
+    private boolean isBackPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -242,7 +244,22 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (isBackPressed){
+                finish();
+                super.onBackPressed();
+            }
+            else{
+                Toast.makeText(this, "Tap back once more to exit.", Toast.LENGTH_SHORT).show();
+                isBackPressed=true;
+                new Handler().postDelayed(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        isBackPressed= false;
+                    }
+                }, 3000);
+            }
         }
     }
 
