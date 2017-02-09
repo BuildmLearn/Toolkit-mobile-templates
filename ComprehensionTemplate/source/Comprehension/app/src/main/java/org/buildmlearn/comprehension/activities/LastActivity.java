@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.LinkMovementMethod;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.buildmlearn.comprehension.Constants;
 import org.buildmlearn.comprehension.R;
@@ -25,6 +27,7 @@ import java.util.Locale;
  * Created by Anupam (opticod) on 2/6/16.
  */
 public class LastActivity extends AppCompatActivity {
+    private boolean isBackPressed = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,4 +103,23 @@ public class LastActivity extends AppCompatActivity {
         }
         return (super.onOptionsItemSelected(menuItem));
     }
-}
+
+    @Override
+    public void onBackPressed() {
+        if (isBackPressed){
+            finish();
+            super.onBackPressed();
+        }
+        else{
+            Toast.makeText(this, "Tap back once more to exit.", Toast.LENGTH_SHORT).show();
+            isBackPressed=true;
+            new Handler().postDelayed(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    isBackPressed= false;
+                }
+            }, 3000);
+        }}
+    }
