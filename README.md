@@ -40,6 +40,10 @@ Glosarry
 
 For complete documentation, please visit: http://buildmlearn.github.io/Toolkit-mobile-templates/
 
+#Contribution policy
+
+All contributions should be done in **dev** branch. PRs must pass build check on Travis-CI.
+
 License for use and distribution
 ---------------------------------
 
