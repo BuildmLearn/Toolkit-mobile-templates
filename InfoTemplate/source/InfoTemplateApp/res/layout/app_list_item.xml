@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/BlueBg" 
+    android:background="@android:color/white"
     android:paddingTop="10dp"
     android:paddingBottom="10dp">
 
@@ -11,8 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="2dp"
-        android:textColor="@android:color/white"
-        android:padding="2dp"
+        android:textColor="@android:color/black"
+        android:padding="6dp"
+        android:layout_marginLeft="5dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="test" />
 
 </RelativeLayout>

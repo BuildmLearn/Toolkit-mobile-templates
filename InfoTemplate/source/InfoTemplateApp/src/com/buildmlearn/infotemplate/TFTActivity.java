@@ -48,121 +48,124 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TFTActivity extends ActionBarActivity {
-	BufferedReader br;
-	List<String> stringList = new ArrayList<String>();;
-	GlobalData gd;
+    BufferedReader br;
+    List<String> stringList = new ArrayList<String>();
 
-	/** Called when the activity is first created. */
-	
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
-		// setTitle("Tools for Teachers");
-		gd = GlobalData.getInstance();
+    GlobalData gd;
 
-		gd.readXml(getApplicationContext(), "info_content.xml");
+    /**
+     * Called when the activity is first created.
+     */
 
-		ListView listView = (ListView) findViewById(R.id.mylist);
-		// String[] values = new String[] { "Android", "iPhone",
-		// "WindowsMobile",
-		// "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-		// "Linux", "OS/2" };
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        // setTitle("Tools for Teachers");
+        gd = GlobalData.getInstance();
+        gd.readXml(getApplicationContext(), "info_content.xml");
+        setTitle(gd.mTitle);
 
-		//ReadIndex(TFTActivity.this);
+        ListView listView = (ListView) findViewById(R.id.mylist);
+        // String[] values = new String[] { "Android", "iPhone",
+        // "WindowsMobile",
+        // "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
+        // "Linux", "OS/2" };
 
-		// First paramenter - Context
-		// Second parameter - Layout for the row
-		// Third parameter - ID of the TextView to which the data is written
-		// Forth - the Array of data
-		/*ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				R.layout.list_item, R.id.text_element, stringList);
+        //ReadIndex(TFTActivity.this);
 
-*/		// Assign adapter to ListView
-		InfoListAdapter adapter=new InfoListAdapter(this);
-		
-		listView.setAdapter(adapter);
-		adapter.setList(gd.mList);
-		
-		listView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
+        // First paramenter - Context
+        // Second parameter - Layout for the row
+        // Third parameter - ID of the TextView to which the data is written
+        // Forth - the Array of data
+        /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.list_item, R.id.text_element, stringList);
 
-				Intent myIntent = new Intent(view.getContext(),
-						DetailView.class);
-				myIntent.putExtra("position", position);
-				startActivity(myIntent);
-			}
-		});
+*/        // Assign adapter to ListView
+        InfoListAdapter adapter = new InfoListAdapter(this);
 
-	}
-	
-	public void ReadIndex(Context myContext) {
-		try {
-			br = new BufferedReader(new InputStreamReader(myContext.getAssets()
-					.open("index.txt"))); // throwing a FileNotFoundException?
-			String text;
-			while ((text = br.readLine()) != null) {
-				stringList.add(text);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				br.close(); // stop reading
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
-	}
+        listView.setAdapter(adapter);
+        adapter.setList(gd.mList);
 
-	
-	
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
 
-		getMenuInflater().inflate(R.menu.main, menu);
+                Intent myIntent = new Intent(view.getContext(),
+                        DetailView.class);
+                myIntent.putExtra("position", position);
+                startActivity(myIntent);
+            }
+        });
+        Toast.makeText(TFTActivity.this, "Author - " + gd.mAuthor, Toast.LENGTH_LONG).show();
 
-		return super.onCreateOptionsMenu(menu);
-	}
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.action_info) {
+    public void ReadIndex(Context myContext) {
+        try {
+            br = new BufferedReader(new InputStreamReader(myContext.getAssets()
+                    .open("index.txt"))); // throwing a FileNotFoundException?
+            String text;
+            while ((text = br.readLine()) != null) {
+                stringList.add(text);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                br.close(); // stop reading
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
 
-			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-					TFTActivity.this);
 
-			// set title
-			alertDialogBuilder.setTitle("About Us");
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-			// set dialog message
-			alertDialogBuilder
-					.setMessage(getString(R.string.about_us))
-					.setCancelable(false)
-					.setPositiveButton("Ok",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,
-										int id) {
-									dialog.cancel();
-									dialog.dismiss();
-								}
-							});
+        getMenuInflater().inflate(R.menu.main, menu);
 
-			// create alert dialog
-			AlertDialog alertDialog = alertDialogBuilder.create();
-			// show it
-			alertDialog.show();
-			TextView msg = (TextView) alertDialog
-					.findViewById(android.R.id.message);
-			Linkify.addLinks(msg, Linkify.WEB_URLS);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-			return super.onOptionsItemSelected(item);
-		}
-		return true;
-	}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_info) {
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    TFTActivity.this);
+
+            // set title
+            alertDialogBuilder.setTitle("About Us");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage(getString(R.string.about_us))
+                    .setCancelable(false)
+                    .setPositiveButton("Ok",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,
+                                                    int id) {
+                                    dialog.cancel();
+                                    dialog.dismiss();
+                                }
+                            });
+
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            // show it
+            alertDialog.show();
+            TextView msg = (TextView) alertDialog
+                    .findViewById(android.R.id.message);
+            Linkify.addLinks(msg, Linkify.WEB_URLS);
+
+            return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
 
 }
