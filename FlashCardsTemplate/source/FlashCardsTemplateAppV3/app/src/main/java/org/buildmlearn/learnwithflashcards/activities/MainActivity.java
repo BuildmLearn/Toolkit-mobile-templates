@@ -90,15 +90,16 @@ public class MainActivity extends AppCompatActivity
             topChannelMenu.add(String.format(Locale.getDefault(), "Flash Card %1$d", i));
             topChannelMenu.getItem(i - 1).setIcon(R.drawable.ic_assignment_black_24dp);
             final int finalI = i;
+            final int flashId = Integer.parseInt(FlashId);
             topChannelMenu.getItem(i - 1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    Intent intent = new Intent(mContext, MainActivity.class)
-                            .setType("text/plain")
-                            .putExtra(Intent.EXTRA_TEXT, String.valueOf(finalI))
-                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
+                    if(flashId!=finalI) {
+                        Intent intent = new Intent(mContext, MainActivity.class)
+                                .setType("text/plain")
+                                .putExtra(Intent.EXTRA_TEXT, String.valueOf(finalI));
+                        startActivity(intent);
+                    }
                     return false;
                 }
             });
@@ -154,10 +155,8 @@ public class MainActivity extends AppCompatActivity
                 long nextFlashId = Integer.parseInt(finalFlashId1) - 1;
                 Intent intent = new Intent(mContext, MainActivity.class)
                         .setType("text/plain")
-                        .putExtra(Intent.EXTRA_TEXT, String.valueOf(nextFlashId))
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        .putExtra(Intent.EXTRA_TEXT, String.valueOf(nextFlashId));
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -172,17 +171,14 @@ public class MainActivity extends AppCompatActivity
 
                     Intent intent = new Intent(mContext, MainActivity.class)
                             .setType("text/plain")
-                            .putExtra(Intent.EXTRA_TEXT, String.valueOf(nextFlashId))
-                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            .putExtra(Intent.EXTRA_TEXT, String.valueOf(nextFlashId));
                     startActivity(intent);
-                    finish();
 
                 } else {
 
                     Intent intent = new Intent(mContext, LastActivity.class)
                             .setType("text/plain");
                     startActivity(intent);
-                    finish();
                 }
             }
         });

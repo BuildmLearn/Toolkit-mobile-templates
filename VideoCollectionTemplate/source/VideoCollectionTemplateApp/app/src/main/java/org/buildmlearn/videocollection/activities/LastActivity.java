@@ -2,6 +2,7 @@ package org.buildmlearn.videocollection.activities;
 
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.app.TaskStackBuilder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,12 +29,11 @@ public class LastActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                Intent intent = new Intent(activity, DetailActivity.class)
-                        .setType("text/plain")
-                        .putExtra(Intent.EXTRA_TEXT, "1")
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                startActivity(intent);
+                TaskStackBuilder.create(activity)
+                        .addParentStack(MainActivity.class)
+                        .addNextIntent(new Intent(activity,MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                        .addNextIntent(new Intent(activity,DetailActivity.class).setType("text/plain").putExtra(Intent.EXTRA_TEXT,"1"))
+                        .startActivities();
                 finish();
             }
         });
