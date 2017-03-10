@@ -3,6 +3,7 @@ package org.buildmlearn.quiztime.activities;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +18,7 @@ import android.view.SubMenu;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.buildmlearn.quiztime.Constants;
 import org.buildmlearn.quiztime.R;
@@ -33,6 +35,7 @@ public class QuestionActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private QuizDb db;
+    private boolean isBackPressed = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -248,7 +251,22 @@ public class QuestionActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (isBackPressed){
+                finish();
+                super.onBackPressed();
+            }
+            else{
+                Toast.makeText(this, "Tap back once more to exit.", Toast.LENGTH_SHORT).show();
+                isBackPressed=true;
+                new Handler().postDelayed(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        isBackPressed= false;
+                    }
+                }, 3000);
+            }
         }
     }
 
