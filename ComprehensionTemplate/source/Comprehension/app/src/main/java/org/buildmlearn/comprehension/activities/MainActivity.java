@@ -1,11 +1,13 @@
 package org.buildmlearn.comprehension.activities;
 
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
+
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private boolean isBackPressed = false;
+    private CountDownTimer countDownTimer;
+    private static long millisLeft;
+    private TextView timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,12 +69,13 @@ public class MainActivity extends AppCompatActivity
         getSupportActionBar().setTitle(title);
         String passage = cursor.getString(Constants.COL_PASSAGE);
         final long time = cursor.getLong(Constants.COL_TIME);
-        final TextView timer = (TextView) findViewById(R.id.timer);
+        timer = (TextView) findViewById(R.id.timer);
         assert timer != null;
         timer.setText(String.valueOf(time));
-        final CountDownTimer countDownTimer = new CountDownTimer(time * 1000, 1000) {
+        countDownTimer = new CountDownTimer(time * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
+                millisLeft=millisUntilFinished;
                 long min = millisUntilFinished / 60000;
                 long sec = millisUntilFinished / 1000 - min * 60;
                 timer.setText(String.format(Locale.getDefault(), "%1$d:%2$02d", min, sec));
@@ -129,6 +136,9 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+        countDownTimer.cancel();
+        countDownTimer=null;
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -183,5 +193,36 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        if(countDownTimer==null)
+            countDownTimer = new CountDownTimer(millisLeft, 1000) {
+
+                public void onTick(long millisUntilFinished) {
+                    millisLeft=millisUntilFinished;
+                    long min = millisUntilFinished / 60000;
+                    long sec = millisUntilFinished / 1000 - min * 60;
+                    timer.setText(String.format(Locale.getDefault(), "%1$d:%2$02d", min, sec));
+                }
+
+                public void onFinish() {
+                    Intent intent = new Intent(getApplicationContext(), QuestionActivity.class)
+                            .setType("text/plain")
+                            .putExtra(Intent.EXTRA_TEXT, "1")
+                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }
+            }.start();
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        countDownTimer.cancel();
+        countDownTimer=null;
+        super.onPause();
     }
 }
